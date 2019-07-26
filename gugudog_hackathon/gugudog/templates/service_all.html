@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- css 버전 수정해가면서 사용하세요. -->
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+    <link rel="shortcut icon" type="image⁄x-icon" href="{% static 'logo_dog.png' %}">
+    <title>gugudog</title>
+  </head>
+  <body>
+    <div class="banner top">
+        <a href="{% url 'home'%}">home</a>
+    </div>
+
+    <div class="main_banner"></div>
+    <div class="category">
+        <div class="category_btn"><div class="category_icon">🐶</div><h5>전체</h5></div>
+        <div class="category_btn"><div class="category_icon">🔥</div><h5>HOT</h5></div>
+        <div class="category_btn"><div class="category_icon">🚀</div><h5>NEW</h5></div>
+        <div class="category_btn"><div class="category_icon">👍</div><h5>My 추천</h5></div>
+        <div class="category_btn"><div class="category_icon">⭐️</div><h5>카테고리별</h5></div>
+    </div>
+
+    <div class="service">
+        <div class="service_banner"><div class="service_detail"></div></div>
+        <div class="service_banner"><div class="service_detail"></div></div>
+        <div class="service_banner"><div class="service_detail"></div></div>
+        <div class="service_banner"><div class="service_detail"></div></div>
+        <div class="service_banner"><div class="service_detail"></div></div>
+        <div class="service_banner"><div class="service_detail"></div></div>
+        <div class="service_banner"><div class="service_detail"></div></div>
+    </div>
+
+    <div class="banner bottom">메뉴바</div>
+    </body>
+</html>
