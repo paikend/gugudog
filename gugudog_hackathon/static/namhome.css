@@ -22,11 +22,20 @@
 .top {
   position: absolute;
   top: 0;
+  text-align: center;
+}
+
+#bannerlogo {
+  height: auto;
+  width: 15%;
 }
 
 .bottom {
   position: fixed;
   bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .main_banner {
@@ -168,4 +177,11 @@
 
 .right-chevron {
   width: 70%;
+}
+
+#serviceall,
+#home,
+#mypage {
+  width: 30px;
+  height: auto;
 }
