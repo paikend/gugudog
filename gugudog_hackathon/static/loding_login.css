@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 메인컬러입니다 */
+:root {
+  --gugu-orange: rgb(249, 161, 27);
+  --gugu-gray: rgb(82, 97, 106);
+  --gugu-lightorange: rgb(255, 233, 220);
+}
+
+/* @media (max-width: 600px) {
+} */
+
+body {
+  text-align: center;
+}
+
+.wholebox {
+  margin: 20% 0%;
+}
+
+.input {
+  margin: 10% 10%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+#signup {
+  border-radius: 5px;
+  border: 1px solid var(--gugu-orange);
+  color: var(--gugu-orange);
+  background-color: white;
+  height: 35px;
+}
+
+#signup:hover {
+  background-color: var(--gugu-orange);
+  color: white;
+}
+
+.socialogin {
+  object-fit: cover;
+  width: 300px;
+  height: 50px;
+}

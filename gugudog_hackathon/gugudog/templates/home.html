@@ -1,45 +1,99 @@
 {% load staticfiles %}
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- css 버전 수정해가면서 사용하세요. -->
-    
-    <link rel="stylesheet" href="{% static 'home.css' %}?v=0.1" />
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'namhome.css' %}" />
+    <link
+      rel="shortcut icon"
+      type="image⁄x-icon"
+      href="{% static 'logo_dog.png' %}"
+    />
+    <title>gugudog</title>
   </head>
   <body>
-    <div class="wholebox">
-      <!-- 맨 위 구구독과 맨 밑 메뉴들은 base에 추가할 것 -->
-      <!-- 구독 서비스 따로따로 div 넣을 것, todolist 교안 참조 -->
-      <div class="container">
-        <div class="howmuchmontly">
-          7월 결제금액따리
-        </div>        
-        
-        <div class="subslists">
-          <div class="listtong"> 
-            <div class="listimg" >
-              <img src="{% static 'B2B_FOZY_400x400.jpg' %}" alt="melon" />
-            </div>
-            <div class="listtext">
-              멜론 정기 스트리밍 </br>
-              다음 결제일 </br>
-              이번달 금액
-            
-            </div>
-            
-          </div>
-        </div>   
+    <div class="banner top"></div>
+
+    <div class="main_banner">이번달 결제금액은 70,900원 입니다!💸</div>
+
+    <div class="service">
+      <div class="service_box">
+        <div class="service_banner">
+          <img class="melon_icon" src="{% static 'melon.png' %}" />
+        </div>
+        <div class="service_detail">
+          멜론 정기 스트리밍<br />
+          다음 결제일: 7일<br />
+          이번달 금액: 3,900원
+        </div>
       </div>
-   
-      
 
+      <div class="service_box">
+        <div class="service_banner">
+          <img class="netflix_icon" src="{% static 'netflix.png' %}" />
+        </div>
+        <div class="service_detail">
+          NETFLIX<br />
+          다음 결제일: 7일<br />
+          이번달 금액: 9,000원
+        </div>
+      </div>
 
+      <div class="service_box">
+        <div class="service_banner">
+          <img class="weeklyshirt_icon" src="{% static 'weeklyshirt.jpg' %}" />
+        </div>
+        <div class="service_detail">
+          위클리 셔츠 <br />
+          다음 결제일: 7일 <br />
+          이번달 금액: 58,000원
+        </div>
+      </div>
 
+      <div class="new_service">
+        <div>
+          <img
+            class="plusicon"
+            src="{% static 'plus-sign-in-a-black-circle.png'%}"
+          />
+        </div>
+      </div>
+
+      <div class="point_service">
+        <div class="point">이번달 구독 포인트📌</div>
+        <div class="points">
+          <div class="point_list">
+            <div class="point_list_banner">
+              <img class="netflix_icon" src="{% static 'netflix.png' %}" />
+            </div>
+            <div class="point_list_detail">
+              80일 후<br />
+              14,500원으로<br />
+                인상됩니다
+              </p>
+            </div>
+          </div>
+          <div class="point_list">
+            <div class="point_list_banner">
+                <img class="melon_icon" src="{% static 'melon.png' %}" />
+
+            </div>
+            <div class="point_list_detail">
+              90일 후<br>
+              9,900원으로<br>
+              인상됩니다
+            </div>
+          </div>
+          <div class="next_point_list">
+            <img class="right-chevron" src="{% static 'right-chevron.png' %}" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner bottom">메뉴바</div>
   </body>
 </html>
-
