@@ -5,44 +5,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!-- css 버전 수정해가면서 사용하세요. -->
-    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
-    <link rel="shortcut icon" type="image⁄x-icon" href="{% static 'logo_dog.png' %}">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'home.css' %}?v=2.2"
+    />
+    <link
+      rel="shortcut icon"
+      type="image⁄x-icon"
+      href="{% static 'logo_dog.png' %}"
+    />
     <title>gugudog</title>
   </head>
   <body>
     <div class="banner top">
-        <a href="{% url 'home'%}">home</a>
+      <a href="{% url 'home'%}"
+        ><img id="bannerlogo" src="{% static 'logo_font.png' %}"
+      /></a>
+    </div>
+    <div class="main_banner">
+      <img id="minjok" src="{% static 'main_banner_example.png' %}" />
     </div>
 
-    <div class="main_banner"></div>
-
-
     <div class="category">
-        <div class="category_btn"><div class="category_icon">⭐️</div><h5>전체</h5></div>
-        <div class="category_btn"><div class="category_icon">🔥</div><h5>HOT</h5></div>
-        <div class="category_btn"><div class="category_icon">🚀</div><h5>NEW</h5></div>
-        <div class="category_btn"><div class="category_icon">👍</div><h5>My추천</h5></div>
-        <div class="category_btn"><div class="category_icon">️️🏷️</div><h5>태그별</h5></div>
+      <div class="category_btn">
+        <div class="category_icon">⭐️</div>
+        <h5>전체</h5>
+      </div>
+      <div class="category_btn">
+        <div class="category_icon">🔥</div>
+        <h5>HOT</h5>
+      </div>
+      <div class="category_btn">
+        <div class="category_icon">🚀</div>
+        <h5>NEW</h5>
+      </div>
+      <div class="category_btn">
+        <div class="category_icon">👍</div>
+        <h5>My추천</h5>
+      </div>
+      <div class="category_btn">
+        <div class="category_icon">️️🏷️</div>
+        <h5>태그별</h5>
+      </div>
     </div>
 
     <div class="service">
-        <div class="service_box">
-            <div class="service_banner"></div>
-            <div class="service_detail">Weekly Shirts</div>
+      <div class="service_box">
+        <div class="service_banner">
+          <img id="wcafe" src="{% static 'detail_banner_weeklyshirts.jpg' %}" />
         </div>
+        <div class="service_detail">Weekly Shirts<br />매달 새 와이셔츠</div>
+      </div>
 
-        <div class="service_box">
-            <div class="service_banner"></div>
-            <div class="service_detail">W카페</div>
+      <div class="service_box">
+        <div class="service_banner">
+          <img id="wcafe" src="{% static 'detail_banner_wcafe.jpg' %}" />
         </div>
+        <div class="service_detail">W카페<br />3시간마다 커피리필</div>
+      </div>
 
-        <div class="service_box">
-            <div class="service_banner"></div>
-            <div class="service_detail">NETFLIX</div>
+      <div class="service_box">
+        <div class="service_banner">
+          <img id="netflix" src="{% static 'detail_banner_netflix.png' %}" />
         </div>
+        <div class="service_detail">NETFLIX<br />취향대로 영화보자!</div>
+      </div>
     </div>
 
-    <div class="banner bottom">메뉴바</div>
-    </body>
+    <div class="banner bottom">
+      <img id="serviceall" src="{% static 'bottom_serviceall.png' %}" />
+      <a href="{% url 'home'%}"
+        ><img id="home" src="{% static 'bottom_home_gray.png' %}"
+      /></a>
+      <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
+    </div>
+  </body>
 </html>
