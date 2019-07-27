@@ -1,4 +1,5 @@
 {% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,10 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- css 버전 수정해가면서 사용하세요. -->
+    
     <link rel="stylesheet" href="{% static 'home.css' %}?v=0.1" />
     <title>Document</title>
   </head>
   <body>
-    <!-- home을 만들어주세요 -->
+    <div class="wholebox">
+      <!-- 맨 위 구구독과 맨 밑 메뉴들은 base에 추가할 것 -->
+      <!-- 구독 서비스 따로따로 div 넣을 것, todolist 교안 참조 -->
+      <div class="container">
+        <div class="howmuchmontly">
+          7월 결제금액따리
+        </div>        
+        
+        <div class="subslists">
+          <div class="listtong"> 
+            <div class="listimg" >
+              <img src="{% static 'B2B_FOZY_400x400.jpg' %}" alt="melon" />
+            </div>
+            <div class="listtext">
+              멜론 정기 스트리밍 </br>
+              다음 결제일 </br>
+              이번달 금액
+            
+            </div>
+            
+          </div>
+        </div>   
+      </div>
+   
+      
+
+
+
   </body>
 </html>
+

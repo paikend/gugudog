@@ -1,4 +1,40 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+
+  width: 40%;
+  margin: 10rem auto;
+}
+.howmuchmontly {
+  text-align: center;
+  font-weight: 100;
+  font-size: 30px;
+  margin: 20px;
+  position: relative;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+  .listtong {
+    width: 100%;
+    height: 100px;
+  }
+
+  .listimg img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .listtext {
+    width: 50%;
+    float: right;
+  }
 }
