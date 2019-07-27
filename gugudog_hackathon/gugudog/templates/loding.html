@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script
+    src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'loding_login.css' %}?v=0.1" />
+    <title>로딩중</title>
+    <style>
+        #loading{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">
+        <img src="{% static 'logo_font.png' %}">
+    </div>
+    <script type="text/javascript">
+        function auto_slide2(){
+            $('#loading').fadeToggle(2000, "linear");
+            setTimeout('auto_slide2()',2000);
+            }
+
+            $(function(){
+            auto_slide2();
+            }); 
+       $(window).load(function() {     
+                $('#loading').hide();   
+            }); 
+    </script>
+</html>
