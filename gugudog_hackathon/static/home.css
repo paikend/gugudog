@@ -9,6 +9,8 @@
   padding: 0;
 }
 
+/* base대신 수동 배너 만들어주세요 아니면 extends를 성공하기!(css가 안먹어요 하하) */
+
 .banner {
   display: flex;
   justify-content: center;
