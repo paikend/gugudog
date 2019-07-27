@@ -1,4 +1,11 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* 메인컬러입니다 */
+:root {
+  --gugu-orange: rgb(249, 161, 27);
+  --gugu-gray: rgb(82, 97, 106);
+  --gugu-lightorange: rgb(255, 233, 220);
 }
