@@ -20,4 +20,5 @@ from gugudog import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
+    path('service_all', views.service_all, name="service_all")
 ]
