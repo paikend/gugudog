@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- css 버전 수정해가면서 사용하세요. -->
-    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
-    <link rel="shortcut icon" type="image⁄x-icon" href="{% static 'logo_dog.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}" />
+    <link
+      rel="shortcut icon"
+      type="image⁄x-icon"
+      href="{% static 'logo_dog.png' %}"
+    />
     <title>gugudog</title>
   </head>
   <body>
     <h1>home</h1>
     <a href="{% url 'service_all'%}">service_all</a>
+    <a href="{% url 'signup' %}">회원가입</a>
   </body>
 </html>
