@@ -43,10 +43,8 @@
         <a href="/accounts/signup"><button id="signup">회원가입!</button></a>
         <div class="socialogin">
           <a href="{% provider_login_url 'kakao' %}"
-            ><img src="{% static 'kakao_login.png' %}"
-          /></a>
-          <a href="{% provider_login_url 'naver.png' %}"
-            ><img src="{% static 'naver_login.png' %}"
+            ><img src="{% static 'kakao_login.png' %}"/><img
+              src="{% static 'naver_login.png' %}"
           /></a>
         </div>
       </div>
