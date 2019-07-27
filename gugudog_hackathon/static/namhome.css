@@ -1,0 +1,171 @@
+:root {
+  --gugu-orange: rgb(249, 161, 27);
+  --gugu-gray: rgb(82, 97, 106);
+  --gugu-lightorange: rgb(255, 233, 220);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: var(--gugu-lightorange);
+}
+
+.top {
+  position: absolute;
+  top: 0;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+}
+
+.main_banner {
+  margin-top: 14%;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+}
+
+.service {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+  margin-left: 5%;
+  margin-right: 5%;
+  /* background-color: antiquewhite; */
+}
+
+.service_box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 8rem;
+  /* margin-bottom: 5%; */
+  /* border: gray 0.5px solid; */
+}
+
+.melon_icon {
+  width: 70%;
+}
+
+.netflix_icon {
+  width: 70%;
+}
+
+.weeklyshirt_icon {
+  width: 100%;
+}
+
+.service_banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 93.75%;
+  /* border: gray 0.5px solid; */
+}
+
+.service_detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65%;
+  height: 93.75%;
+  /* border: gray 0.5px solid; */
+}
+
+.new_service {
+  display: flex;
+  width: 100%;
+  height: 5rem;
+  /* border: gray 0.5px solid; */
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gugu-lightorange);
+}
+.plusicon {
+  width: 75%;
+}
+
+.point_service {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 12rem;
+  /* border: gray 0.5px solid; */
+}
+
+.point {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 25%;
+  /* border: gray 0.5px solid; */
+}
+
+.points {
+  display: flex;
+  width: 100%;
+  height: 75%;
+  /* border: gray 0.5px solid; */
+}
+
+.point_list {
+  display: flex;
+  width: 42.5%;
+  height: 100%;
+  flex-direction: column;
+  /* border: gray 0.5px solid; */
+}
+
+.point_list_banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  /* border: gray 0.5px solid; */
+}
+
+.point_list_detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  /* border: gray 0.5px solid; */
+}
+
+.next_point_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 100%;
+  background-color: gray;
+}
+
+.right-chevron {
+  width: 70%;
+}
