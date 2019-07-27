@@ -15,7 +15,10 @@
     <title>gugudog</title>
   </head>
   <body>
-    <div class="banner top"></div>
+    <div class="banner top">
+      <a href="{% url 'home'%}"
+      ><img id="bannerlogo" src="{% static 'logo_font.png' %}"
+    /></a></div>
 
     <div class="main_banner">이번달 결제금액은 70,900원 입니다!💸</div>
 
@@ -94,6 +97,12 @@
       </div>
     </div>
 
-    <div class="banner bottom">메뉴바</div>
+    <div class="banner bottom">
+      <img id="serviceall" src="{% static 'bottom_serviceall.png' %}" />
+      <a href="{% url 'home'%}"
+        ><img id="home" src="{% static 'bottom_home_gray.png' %}"
+      /></a>
+      <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
+    </div></div>
   </body>
 </html>
