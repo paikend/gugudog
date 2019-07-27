@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +10,7 @@
       integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="{% static 'signup.css' %}?v=0.1" />
+    <link rel="stylesheet" href="{% static 'signup.css' %}?v=0.33" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -25,29 +26,22 @@
   </head>
   {% load socialaccount %} {% providers_media_js %}
   <body>
+    <div id="loading">
+      <img src="{% static 'logo_font.png' %}" />
+    </div>
     <div class="wholebox">
       <img src="{% static 'logo_gray.png' %}" width="50%" height="50%" />
       <div class="input">
-        <input class="form-control" type="submit" placeholder="아이디" />
-        <input class="form-control" type="submit" placeholder="이메일" />
-        <input
-          type="submit"
-          class="form-control"
-          id="inputPassword"
-          placeholder="비밀번호"
-        />
         <form method="POST">
-          {% csrf_token %}{{ form.as_p
-          }}<input type="submit" value="회원가입" />
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input id="signup" type="submit" value="회원가입" />
         </form>
-        <a href="/accounts/signup"><button id="signup">회원가입!</button></a>
         <div class="socialogin">
-          <a href="{% provider_login_url 'kakao' %}"
-            ><img src="{% static 'kakao_login.png' %}"
-          /></a>
-          <a href="{% provider_login_url 'naver.png' %}"
-            ><img src="{% static 'naver_login.png' %}"
-          /></a>
+          <!-- <a href="{% provider_login_url 'kakao' %}"> -->
+          <!-- <a href="{% provider_login_url 'naver' %}" -->
+          <img id="kakao" src="{% static 'kakao_login.png' %}" />
+          <img id="naver" src="{% static 'naver_login.png' %}" />
         </div>
       </div>
     </div>

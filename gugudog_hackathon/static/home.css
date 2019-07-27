@@ -9,6 +9,8 @@
   padding: 0;
 }
 
+/* base대신 수동 배너 만들어주세요 아니면 extends를 성공하기!(css가 안먹어요 하하) */
+
 .banner {
   display: flex;
   justify-content: center;
@@ -21,27 +23,11 @@
 .top {
   position: absolute;
   top: 0;
-  text-align: center;
-}
-
-#bannerlogo {
-  height: auto;
-  width: 15%;
 }
 
 .bottom {
   position: fixed;
   bottom: 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-#serviceall,
-#home,
-#mypage {
-  width: 30px;
-  height: auto;
 }
 
 /*             */
@@ -49,19 +35,11 @@
 /*             */
 
 .main_banner {
-  height: auto;
+  height: 250px;
   width: 100%;
   object-fit: contain;
-  background-color: white;
-  padding: 70px 0px 0px 0px;
+  background-color: var(--gugu-gray);
 }
-
-/* @media (min-width: 1000px) {
-  #minjok {
-    width: 800px;
-    height: auto;
-  }
-} */
 
 .category {
   display: flex;
@@ -122,24 +100,5 @@
   width: 100%;
   height: 4rem;
   background-color: rgba(128, 128, 128, 0.2);
-  color: var(--gugu-gray);
-  font-weight: bold;
-  justify-content: center;
-  align-items: center;
-
   /* border: gray 0.5px solid; */
-}
-
-.service_detail:hover {
-  background-color: var(--gugu-gray);
-  color: white;
-}
-
-#wcafe,
-#weeklyshirts,
-#netflix,
-#minjok {
-  width: 100%;
-  height: auto;
-  object-fit: fill;
 }
