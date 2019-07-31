@@ -25,6 +25,18 @@
     <div class="main_banner">이번달 결제금액은 70,900원 입니다!💸</div>
 
     <div class="service">
+      {% for gudog_service in gudog.services.all %}
+      <div class="service_box">
+        <div class="service_banner">
+          <img class="#" src="#" />
+        </div>
+        <div class="service_detail">
+          {{ gudog_service.service.company }}<br />
+          {{ gudog_service.service.service_name }}<br />
+          {{ gudog_service.service.price }}
+        </div>
+      </div>
+      {% endfor %}
       <div class="service_box">
         <div class="service_banner">
           <img class="melon_icon" src="{% static 'melon.png' %}" />

@@ -3,12 +3,26 @@ from django.contrib.auth.models import User
 from .forms import UserForm
 from django.contrib import auth
 
+from .models import Service, GuDogService, GuDog
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+@login_required
 def home(request):
-    return render(request, 'home.html')
+
+    gudog = GuDog.objects.get_or_create(user=request.user)
+
+    context = {
+        'gudog' : gudog,
+    }
+    return render(request, 'home.html', context)
 
 def service_all(request):
-    return render(request, 'service_all.html')
+    services = Service.objects.all()
+
+    context = {
+        'services' : services,
+    }
+    return render(request, 'service_all.html', context)
 
 def signup(request):
     if request.method == "POST":
