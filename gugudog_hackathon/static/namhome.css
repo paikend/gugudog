@@ -16,7 +16,7 @@
   align-items: center;
   width: 100%;
   height: 50px;
-  background-color: var(--gugu-lightorange);
+  background-color: rgb(249, 161, 27);
 }
 
 .top {
@@ -39,13 +39,15 @@
 }
 
 .main_banner {
-  margin-top: 14%;
-  height: 60px;
+  margin-top: 25%;
+  margin-bottom: 15%;
+  height: 90px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   object-fit: contain;
+  line-height: 250%;
 }
 
 .service {
@@ -63,12 +65,16 @@
 .service_box {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
   width: 100%;
-  height: 8rem;
-  /* margin-bottom: 5%; */
+  height: 5rem;
+  margin-bottom: 5%;
   /* border: gray 0.5px solid; */
+  border-radius: 8px;
+  color: white;
+  line-height: 170%;
 }
 
 .melon_icon {
@@ -104,79 +110,13 @@
 .new_service {
   display: flex;
   width: 100%;
-  height: 5rem;
+  height: 3.5rem;
   /* border: gray 0.5px solid; */
   justify-content: center;
   align-items: center;
-  background-color: var(--gugu-lightorange);
-}
-.plusicon {
-  width: 75%;
-}
-
-.point_service {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 12rem;
-  /* border: gray 0.5px solid; */
-}
-
-.point {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 25%;
-  /* border: gray 0.5px solid; */
-}
-
-.points {
-  display: flex;
-  width: 100%;
-  height: 75%;
-  /* border: gray 0.5px solid; */
-}
-
-.point_list {
-  display: flex;
-  width: 42.5%;
-  height: 100%;
-  flex-direction: column;
-  /* border: gray 0.5px solid; */
-}
-
-.point_list_banner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 50%;
-  /* border: gray 0.5px solid; */
-}
-
-.point_list_detail {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 50%;
-  /* border: gray 0.5px solid; */
-}
-
-.next_point_list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 15%;
-  height: 100%;
   background-color: gray;
-}
-
-.right-chevron {
-  width: 70%;
+  border-radius: 8px;
+  color: white;
 }
 
 #serviceall,
@@ -184,4 +124,24 @@
 #mypage {
   width: 30px;
   height: auto;
+}
+
+#melon {
+  background-color: rgb(0, 205, 60);
+}
+
+#Netflix {
+  background-color: rgb(229, 0, 20);
+}
+
+.usernamecolor {
+  color: rgb(249, 161, 27);
+}
+
+.wholemoneycolor {
+  color: rgb(249, 161, 27);
+}
+
+.gugubanner {
+  color: white;
 }
