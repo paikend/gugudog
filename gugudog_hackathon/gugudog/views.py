@@ -11,6 +11,9 @@ def home(request):
 def service_all(request):
     return render(request, 'service_all.html')
 
+def recommendation(request):
+    return render(request, 'recommendation.html')
+
 def signup(request):
     if request.method == "POST":
         form = UserForm(request.POST)
