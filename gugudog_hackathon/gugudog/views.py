@@ -27,6 +27,9 @@ def service_all(request):
     }
     return render(request, 'service_all.html', context)
 
+def recommendation(request):
+    return render(request, 'recommendation.html')
+
 def signup(request):
     if request.method == "POST":
         form = UserForm(request.POST)
