@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gugudog.apps.GugudogConfig',
-
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -47,6 +46,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.naver',
     'allauth.socialaccount.providers.google',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,6 +79,10 @@ TEMPLATES = [
         },
     },
 ]
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'gugudog_hackathon.wsgi.application'
 
