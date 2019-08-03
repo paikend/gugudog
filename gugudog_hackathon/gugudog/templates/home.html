@@ -35,16 +35,34 @@
     <a class="wholemoneycolor">12,900원</a>입니다.</h1></div>
 
     <div class="service">
-      <div class="service_box" id = "melon">
-          <h3>멜론 정기 스트리밍<br />
-          3,900원(8월 7일)</h3>
+      {% for gudog_service in gudog.services.all %}
+      <div class="service_box">
+        <div class="service_banner">
+          <img class="#" src="#" />
+        </div>
+        <div class="service_detail">
+          {{ gudog_service.service.company }}<br />
+          {{ gudog_service.service.service_name }}<br />
+          {{ gudog_service.service.price }}
+        </div>
+      </div>
+      {% endfor %}
+      <div class="service_box">
+        <div class="service_banner">
+          <img class="melon_icon" src="{% static 'melon.png' %}" />
+        </div>
+        <div class="service_detail">
+          멜론 정기 스트리밍<br />
+          다음 결제일: 7일<br />
+          이번달 금액: 3,900원
+        </div>
       </div>
 
       <div class="service_box" id = "Netflix">
           <h3>NETFLIX 4K UHD<br />
           9,000원(8월 10일)</h3>
       </div>
-
+      <a href="{% url 'add' %}" style="width: 100%;">
       <div class="new_service">
         <h3>+ 추가하기<h3>
       </div>
