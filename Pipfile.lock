@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "32453cedc0bbdb343ed6c7bd78c2b7e0b2d52e64639c3ab8686b5be76b4d9d0d"
+            "sha256": "69ce83ce9132e1c58eeca9d411af38eae1c0078ab8fe6b4ae3a5cf6ce36c087b"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -39,11 +39,11 @@
         },
         "django": {
             "hashes": [
-                "sha256:4d23f61b26892bac785f07401bc38cbf8fa4cec993f400e9cd9ddf28fd51c0ea",
-                "sha256:6e974d4b57e3b29e4882b244d40171d6a75202ab8d2402b8e8adbd182e25cf0c"
+                "sha256:16a5d54411599780ac9dfe3b9b38f90f785c51259a584e0b24b6f14a7f69aae8",
+                "sha256:9a2f98211ab474c710fcdad29c82f30fc14ce9917c7a70c3682162a624de4035"
             ],
             "index": "pypi",
-            "version": "==2.2.3"
+            "version": "==2.2.4"
         },
         "django-allauth": {
             "hashes": [
@@ -51,6 +51,21 @@
             ],
             "index": "pypi",
             "version": "==0.39.1"
+        },
+        "django-autocomplete-light": {
+            "hashes": [
+                "sha256:29ce2626a11eab2333e5aa9f95166a6d4400f11b5a05e8f23fa77017b1a9089a"
+            ],
+            "index": "pypi",
+            "version": "==3.4.1"
+        },
+        "django-widget-tweaks": {
+            "hashes": [
+                "sha256:65c960f3d75008a285e4b10f4d21f9eae4160fd77a0f6097ad545185f8648bd6",
+                "sha256:f2e2c9c9be1ccc59061e248dcc2144f4906d594abe1a563902f4bdf6aa14e432"
+            ],
+            "index": "pypi",
+            "version": "==1.4.5"
         },
         "idna": {
             "hashes": [
@@ -75,10 +90,10 @@
         },
         "pytz": {
             "hashes": [
-                "sha256:303879e36b721603cc54604edcac9d20401bdbe31e1e4fdee5b9f98d5d31dfda",
-                "sha256:d747dd3d23d77ef44c6a3526e274af6efeb0a6f1afd5a69ba4d5be4098c8e141"
+                "sha256:26c0b32e437e54a18161324a2fca3c4b9846b74a8dccddd843113109e1116b32",
+                "sha256:c894d57500a4cd2d5c71114aaab77dbab5eabd9022308ce5ac9bb93a60a6f0c7"
             ],
-            "version": "==2019.1"
+            "version": "==2019.2"
         },
         "requests": {
             "hashes": [

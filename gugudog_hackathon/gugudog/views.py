@@ -11,7 +11,7 @@ from dal import autocomplete
 # @login_required
 def home(request):
 
-    gudog = GuDog.objects.get_or_create(user=request.user)
+    gudog = GuDogService.objects.filter(user=request.user)
 
     context = {
         'gudog' : gudog,
