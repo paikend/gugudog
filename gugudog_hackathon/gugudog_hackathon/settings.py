@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.kakao',
     'allauth.socialaccount.providers.naver',
+    'dal',
+    'dal_select2',
+    'widget_tweaks',
 ]
 
 AUTHENTICATION_BACKENDS = (
