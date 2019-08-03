@@ -7,6 +7,7 @@ from .models import Service, GuDogService, GuDog
 from django.contrib.auth.decorators import login_required
 from dal import autocomplete
 
+
 # Create your views here.
 # @login_required
 def home(request):
@@ -62,3 +63,10 @@ def delete_service(request, gudog_service_pk):
     deletingService = GuDogService.objects.get(pk=gudog_service_pk)
     deletingService.delete()
     return redirect('home')
+    return render(request, 'add.html', context)
+
+
+def service_detail(request, service_slug):
+    service = Service.objects.get(slug=service_slug)
+    
+
