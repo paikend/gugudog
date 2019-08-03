@@ -25,4 +25,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', views.signup, name="signup"),
     
+    path('add/', views.add, name="add"),
+    path('recommendation', views.recommendation, name="recommendation"),
+    path('sevice_detail/<slug:service_slug>', views.service_detail, name='service_detail')
 ]

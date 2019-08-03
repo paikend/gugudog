@@ -48,7 +48,11 @@ INSTALLED_APPS = [
     #providers
     'allauth.socialaccount.providers.kakao',
     'allauth.socialaccount.providers.naver',
-    # 'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.google',
+    
+    'dal',
+    'dal_select2',
+    'widget_tweaks',
 ]
 
 
