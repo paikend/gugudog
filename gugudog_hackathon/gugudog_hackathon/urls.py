@@ -19,8 +19,13 @@ from gugudog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name="home"),
-    path('service_all', views.service_all, name="service_all"),
+    path('home/', views.home, name="home"),
+    path('service_all/', views.service_all, name="service_all"),
+    path('accounts/logout/', views.logout, name="logout"),
     path('accounts/', include('allauth.urls')),
-    path('accounts/signup', views.signup, name="signup"),
+    path('', views.signup, name="signup"),
+    
+    path('add/', views.add, name="add"),
+    path('recommendation', views.recommendation, name="recommendation"),
+    path('sevice_detail/<slug:service_slug>', views.service_detail, name='service_detail')
 ]

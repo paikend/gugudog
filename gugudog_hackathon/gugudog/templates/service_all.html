@@ -71,6 +71,18 @@
         </div>
         <div class="service_detail">NETFLIX<br />취향대로 영화보자!</div>
       </div>
+
+      {% for service in services %}
+
+      <div class="service_box">
+        <div class="service_banner">
+          <img id="#" src="#" />
+        </div>
+        <div class="service_detail">
+          {{ service.company }}<br />{{ service.service_name }}
+        </div>
+      </div>
+      {% endfor %}
     </div>
 
     <div class="banner bottom">

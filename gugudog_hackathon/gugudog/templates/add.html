@@ -1,0 +1,27 @@
+{% load widget_tweaks %}
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% render_field form.register_date type="date" %}
+  <button type="submit">추가!</button>
+</form>
+{{ form.media }}
+<a href="{% url 'home'">홈으로</a>
+<style>
+  /* 옵션 선택하면  */
+  .select2-selection__choice[title="---------"] {
+    display: none;
+  }
+  .select2-container--default
+    .select2-selection--multiple
+    .select2-selection__choice__remove {
+    float: right;
+  }
+  .select2-container--default
+    .select2-selection--multiple
+    .select2-selection__choice {
+    border: none;
+    background: none;
+    outline: none;
+  }
+</style>
