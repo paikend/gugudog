@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- css 버전 수정해가면서 사용하세요. -->
-    <link rel="stylesheet" type="text/css" href="{% static 'namhome.css' %}?v=0.1" />
+    <link rel="stylesheet" type="text/css" href="{% static 'recommendation.css' %}?v=0.1" />
 
     <link
       rel="shortcut icon"
@@ -19,35 +19,30 @@
      a:hover { color: none; text-decoration: none;}
     </style>
 
-
-
     <title>gugudog</title>
   </head>
   <body>
 
     <div class="banner top">
+      
        <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
     </a></div>
 
     <div class="main_banner"><h1> 
-    <a class="usernamecolor">황철순</a> 회원님의 <br>이번 달 구독 금액은<br> 총 
-    <a class="wholemoneycolor">12,900원</a>입니다.</h1></div>
+    <a class="usernamecolor">황철순</a>회원님에게<br> 
+    꼭 맞는<a class="wholemoneycolor">추천서비스</a></h1></div>
 
     <div class="service">
-      <div class="service_box" id = "melon">
-          <h3>멜론 정기 스트리밍<br />
-          3,900원(8월 7일)</h3>
-      </div>
-
-      <div class="service_box" id = "Netflix">
-          <h3>NETFLIX 4K UHD<br />
-          9,000원(8월 10일)</h3>
-      </div>
-
-      <div class="new_service">
-        <h3>+ 추가하기<h3>
-      </div>
-
+        <div class="service_box">
+            <div class="service_banner">
+              <img class="wcafe_icon" src="{% static 'detail_banner_wcafe.jpg' %}" />
+            </div>
+            <div class="service_detail">
+                <h3>3시간마다<br>
+                리필되는<br>
+                커피 한 잔<br></h3>
+            </div>
+          </div>
 
     <div class="banner bottom">
         <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" />

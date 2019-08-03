@@ -15,6 +15,21 @@
       type="image⁄x-icon"
       href="{% static 'logo_dog.png' %}"
     />
+    <style type="text/css">
+      a:link {
+        color: none;
+        text-decoration: none;
+      }
+      a:visited {
+        color: none;
+        text-decoration: none;
+      }
+      a:hover {
+        color: none;
+        text-decoration: none;
+      }
+    </style>
+
     <title>gugudog</title>
   </head>
   <body>
@@ -41,7 +56,9 @@
         <h5>NEW</h5>
       </div>
       <div class="category_btn">
-        <div class="category_icon">👍</div>
+        <div class="category_icon">
+          <a href="{% url 'recommendation'%}">👍</a>
+        </div>
         <h5>My추천</h5>
       </div>
       <div class="category_btn">

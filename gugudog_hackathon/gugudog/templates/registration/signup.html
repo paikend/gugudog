@@ -24,7 +24,8 @@
     />
     <title>gugudog</title>
   </head>
-  {% load socialaccount %} {% providers_media_js %}
+  {% load socialaccount %}
+  {% providers_media_js %}
   <body>
     <div id="loading">
       <img src="{% static 'logo_font.png' %}" />
@@ -32,19 +33,21 @@
     <div class="wholebox">
       <img src="{% static 'logo_gray.png' %}" width="50%" height="50%" />
       <div class="input">
-        <form method="POST">
+        {% comment %} <form method="POST">
           {% csrf_token %}
           {{ form.as_p }}
           <input id="signup" type="submit" value="회원가입" />
-        </form>
+        </form> {% endcomment %}
+        {% if user.is_authenticated %}
+        <a href="/accounts/logout">{{user.username}} 로그아웃</a><br>
+        {% endif %}
         <div class="socialogin">
-          <!-- <a href="{% provider_login_url 'kakao' %}"> -->
-          <!-- <a href="{% provider_login_url 'naver' %}" -->
-          <img id="kakao" src="{% static 'kakao_login.png' %}" />
-          <img id="naver" src="{% static 'naver_login.png' %}" />
+          <a href="{% provider_login_url 'kakao' %}"><img id="kakao" src="{% static 'kakao_login.png' %}" /></a>
+          <a href="{% provider_login_url 'naver' %}"><img id="naver" src="{% static 'naver_login.png' %}" /></a>
         </div>
       </div>
     </div>
+
     <script>
       function hideDiv() {
         $("#loading")
