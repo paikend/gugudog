@@ -15,12 +15,21 @@
       type="image⁄x-icon"
       href="{% static 'logo_dog.png' %}"
     />
-      <style type="text/css">
-     a:link { color: none; text-decoration: none;}
-     a:visited { color: none; text-decoration: none;}
-     a:hover { color: none; text-decoration: none;}
+
+    <style type="text/css">
+      a:link {
+        color: none;
+        text-decoration: none;
+      }
+      a:visited {
+        color: none;
+        text-decoration: none;
+      }
+      a:hover {
+        color: none;
+        text-decoration: none;
+      }
     </style>
-    
     <title>gugudog</title>
   </head>
   <body>
@@ -47,7 +56,10 @@
         <h5>NEW</h5>
       </div>
       <div class="category_btn">
-        <div class="category_icon"> <a  href="{% url 'recommendation'%}">👍</a></div>
+        <div class="category_icon">
+          <a href="{% url 'recommendation'%}">👍</a>
+        </div>
+
         <h5>My추천</h5>
       </div>
       <div class="category_btn">
@@ -77,18 +89,6 @@
         </div>
         <div class="service_detail">NETFLIX<br />취향대로 영화보자!</div>
       </div>
-
-      {% for service in services %}
-
-      <div class="service_box">
-        <div class="service_banner">
-          <img id="#" src="#" />
-        </div>
-        <div class="service_detail">
-          {{ service.company }}<br />{{ service.service_name }}
-        </div>
-      </div>
-      {% endfor %}
     </div>
 
     <div class="banner bottom">

@@ -38,14 +38,28 @@ def logout(request):
     return redirect('signup')
 
 def add(request):
-    
+    model = GuDogService.objects.all()
     form = AddForm()
     context = {
-        'form' : form
+        'form' : form,
+        'models': model,
     }
-    return render(request, 'add.html', context)
+
+    if request.method == "POST":  
+        gudog_added = GuDogService(user=request.user,
+                                       service=Service.objects.get(pk=request.POST['service']),
+                                       register_date=request.POST['register_date'])
+        gudog_added.save()
+        return redirect('home')
+    else:
+        return render(request, 'add.html', context)
+
+def delete_service(request, gudog_service_pk):
+    deletingService = GuDogService.objects.get(pk=gudog_service_pk)
+    deletingService.delete()
+    return redirect('home')
+    # return render(request, 'add.html', context)
 
 
 def service_detail(request, service_slug):
     service = Service.objects.get(slug=service_slug)
-    

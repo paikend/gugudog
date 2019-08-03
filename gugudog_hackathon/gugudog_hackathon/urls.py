@@ -27,5 +27,7 @@ urlpatterns = [
     
     path('add/', views.add, name="add"),
     path('recommendation', views.recommendation, name="recommendation"),
-    path('sevice_detail/<slug:service_slug>', views.service_detail, name='service_detail')
+    path('sevice_detail/<slug:service_slug>', views.service_detail, name='service_detail'),
+    
+    path('<int:gudog_service_pk>', views.delete_service, name="delete_service"),
 ]
