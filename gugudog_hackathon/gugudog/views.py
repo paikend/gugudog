@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from .forms import UserForm
 from django.contrib import auth
 
+
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
