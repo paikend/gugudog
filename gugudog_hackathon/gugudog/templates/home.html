@@ -34,6 +34,18 @@
     <a class="wholemoneycolor">12,900원</a>입니다.</h1></div>
 
     <div class="service">
+
+      {% for gudog_service in gudog %}
+        {% if gudog_service %}
+        <div class="service_box">
+          <h3 style="color: black;">{{ gudog_service.service.company }} {{ gudog_service.service.service_name }}<br/>
+              {{ gudog_service.service.get_price }}원(매월 {{ gudog_service.register_date.day}}일)
+              <a style="color: blue;" href="{% url 'delete_service' gudog_service.pk %}">삭제하기</a>
+          </h3>
+        </div>
+        {% endif %}
+      {% endfor %}
+
       <div class="service_box" id = "melon">
           <h3>멜론 정기 스트리밍<br />
           3,900원(8월 7일)</h3>
@@ -44,9 +56,13 @@
           9,000원(8월 10일)</h3>
       </div>
 
-      <div class="new_service">
-        <h3>+ 추가하기<h3>
-      </div>
+      <a href="{% url 'add' %}" style="width: 100%;">
+
+        <div class="new_service">
+          <h3>+ 추가하기<h3>
+        </div>
+        
+      </a>
 
 
     <div class="banner bottom">

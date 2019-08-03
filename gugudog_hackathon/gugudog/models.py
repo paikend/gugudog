@@ -23,8 +23,8 @@ class Service(models.Model):
     full_name = models.OneToOneField('self', on_delete=models.CASCADE, null=True, blank=True)
     # category = models.CharField(choices=CATEGORY_CHOICES, max_length=50)
     # logo_image = models.FileField()
-
-        
+    def get_price(self):
+        return format(self.price, ',')
    
     def __str__(self): 
         return self.company + " " + self.service_name + " (+" + str(self.price)  + "원)"

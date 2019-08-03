@@ -1,8 +1,10 @@
 {% load widget_tweaks %}
 <form method="POST">
   {% csrf_token %}
-  {{ form.as_p }}
-  {% render_field form.register_date type="date" %}
+  <div><label>서비스 이름 </label>{% render_field form.service %}</div>
+  <div>
+    <label>최초 이용일 </label>{% render_field form.register_date type="date" %}
+  </div>
   <button type="submit">추가!</button>
 </form>
 {{ form.media }}
