@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.kakao',
     'allauth.socialaccount.providers.naver',
     'allauth.socialaccount.providers.google',
-    
+
     'dal',
     'dal_select2',
     'widget_tweaks',
@@ -143,7 +143,6 @@ STATICFILES_DIRS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-
 # Social Login
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -152,3 +151,4 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 2
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'signup/'
+

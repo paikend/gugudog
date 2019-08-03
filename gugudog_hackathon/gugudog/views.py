@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from dal import autocomplete
 
 
+
 # Create your views here.
 # @login_required
 def home(request):
@@ -48,4 +49,3 @@ def add(request):
 def service_detail(request, service_slug):
     service = Service.objects.get(slug=service_slug)
     
-
