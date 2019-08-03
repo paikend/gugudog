@@ -11,7 +11,7 @@ from dal import autocomplete
 # @login_required
 def home(request):
 
-    gudog = GuDog.objects.get_or_create(user=request.user)
+    gudog = GuDogService.objects.filter(user=request.user)
 
     context = {
         'gudog' : gudog,
@@ -41,22 +41,24 @@ def signup(request):
         form = UserForm()
         return render(request, 'registration/signup.html', {'form': form})
 
-# class ServiceAutocomplete(autocomplete.Select2QuerySetView):
-#     def get_queryset(self):
-#         if not self.request.user.is_authenticated():
-#             return Service.objects.none()
-        
-#         qs = Service.objects.all()
-
-#         if self.q:
-#             qs = qs.filter(name__istartswith=self.q)
-
-#         return qs
-
 def add(request):
-    
+    model = GuDogService.objects.all()
     form = AddForm()
     context = {
-        'form' : form
+        'form' : form,
+        'models': model,
     }
-    return render(request, 'add.html', context)
+
+    if request.method == "POST":  
+        gudog_added = GuDogService(user=request.user,
+                                       service=Service.objects.get(pk=request.POST['service']),
+                                       register_date=request.POST['register_date'])
+        gudog_added.save()
+        return redirect('home')
+    else:
+        return render(request, 'add.html', context)
+
+def delete_service(request, gudog_service_pk):
+    deletingService = GuDogService.objects.get(pk=gudog_service_pk)
+    deletingService.delete()
+    return redirect('home')

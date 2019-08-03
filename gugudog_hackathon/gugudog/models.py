@@ -18,7 +18,8 @@ class Service(models.Model):
     # category = models.CharField(choices=CATEGORY_CHOICES, max_length=50)
     # logo_image = models.FileField()
 
-        
+    def get_price(self):
+        return format(self.price, ',')
    
     def __str__(self): 
         return self.company + " " + self.service_name + " (+" + str(self.price)  + "원)"
@@ -28,11 +29,11 @@ class GuDogService(models.Model):
                              on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
 
-    register_date = models.DateTimeField(null=True, blank=True)
+    register_date = models.DateField(null=True, blank=True)
 
 
     def __str__(self):
-        return str(self.user) + " " + str(self.service.service_name)
+        return str(self.user) + " " + str(self.service)
 
 class GuDog(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,

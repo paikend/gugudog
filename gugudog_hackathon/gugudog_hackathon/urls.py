@@ -24,4 +24,5 @@ urlpatterns = [
     path('service_all', views.service_all, name="service_all"),
     path('accounts/', include('allauth.urls')),
     path('accounts/signup', views.signup, name="signup"),
+    path('/<int:gudog_service_pk>', views.delete_service, name="delete_service"),
 ]
