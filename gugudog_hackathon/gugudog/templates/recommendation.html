@@ -19,21 +19,18 @@
      a:hover { color: none; text-decoration: none;}
     </style>
 
-
-
     <title>gugudog</title>
   </head>
   <body>
 
     <div class="banner top">
-      <a href="{% url 'home'%}">
-       <h2><a class="gugubanner">gugudog</a></h2>
+      
+       <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
     </a></div>
 
     <div class="main_banner"><h1> 
-    <a class="usernamecolor">황철순</a> 회원님에게 <br>
-    추천하는<br> 
-    이번 달 <a class="wholemoneycolor">인기서비스</a></h1></div>
+    <a class="usernamecolor">황철순</a>회원님에게<br> 
+    꼭 맞는<a class="wholemoneycolor">추천서비스</a></h1></div>
 
     <div class="service">
         <div class="service_box">
@@ -41,18 +38,11 @@
               <img class="wcafe_icon" src="{% static 'detail_banner_wcafe.jpg' %}" />
             </div>
             <div class="service_detail">
-                3시간마다<br>
+                <h3>3시간마다<br>
                 리필되는<br>
-                커피 한 잔<br>
+                커피 한 잔<br></h3>
             </div>
           </div>
-
-    
-
-      <div class="new_service">
-        <h3>+ 추가하기<h3>
-      </div>
-
 
     <div class="banner bottom">
         <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" />
