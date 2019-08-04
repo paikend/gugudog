@@ -30,7 +30,7 @@ class Service(models.Model):
         return self.company + " " + self.service_name + " (+" + str(self.price)  + "원)"
 
 class GuDogService(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, 
                              on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
 

@@ -1,14 +1,61 @@
 {% load widget_tweaks %}
-<form method="POST">
-  {% csrf_token %}
-  <div><label>서비스 이름 </label>{% render_field form.service %}</div>
-  <div>
-    <label>최초 이용일 </label>{% render_field form.register_date type="date" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="{% static 'namhome.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'add.css' %}" />
+  <link
+      rel="shortcut icon"
+      type="image⁄x-icon"
+      href="{% static 'logo_dog.png' %}"
+    />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style type="text/css">
+    a:link { color: none; text-decoration: none;}
+    a:visited { color: none; text-decoration: none;}
+    a:hover { color: none; text-decoration: none;}
+   </style>
+  <title>gugudog</title>
+</head>
+
+<body>
+  <div class="banner top">
+      <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
+  </a></div>
+
+  <div class="page">
+    <form method="POST" class="form">
+      {% csrf_token %}
+      <div class="add_service">
+        <label>서비스 검색</label>{% render_field form.service %}
+      </div>
+      <div class="add_service">
+        <label>최초 이용일</label>{% render_field form.register_date type="date" %}
+      </div>
+      <div class="add_service">
+        <label>한달 구독료</label>
+        <div class="add_item"></div>
+      </div>
+      <button type="submit" class="new_service btn_submit">서비스 추가하기</button>
+    </form>
+    {{ form.media }}
+    
   </div>
-  <button type="submit">추가!</button>
-</form>
-{{ form.media }}
-<a href="{% url 'home'">홈으로</a>
+
+  <div class="banner bottom">
+    <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" />
+    </a>
+    <a href="{% url 'home'%}"
+      ><img id="home" src="{% static 'bottom_home.png' %}"
+    /></a>
+    <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
+  </div>
+</body>
+
 <style>
   /* 옵션 선택하면  */
   .select2-selection__choice[title="---------"] {
@@ -27,3 +74,5 @@
     outline: none;
   }
 </style>
+</html>
+

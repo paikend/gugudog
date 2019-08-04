@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- css 버전 수정해가면서 사용하세요. -->
     <link rel="stylesheet" type="text/css" href="{% static 'namhome.css' %}?v=0.1" />
-
     <link
       rel="shortcut icon"
       type="image⁄x-icon"
@@ -18,16 +17,13 @@
      a:visited { color: none; text-decoration: none;}
      a:hover { color: none; text-decoration: none;}
     </style>
-
-
-
     <title>gugudog</title>
   </head>
-  <body>
 
+  <body>
     <div class="banner top">
        <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
-    </a></div>
+    </div>
 
     <div class="main_banner"><h1> 
     <a class="usernamecolor">황철순</a> 회원님의 <br>이번 달 구독 금액은<br> 총 
@@ -63,16 +59,11 @@
         </div>
         
       </a>
-
-
+    </div>
     <div class="banner bottom">
-        <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" />
-        </a>
-
-      <a href="{% url 'home'%}"
-        ><img id="home" src="{% static 'bottom_home.png' %}"
-      /></a>
-      <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
-    </div></div>
+        <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" /></a>
+        <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home.png' %}"/></a>
+        <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
+    </div>
   </body>
 </html>
