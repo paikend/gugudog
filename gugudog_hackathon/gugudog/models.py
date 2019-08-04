@@ -36,13 +36,26 @@ class GuDogService(models.Model):
     )
     service = models.ForeignKey(
         Service,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
     )
-
+    
+    zzim_service = models.ForeignKey(
+        Service,
+        on_delete=models.CASCADE,
+        related_name="zzim_service",
+        null=True,
+        blank=True,
+    )
     register_date = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return f"{self.user} {self.service.service_name}"
+        if self.service:
+            return f"{self.user} {self.service.service_name}"
+        else:
+            return f"{self.user} 찜 {self.zzim_service.service_name}"
+        
 
 class GuDog(models.Model):
     user = models.ForeignKey(
@@ -50,3 +63,5 @@ class GuDog(models.Model):
         on_delete=models.CASCADE
     )
     services = models.ManyToManyField(GuDogService)
+    def __str__(self):
+        return self.user.username

@@ -7,6 +7,9 @@
   </div>
   <button type="submit">추가!</button>
 </form>
+{% if error %}
+{{ error }}
+{% endif %}
 {{ form.media }}
 <a href="{% url 'home' %}">홈으로</a>
 <style>
