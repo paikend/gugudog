@@ -68,7 +68,11 @@
       </div>
     </div>
     {% for service in services %}
-    <a href="{% url 'service_detail' service.pk %}">{{ service }}</a>
+    <div>
+      <a href="{% url 'service_detail' service.pk %}"
+        >{{ service.company }} {{ service.service_name }}</a
+      >
+    </div>
     {% endfor %}
     <div class="service">
       <div class="service_box">
