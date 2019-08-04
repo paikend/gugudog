@@ -6,103 +6,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'namhome.css' %}?v=2.2"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'home.css' %}?v=2.2"
-    />
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'service_all.css' %}?v=2.2 %}" />
     <link
       rel="shortcut icon"
       type="image⁄x-icon"
       href="{% static 'logo_dog.png' %}"
     />
-
     <style type="text/css">
-      a:link {
-        color: none;
-        text-decoration: none;
-      }
-      a:visited {
-        color: none;
-        text-decoration: none;
-      }
-      a:hover {
-        color: none;
-        text-decoration: none;
-      }
+      a:link { color: none; text-decoration: none;}
+      a:visited { color: none; text-decoration: none;}
+      a:hover { color: none; text-decoration: none;}
     </style>
     <title>gugudog</title>
   </head>
   <body>
     <div class="banner top">
-      <a href="{% url 'home'%}"
-        ><img id="bannerlogo" src="{% static 'logo_font.png' %}"
-      /></a>
-    </div>
-    <div class="main_banner">
-      <img id="minjok" src="{% static 'main_banner_example.png' %}" />
-    </div>
+      <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
+   </div>
+
+    <!-- <div class="main_banner">
+      <img class="banner_img" src="{% static 'main_banner_example.png' %}" />
+    </div> -->
 
     <div class="category">
-      <div class="category_btn">
-        <div class="category_icon">⭐️</div>
-        <h5>전체</h5>
-      </div>
-      <div class="category_btn">
-        <div class="category_icon">🔥</div>
-        <h5>HOT</h5>
-      </div>
-      <div class="category_btn">
-        <div class="category_icon">🚀</div>
-        <h5>NEW</h5>
-      </div>
-      <div class="category_btn">
-        <div class="category_icon">
-          <a href="{% url 'recommendation'%}">👍</a>
-        </div>
-
-        <h5>My추천</h5>
-      </div>
-      <div class="category_btn">
-        <div class="category_icon">️️🏷️</div>
-        <h5>태그별</h5>
-      </div>
+      <div class="category_btn"><h5>전체</h5><div class="btn_chosen"></div></div>
+      <div class="category_btn"><h5>HOT</h5><div id="line" class="btn_default"></div></div>
+      <div class="category_btn"><h5>NEW</h5><div id="line" class="btn_default"></div></div>
+      <div class="category_btn"><a href="{% url 'recommendation'%}"><h5>My추천</h5></a><div id="line" class="btn_default"></div></div>
+      <div class="category_btn"><h5>태그별</h5><div id="line" class="btn_default"></div></div>
     </div>
 
     <div class="service">
       <div class="service_box">
-        <div class="service_banner">
-          <img id="wcafe" src="{% static 'detail_banner_weeklyshirts.jpg' %}" />
+          <div class="service_banner"><img class="banner_img circle" src="{% static 'detail_banner_wcafe.jpg' %}" /></div>
+          <div class="service_detail">W카페<br />3시간마다 커피리필</div>
         </div>
+
+      <div class="service_box">
+        <div class="service_banner"><img class="banner_img circle" src="{% static 'detail_banner_weeklyshirts.jpg' %}" /></div>
         <div class="service_detail">Weekly Shirts<br />매달 새 와이셔츠</div>
-      </div>
+      </div>   
 
       <div class="service_box">
-        <div class="service_banner">
-          <img id="wcafe" src="{% static 'detail_banner_wcafe.jpg' %}" />
-        </div>
-        <div class="service_detail">W카페<br />3시간마다 커피리필</div>
-      </div>
-
-      <div class="service_box">
-        <div class="service_banner">
-          <img id="netflix" src="{% static 'detail_banner_netflix.png' %}" />
-        </div>
+        <div class="service_banner"><img class="banner_img circle" src="{% static 'detail_banner_netflix.png' %}" /></div>
         <div class="service_detail">NETFLIX<br />취향대로 영화보자!</div>
-      </div>
+      </div>   
+
     </div>
 
     <div class="banner bottom">
       <img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" />
-      <a href="{% url 'home'%}"
-        ><img id="home" src="{% static 'bottom_home.png' %}"
-      /></a>
+      <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home.png' %}"/></a>
       <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
     </div>
+
+    <script>
+      let btn = document.getElementsByClassName('category_btn')
+      console.log(btn)
+      btn.addEventListener("click", function(){
+        console.log("click");
+      });
+    </script>
+
   </body>
 </html>

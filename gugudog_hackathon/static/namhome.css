@@ -19,8 +19,12 @@
   background-color: rgb(249, 161, 27);
 }
 
+.gugubanner {
+  color: white;
+}
+
 .top {
-  position: absolute;
+  position: fixed;
   top: 0;
   text-align: center;
 }
@@ -112,6 +116,3 @@
   color: rgb(249, 161, 27);
 }
 
-.gugubanner {
-  color: white;
-}
