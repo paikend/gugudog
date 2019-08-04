@@ -19,6 +19,7 @@ def home(request):
     }
     return render(request, 'home.html', context)
 
+@login_required(login_url='signup/')
 def service_all(request):
     services = Service.objects.all()
 
@@ -27,6 +28,7 @@ def service_all(request):
     }
     return render(request, 'service_all.html', context)
 
+@login_required(login_url='signup/')
 def recommendation(request):
     return render(request, 'recommendation.html')
 
@@ -37,6 +39,7 @@ def logout(request):
     auth.logout(request)
     return redirect('signup')
 
+@login_required(login_url='signup/')
 def add(request):
     model = GuDogService.objects.all()
     form = AddForm()
@@ -56,12 +59,13 @@ def add(request):
     else:
         return render(request, 'add.html', context)
 
+@login_required(login_url='signup/')
 def delete_service(request, gudog_service_pk):
     deletingService = GuDogService.objects.get(pk=gudog_service_pk)
     deletingService.delete()
     return redirect('home')
     # return render(request, 'add.html', context)
 
-
+@login_required(login_url='signup/')
 def service_detail(request, service_slug):
     service = Service.objects.get(slug=service_slug)
