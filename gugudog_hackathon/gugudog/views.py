@@ -9,7 +9,7 @@ from dal import autocomplete
 
 
 # Create your views here.
-# @login_required
+@login_required(login_url='signup/')
 def home(request):
 
     gudog = GuDogService.objects.filter(user=request.user)
