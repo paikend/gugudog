@@ -50,7 +50,7 @@
   color: white;
 }
 
-#signup {
+/* #signup {
   border-radius: 5px;
   border: 1px solid var(--gugu-orange);
   height: 35px;
@@ -58,23 +58,31 @@
   margin: 5px 0px;
   background-color: white;
   color: var(--gugu-orange);
-}
+} */
 
 .socialogin {
   display: flex;
   padding: 5% 0%;
+  justify-content: center;
+  width: 100%;
+}
+
+#login-img {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .form-control {
   margin: 5px;
 }
 
-#kakao, #naver {
-  width: 45%;
+#kakao,
+#naver {
+  width: 100%;
   height: auto;
-  /* object-fit: cover; */
-  margin: 0 5px;
+  object-fit: cover;
 }
 
 @media (min-width: 700px) {
