@@ -15,6 +15,7 @@
       type="image⁄x-icon"
       href="{% static 'logo_dog.png' %}"
     />
+
     <style type="text/css">
       a:link {
         color: none;
@@ -29,7 +30,6 @@
         text-decoration: none;
       }
     </style>
-
     <title>gugudog</title>
   </head>
   <body>
@@ -59,6 +59,7 @@
         <div class="category_icon">
           <a href="{% url 'recommendation'%}">👍</a>
         </div>
+
         <h5>My추천</h5>
       </div>
       <div class="category_btn">
@@ -66,7 +67,9 @@
         <h5>태그별</h5>
       </div>
     </div>
-
+    {% for service in services %}
+    <a href="{% url 'service_detail' service.pk %}">{{ service }}</a>
+    {% endfor %}
     <div class="service">
       <div class="service_box">
         <div class="service_banner">
