@@ -27,7 +27,7 @@ class Service(models.Model):
         return format(self.price, ',')
    
     def __str__(self): 
-        return f"{self.company} {self.service_name} ({self.price}원)"
+        return f"{self.company} {self.service_name} (+{self.price}원)"
 
 class GuDogService(models.Model):
     user = models.ForeignKey(
