@@ -42,8 +42,13 @@
         <a href="/accounts/logout">{{user.username}} 로그아웃</a><br>
         {% endif %}
         <div class="socialogin">
-          <a href="{% provider_login_url 'kakao' %}"><img id="kakao" src="{% static 'kakao_login.png' %}" /></a>
-          <a href="{% provider_login_url 'naver' %}"><img id="naver" src="{% static 'naver_login.png' %}" /></a>
+          <a id='login-img' href="{% provider_login_url 'kakao' %}"><img id="kakao" src="{% static 'kakao_login.png' %}" /></a>
+        </div>
+        <div class="socialogin">
+          <a id='login-img' href="{% provider_login_url 'naver' %}"><img id="naver" src="{% static 'naver_login.png' %}" /></a>
+        </div>
+        <div class="socialogin">
+          <a id='login-img' href="{% provider_login_url 'naver' %}"><img id="naver" src="{% static 'naver_login.png' %}" /></a>
         </div>
       </div>
     </div>
