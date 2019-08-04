@@ -47,16 +47,34 @@ def add(request):
     context = {
         'form': form,
         'models': model,
+        'error': '',
     }
 
-    if request.method == "POST":
-        gudog_added = GuDogService(
+    if request.method == "POST":   
+        gudog_added, created = GuDogService.objects.get_or_create(
             user=request.user,
             service=Service.objects.get(pk=request.POST['service']),
             register_date=request.POST['register_date']
         )
-        gudog_added.save()
-        return redirect('home')
+        
+        print(gudog_added)
+        gudog_qs = GuDog.objects.filter(user=request.user)
+        if gudog_qs.exists():
+            gudog = gudog_qs[0]
+            # 이미 해당 서비스를 구독했으면
+            if gudog.services.filter(service__pk=gudog_added.service.pk).exists():
+                # context['error'] = '이미 추가된 서비스입니다'
+                gudog_added.delete()
+                return redirect('add')
+            else:
+                print(gudog_added)
+                gudog.services.add(gudog_added)
+                return redirect('home')
+        else:
+            gudog_added.save()
+            gudog = GuDog.objects.create(user=request.user)
+            gudog.services.add(gudog_added)
+            return redirect('home')
     else:
         return render(request, 'add.html', context)
 
