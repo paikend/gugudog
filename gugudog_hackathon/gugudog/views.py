@@ -46,9 +46,11 @@ def add(request):
     }
 
     if request.method == "POST":  
-        gudog_added = GuDogService(user=request.user,
-                                       service=Service.objects.get(pk=request.POST['service']),
-                                       register_date=request.POST['register_date'])
+        gudog_added = GuDogService(
+            user=request.user,
+            service=Service.objects.get(pk=request.POST['service']),
+            register_date=request.POST['register_date']
+        )
         gudog_added.save()
         return redirect('home')
     else:

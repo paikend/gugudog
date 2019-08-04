@@ -27,20 +27,26 @@ class Service(models.Model):
         return format(self.price, ',')
    
     def __str__(self): 
-        return self.company + " " + self.service_name + " (+" + str(self.price)  + "원)"
+        return f"{self.company} {self.service_name} (+{self.price}원)"
 
 class GuDogService(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
-    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+    service = models.ForeignKey(
+        Service,
+        on_delete=models.CASCADE
+    )
 
     register_date = models.DateTimeField(null=True, blank=True)
 
-
     def __str__(self):
-        return str(self.user) + " " + str(self.service.service_name)
+        return f"{self.user} {self.service.service_name}"
 
 class GuDog(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
     services = models.ManyToManyField(GuDogService)
