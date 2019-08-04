@@ -24,10 +24,12 @@ urlpatterns = [
     path('accounts/logout/', views.logout, name="logout"),
     path('accounts/', include('allauth.urls')),
     path('signup/', views.signup, name="signup"),
-    
+
     path('add/', views.add, name="add"),
     path('recommendation', views.recommendation, name="recommendation"),
-    path('sevice_detail/<slug:service_slug>', views.service_detail, name='service_detail'),
-    
-    path('<int:gudog_service_pk>', views.delete_service, name="delete_service"),
+    path('sevice_detail/<int:service_pk>/',
+         views.service_detail, name='service_detail'),
+
+    path('delete/<int:gudog_service_pk>/',
+         views.delete_service, name="delete_service"),
 ]

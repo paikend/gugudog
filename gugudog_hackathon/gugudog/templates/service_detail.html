@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,6 +8,16 @@
     <title>gugudog</title>
   </head>
   <body>
-    <!-- service.slug -->
+    <p>{{ service.company }}</p>
+    <!-- 회사명 charfield -->
+    <p>{{ service.service_name }}</p>
+    <!-- 서비스명 charfield -->
+    <p>{{ service.price }}</p>
+    <!-- 가격  integerfield -->
+    <p>{{ service.link }}</p>
+    <!-- 링크 charfield -->
+    <p>{{ service.description }}</p>
+    <!-- 설명 textfield -->
+    <a href="#">찜</a>
   </body>
 </html>

@@ -9,25 +9,31 @@ CATEGORY_CHOICES = (
 
 # Create your models here.
 interestChoice = (
-    ('FAHION','패션'),
-    ('MEDIA','미디어'),
-    ('FOOD','음식'),
-    ('ETC','기타'),
+    ('FAHION', '패션'),
+    ('MEDIA', '미디어'),
+    ('FOOD', '음식'),
+    ('ETC', '기타'),
 )
+
+
 class Service(models.Model):
     company = models.CharField(max_length=50)
     service_name = models.CharField(max_length=50)
     price = models.IntegerField()
     link = models.CharField(max_length=500)
-    
-    full_name = models.OneToOneField('self', on_delete=models.CASCADE, null=True, blank=True)
-    # category = models.CharField(choices=CATEGORY_CHOICES, max_length=50)
-    # logo_image = models.FileField()
-    def get_price(self):
+    description = models.TextField()
+
+    full_name = models.OneToOneField(
+      'self', on_delete=models.CASCADE, null=True, blank=True)
+   # category = models.CharField(choices=CATEGORY_CHOICES, max_length=50)
+   # logo_image = models.FileField()
+
+   def get_price(self):
         return format(self.price, ',')
-   
-    def __str__(self): 
+
+    def __str__(self):
         return f"{self.company} {self.service_name} (+{self.price}원)"
+
 
 class GuDogService(models.Model):
     user = models.ForeignKey(
@@ -43,6 +49,7 @@ class GuDogService(models.Model):
 
     def __str__(self):
         return f"{self.user} {self.service.service_name}"
+
 
 class GuDog(models.Model):
     user = models.ForeignKey(
