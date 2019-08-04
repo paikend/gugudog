@@ -67,7 +67,9 @@
         <h5>태그별</h5>
       </div>
     </div>
-
+    {% for service in services %}
+    <a href="{% url 'service_detail' service.pk %}">{{ service }}</a>
+    {% endfor %}
     <div class="service">
       <div class="service_box">
         <div class="service_banner">
