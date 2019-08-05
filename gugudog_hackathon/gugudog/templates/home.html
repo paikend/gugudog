@@ -88,16 +88,9 @@
 
 
     <div class="banner bottom">
-        <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" />
-        </a>
-
-      <a href="{% url 'home'%}"
-        ><img id="home" src="{% static 'bottom_home.png' %}"
-      /></a>
-      <a href="{% url 'mp' %}">
+      <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" /></a>
+      <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home.png' %}"/></a>
       <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
-      </a>
-    </div></div>
     <script>
       $('.service_box').click(function() {
         $('.edit_hide').toggleClass('edit_appear');
