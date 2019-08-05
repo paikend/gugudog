@@ -37,6 +37,8 @@ def recommendation(request):
 def signup(request):
     return render(request, 'registration/signup.html')
 
+def mypage(request):
+    return render(request, 'mypage.html')
 
 def logout(request):
     auth.logout(request)

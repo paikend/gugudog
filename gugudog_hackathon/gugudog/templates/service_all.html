@@ -49,7 +49,6 @@
       <div class="category_btn"><h5>태그별</h5><div id="line" class="btn_default"></div></div>
     </div>
 
-
     <div class="service">
       <!-- 모든 등록된 service를 불러와서 회사명과 서비스명을 보여줍니다 -->
       {% for service in services %}
@@ -81,7 +80,7 @@
       <a href="{% url 'home'%}"
         ><img id="home" src="{% static 'bottom_home.png' %}"
       /></a>
-      <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
+      <a href="{% url 'mypage'%}"><img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" /></a>
     </div>
     
     <script>

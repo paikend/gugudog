@@ -19,6 +19,10 @@
   background-color: rgb(249, 161, 27);
 }
 
+.gugubanner {
+  color: white;
+}
+
 .top {
   position: fixed;
   top: 0;
