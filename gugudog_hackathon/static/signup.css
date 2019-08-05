@@ -14,13 +14,18 @@
 /* @media (max-width: 600px) {
 } */
 
+/* !배경색점 골라주세여ㅠㅠ */
+html {
+  /* background-color: lightgrey; */
+}
+
 #loading {
   z-index: 100;
   background: white;
   position: absolute;
   text-align: center;
   width: 100%;
-  height: 100%;
+  height: 110%;
   padding: 50% 10%;
 }
 
@@ -50,7 +55,7 @@
   color: white;
 }
 
-#signup {
+/* #signup {
   border-radius: 5px;
   border: 1px solid var(--gugu-orange);
   height: 35px;
@@ -58,23 +63,39 @@
   margin: 5px 0px;
   background-color: white;
   color: var(--gugu-orange);
-}
+} */
 
 .socialogin {
   display: flex;
-  padding: 5% 0%;
+  padding: 3% 0%;
+  justify-content: center;
+  width: 70%;
+}
+
+#login-img {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .form-control {
   margin: 5px;
 }
 
-#kakao, #naver {
-  width: 45%;
+#kakao,
+#naver,
+#google {
+  width: 100%;
+  object-fit: cover;
+}
+
+#kakao {
+  height: 100%;
+}
+
+#naver {
   height: auto;
-  /* object-fit: cover; */
-  margin: 0 5px;
 }
 
 @media (min-width: 700px) {

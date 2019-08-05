@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from gugudog import views
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +30,10 @@ urlpatterns = [
     path('recommendation', views.recommendation, name="recommendation"),
     path('sevice_detail/<int:service_pk>/',
          views.service_detail, name='service_detail'),
-    path('delete/<int:gudog_service_pk>/',
-         views.delete_service, name="delete_service"),
+
+    path('delete/<int:gudog_service_pk>/<int:model_service_pk>', views.delete_service, name="delete_service"),
+    path('delete_zzim/<int:zzim_service_pk>/<int:model_service_pk>', views.delete_zzim, name="delete_zzim"),
+    url(r'^zzim/$', views.zzim, name='zzim'), 
+
+    path('mp/', views.mp, name="mp"),
 ]

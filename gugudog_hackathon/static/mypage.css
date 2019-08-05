@@ -39,22 +39,22 @@
 }
 
 .profileimg {
-  width: 70%;
+  width: 100%;
   object-fit: cover;
   border-radius: 50%;
-  border: gray 0.5px solid;
+  /* border: gray 0.5px solid; */
 }
 
 .wholeprofile {
   margin-top: 25%;
-  margin-bottom: 15%;
+  margin-bottom: 10%;
   width: 100%;
   height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
   object-fit: contain;
-  border: gray 0.5px solid;
+  /* border: gray 0.5px solid; */
 }
 
 .profileimgbox {
@@ -64,10 +64,43 @@
   align-items: center;
 }
 
-.main_banner {
+.editting {
+  display: flex;
   width: 50%;
+  height: 10rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_banner {
+  width: 100%;
   line-height: 300%;
-  border: gray 0.5px solid;
+  /* border: gray 0.5px solid; */
+}
+
+.edittinguserbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 2rem;
+  /* border: gray 0.5px solid; */
+}
+
+.gearbaby {
+  width: 10%;
+  margin-left: 5%;
+  /* border: gray 0.5px solid; */
+}
+
+.edittinguser {
+  display: flex;
+  width: 70%;
+  /* border: gray 0.5px solid; */
+  height: 2rem;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .service {
@@ -85,7 +118,7 @@
 .service_box {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   flex-direction: row;
   width: 100%;
@@ -132,7 +165,22 @@
   height: 93.75%;
   /* border: gray 0.5px solid; */
 }
+.heartbox {
+  width: 10%;
+  height: 93.75%;
+}
+.heartbaby {
+  width: 80%;
+}
 
+.zzimlist {
+  /* border: gray 0.5px solid; */
+}
+
+.myzzim {
+  margin-bottom: 7%;
+  /* border: gray 0.5px solid; */
+}
 #serviceall,
 #home,
 #mypage {
