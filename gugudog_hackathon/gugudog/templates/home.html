@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -29,16 +29,13 @@
        font-family: 'NanumSquare', sans-serif; 
      }
     </style>
-
-
-
     <title>gugudog</title>
   </head>
-  <body>
 
+  <body>
     <div class="banner top">
        <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
-    </a></div>
+    </div>
 
     <div class="main_banner"><h1> 
     <a class="usernamecolor">{{user}}</a> 회원님의 <br>이번 달 구독 금액은<br> 총 
@@ -85,11 +82,9 @@
           <h3>+ 추가하기<h3>
         </div>        
       </a>
-
     </div>
 
     
-
     <div class="banner bottom">
       <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" /></a>
       <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home.png' %}"/></a>

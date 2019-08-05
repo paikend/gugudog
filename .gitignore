@@ -1,2 +1,7 @@
+<<<<<<< HEAD
+db.sqlite3
+*.db
+=======
 gugudog_hackathon/db.sqlite3
 ./gugudog_hackathon/db.sqlite3
+>>>>>>> 7c11ac011c93ba359e635e81662cd4972b064032
