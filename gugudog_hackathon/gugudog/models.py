@@ -15,8 +15,15 @@ interestChoice = (
     ('ETC', '기타'),
 )
 
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+    eng_name = models.CharField(max_length=50, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
 
 class Service(models.Model):
+    category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
     company = models.CharField(max_length=50)
     service_name = models.CharField(max_length=50)
     price = models.IntegerField()
@@ -95,6 +102,32 @@ class Zzim(models.Model):
         on_delete=models.CASCADE
     )
     services = models.ManyToManyField(ZzimService)
+
+    def __str__(self):
+        return self.user.username
+
+class InterestService(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+    interest_cate = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        # related_name='interest_category'
+    )
+
+    def __str__(self):
+        return f"{self.interest_cate}"    
+
+class Interest(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete = models.CASCADE
+    )
+    interests = models.ManyToManyField(InterestService)
 
     def __str__(self):
         return self.user.username

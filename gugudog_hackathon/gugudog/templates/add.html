@@ -13,6 +13,11 @@
       type="image⁄x-icon"
       href="{% static 'logo_dog.png' %}"
     />
+  <script
+    src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"
+  ></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <style type="text/css">
     a:link { color: none; text-decoration: none;}
@@ -38,7 +43,11 @@
       </div>
       <div class="add_service">
         <label>한달 구독료</label>
-        <div class="add_item"></div>
+        <div class="add_item">
+          {% if service %}
+          {{ service.get_price }}
+          {% endif %}
+        </div>
       </div>
     </form>
     <button type="submit" class="new_service btn_submit">서비스 추가하기</button>
@@ -66,10 +75,127 @@
   }
   .select2-container--default
     .select2-selection--multiple
-    .select2-selection__choice {
+    .select2-selection__choice,
+    .select2-selection__choice__remove {
     border: none;
     background: none;
     outline: none;
   }
+
+  .select2-selection__choice__remove {
+    display: none!important;
+  }
+
 </style>
+
+<script>
+
+    function formatNumber(num) {
+      if(num !== undefined)
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+
+    /* 숫자를 countUp 해주는 코드 */
+    $(".add_item").each(function() {
+        var $this = $(this),
+          countTo = $this.attr("data-count");
+
+        $({ countNum: $this.text() }).animate(
+          {
+            countNum: countTo
+          },
+
+          {
+            duration: 1200,
+            easing: "linear",
+            step: function() {
+              $this.text(Math.floor(this.countNum));
+            },
+            complete: function() {
+              $this.text(this.countNum);
+              //alert('finished');
+            }
+          }
+        );
+      });
+
+
+
+
+    /* 서비스를 지정하면 ajax 통신으로 해당 서비스의 price를 가져오는 코드 */
+    
+    setInterval(function() {
+      if($(".select2-selection__choice").length > 0 && $(".select2-selection__rendered")[0].children.length >= 4) 
+        $(".select2-selection__rendered")[0].children[1].remove();
+      // 사용자가 서비스를 선택하면
+        var pk;
+        // 먼저 해당 서비스의 pk를 알아옵니다.
+        $("select option").each(function() {
+          if(this.text === "---------") {
+            this.remove();
+          }
+          if($(".select2-selection__choice")[0]) {
+            if(this.text === $(".select2-selection__choice")[0].title){ // option의 title과 유저가 선택한 서비스의 title이 일치하는지 비교합니다. 시간이 오래 걸릴 수 있는 코드입니다.
+                pk = this.value;
+              };
+            }
+        });
+        if (pk !== undefined) {
+        // 다음은 ajax 통신으로 pk를 전달합니다.
+        $.ajax({
+          type: "POST",
+          url: "{% url 'add' %}",
+          data: {
+            pk: pk,
+            csrfmiddlewaretoken: "{{ csrf_token }}"
+          },
+          dataType: "json",
+          success: function(response) {
+            $(".add_item").attr("data-count", response);
+            // $(".add_item").text(formatNumber(response)+"원");
+            if($(".select2-selection__rendered")[0].children.length >= 4) 
+              $(".select2-selection__rendered")[0].children[1].remove();
+              function formatNumber(num) {
+            if(num !== undefined)
+              return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+            }
+
+            /* 숫자를 countUp 해주는 코드 */
+            if($(".add_item")[0].innerText !== (formatNumber($(".add_item").attr("data-count"))+"원")) {
+            $(".add_item").each(function() {
+                var $this = $(this),
+                  countTo = $this.attr("data-count");
+
+                $({ countNum: $this.text() }).animate(
+                  {
+                    countNum: countTo
+                  },
+
+                  {
+                    duration: 900,
+                    easing: "linear",
+                    step: function() {
+                      $this.text(formatNumber(Math.floor((this.countNum)))+"원");
+                    },
+                    complete: function() {
+                      $this.text(formatNumber(this.countNum)+"원");
+                      // alert('finished');
+                    }
+                  }
+                );
+              });
+            } else if($(".add_item")[0].innerText === (formatNumber($(".add_item").attr("data-count"))+"원")) {
+              console.log('똑같아요');
+            }
+          },
+          error: function(request, response, status, error) {
+            console.log(response);
+            console.log(error);
+            console.log(request);
+          }
+        })
+        }
+      }, 1000);
+
+  </script>
 </html>
