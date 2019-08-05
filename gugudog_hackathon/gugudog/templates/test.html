@@ -1,0 +1,13 @@
+<h1>TEST</h1>
+<a href="{% url 'test2' %}">테스트2</a><br>
+<h2>uer: {{user}}</h2>
+<form method='POST' action="{% url 'test2' %}">{% csrf_token %}
+    {% for cate in categories %}
+        {% if cate.name in my_inter_list %}
+            {{ cate.name }},{{ cate.pk }}<input type='checkbox' name='cate_checked' value={{cate.pk}} checked><br>
+        {% else %}
+            {{ cate.name }},{{ cate.pk }}<input type='checkbox' name='cate_checked' value={{cate.pk}}><br>
+        {% endif %}
+    {% endfor %}
+    <button type='submit'>저장</button>
+</form>
