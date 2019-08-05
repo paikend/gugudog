@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .forms import AddForm
-from .models import Service, GuDogService, GuDog, Zzim, ZzimService
+from .models import *
 from django.contrib.auth.decorators import login_required
 from dal import autocomplete
 from django.http import HttpResponse
@@ -164,3 +164,52 @@ def delete_zzim(request, zzim_service_pk, model_service_pk):
     service.zzim_users.remove(request.user)
 
     return redirect('home')
+
+
+def test(request):
+    categories = Category.objects.all()
+    my_interests = InterestService.objects.filter(user=request.user)
+    my_inter_list = []
+    for i in my_interests:
+        my_inter_list.append(i.interest_cate.name)
+    print(my_inter_list)
+    context = {
+        'categories':categories,
+        'my_inter_list':my_inter_list
+    }
+    return render(request, 'test.html', context)
+
+def test2(request):
+    interest_pk = request.POST.getlist('cate_checked')
+
+    if request.method == 'POST':
+        deleting = InterestService.objects.filter(user=request.user)
+        deleting.delete()
+
+        for pks in interest_pk:
+            interest_add, created = InterestService.objects.get_or_create(
+                user = request.user,
+                interest_cate = Category.objects.get(pk=pks)
+            )
+            inter_qs = Interest.objects.filter(
+                user = request.user
+            )
+            if inter_qs.exists():
+                inter_cate = inter_qs[0]
+                if inter_cate.interests.filter(interest_cate__pk=interest_add.interest_cate.pk).exists():
+                    interest_add.save()
+                else:
+                    inter_cate.interests.add(interest_add)
+            else:
+                inter_cate = Interest.objects.create(user=request.user)
+                inter_cate.interests.add(interest_add)
+
+        interests = InterestService.objects.filter(user=request.user)
+        return redirect('test2')
+
+    else:
+        interests = InterestService.objects.filter(user=request.user)
+        context = {
+            'interests':interests
+        }
+        return render(request, 'test2.html', context)
