@@ -1,11 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .forms import AddForm
-from .models import Service, GuDogService, GuDog
+from .models import Service, GuDogService, GuDog, Zzim, ZzimService
 from django.contrib.auth.decorators import login_required
 from dal import autocomplete
-
+from django.http import HttpResponse
+from django.views.decorators.http import require_POST
+import json
 
 # Create your views here.
 @login_required(login_url='signup/')
@@ -63,32 +65,102 @@ def add(request):
             gudog = gudog_qs[0]
             # 이미 해당 서비스를 구독했으면
             if gudog.services.filter(service__pk=gudog_added.service.pk).exists():
-                # context['error'] = '이미 추가된 서비스입니다'
                 gudog_added.delete()
                 return redirect('add')
             else:
-                print(gudog_added)
                 gudog.services.add(gudog_added)
+                service = Service.objects.get(pk=gudog_added.service.pk)
+                service.gudog_users.add(request.user)
                 return redirect('home')
         else:
             gudog_added.save()
             gudog = GuDog.objects.create(user=request.user)
             gudog.services.add(gudog_added)
+            service = Service.objects.get(pk=gudog_added.service.pk)
+            service.gudog_users.add(request.user)
             return redirect('home')
     else:
         return render(request, 'add.html', context)
 
 @login_required(login_url='signup/')
-def delete_service(request, gudog_service_pk):
+
+def delete_service(request, gudog_service_pk, model_service_pk):
     deletingService = GuDogService.objects.get(pk=gudog_service_pk)
+
+    service = Service.objects.get(pk=model_service_pk)
+
+    service.gudog_users.remove(request.user)
+    service.zzim_users.remove(request.user)
+
     deletingService.delete()
     return redirect('home')
-    # return render(request, 'add.html', context)
 
 @login_required(login_url='signup/')
 def service_detail(request, service_pk):
     service = Service.objects.get(pk=service_pk)
     context = {
-        'service': service
+        'service': service,
     }
+    if request.user in service.gudog_users.all():
+        context['isGuDoged'] = "구독하고 있는 서비스에요!"
+    elif request.user in service.zzim_users.all():
+        context['isZzimed'] = "찜한 구독 서비스에요!"
+    
     return render(request, 'service_detail.html', context)
+
+def zzim(request):
+    context = {
+        'zzim':"찜했어용",
+    }
+    if request.method == "POST":
+        pk = request.POST.get('pk', None)
+        service = get_object_or_404(Service, pk=pk)
+        zzim_service, created = ZzimService.objects.get_or_create(
+            user=request.user,
+            service = Service.objects.get(pk=request.POST.get('pk')),
+        )
+
+        if not created:
+            zzim_service.delete()
+            context['zzim']="찜"
+            return HttpResponse(json.dumps(context))
+    
+        zzim_qs = Zzim.objects.filter(user=request.user)
+        if zzim_qs.exists():
+            zzim = zzim_qs[0]
+            if zzim.services.filter(service__pk=zzim_service.service.pk):
+                zzim_service.delete()
+                context['zzim']="찜"
+                return HttpResponse(json.dumps(context))
+            else:
+                zzim_service.save()
+                zzim.services.add(zzim_service)
+                service = Service.objects.get(pk=zzim_service.service.pk)
+                service.zzim_users.add(request.user)
+                return HttpResponse(json.dumps(context))
+        else:
+            zzim_service.save()
+            zzim = Zzim.objects.create(user=request.user)
+            zzim.services.add(zzim_service)
+            service = Service.objects.get(pk=zzim_service.service.pk)
+            service.zzim_users.add(request.user)
+    
+    return HttpResponse(json.dumps(context))
+
+
+def mp(request):
+    zzim = ZzimService.objects.filter(user=request.user)
+    context = {
+        'zzim': zzim,
+    }
+    return render(request, "mp.html", context)
+
+@login_required(login_url='signup/')
+def delete_zzim(request, zzim_service_pk, model_service_pk):
+    deletingService = ZzimService.objects.get(pk=zzim_service_pk)
+    deletingService.delete()
+
+    service = Service.objects.get(pk=model_service_pk)
+    service.zzim_users.remove(request.user)
+
+    return redirect('home')

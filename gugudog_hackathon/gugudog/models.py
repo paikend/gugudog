@@ -28,6 +28,18 @@ class Service(models.Model):
    # category = models.CharField(choices=CATEGORY_CHOICES, max_length=50)
    # logo_image = models.FileField()
 
+    gudog_users = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        blank=True,
+        related_name="gudog_users",
+    )
+
+    zzim_users = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        blank=True,
+        related_name="zzim_users",
+    )
+
     def get_price(self):
         return format(self.price, ',')
 
@@ -46,23 +58,26 @@ class GuDogService(models.Model):
         null=True,
         blank=True,
     )
-    
-    zzim_service = models.ForeignKey(
-        Service,
-        on_delete=models.CASCADE,
-        related_name="zzim_service",
-        null=True,
-        blank=True,
-    )
     register_date = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        if self.service:
-            return f"{self.user} {self.service.service_name}"
-        else:
-            return f"{self.user} 찜 {self.zzim_service.service_name}"
-        
+        return f"{self.user} {self.service}"       
 
+class ZzimService(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+    service = models.ForeignKey(
+        Service,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="ZZservice",
+    )
+
+    def __str__(self):
+        return f"{self.service}"    
 
 class GuDog(models.Model):
     user = models.ForeignKey(
@@ -70,5 +85,16 @@ class GuDog(models.Model):
         on_delete=models.CASCADE
     )
     services = models.ManyToManyField(GuDogService)
+
+    def __str__(self):
+        return self.user.username
+
+class Zzim(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+    services = models.ManyToManyField(ZzimService)
+
     def __str__(self):
         return self.user.username

@@ -52,7 +52,7 @@
         <div class="service_box">
           <h3 style="color: black;">{{ gudog_service.service.company }} {{ gudog_service.service.service_name }}<br/>
               {{ gudog_service.service.get_price }}원(매월 {{ gudog_service.register_date.day}}일)
-              <a style="color: blue;" href="{% url 'delete_service' gudog_service.pk %}">삭제하기</a>
+              <a style="color: blue;" href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}">삭제하기</a>
           </h3>
         </div>
         {% endif %}
@@ -88,14 +88,9 @@
 
 
     <div class="banner bottom">
-        <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" />
-        </a>
-
-      <a href="{% url 'home'%}"
-        ><img id="home" src="{% static 'bottom_home.png' %}"
-      /></a>
+      <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" /></a>
+      <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home.png' %}"/></a>
       <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
-    </div></div>
     <script>
       $('.service_box').click(function() {
         $('.edit_hide').toggleClass('edit_appear');
