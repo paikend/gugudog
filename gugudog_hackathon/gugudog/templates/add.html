@@ -89,26 +89,45 @@
 
 </style>
 <script>
-    // $(".select2-selection__rendered").click(function(){
-    //   console.log("눌려쪄");
-    //   if($(".select2-selection__choice")[0] != null) {
-    //   if($(".select2-selection__choice")[1] != null) {
-    //     console.log("쨔쟈잔");
-    //   }
-    //   else console.log("뭔가 이쪄용");
-    // }
-    // })
+
+    function formatNumber(num) {
+      if(num !== undefined)
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+
+    /* 숫자를 countUp 해주는 코드 */
+    $(".add_item").each(function() {
+        var $this = $(this),
+          countTo = $this.attr("data-count");
+
+        $({ countNum: $this.text() }).animate(
+          {
+            countNum: countTo
+          },
+
+          {
+            duration: 1200,
+            easing: "linear",
+            step: function() {
+              $this.text(Math.floor(this.countNum));
+            },
+            complete: function() {
+              $this.text(this.countNum);
+              //alert('finished');
+            }
+          }
+        );
+      });
+
+
+
+
     /* 서비스를 지정하면 ajax 통신으로 해당 서비스의 price를 가져오는 코드 */
-    
     
     setInterval(function() {
       if($(".select2-selection__choice").length > 0 && $(".select2-selection__rendered")[0].children.length >= 4) 
         $(".select2-selection__rendered")[0].children[1].remove();
       // 사용자가 서비스를 선택하면
-        // if($(".select2-selection__rendered")[0].children[2]) {
-        //   $(".select2-selection__rendered")[0].children[1].remove();
-        // }
-        console.log("뭔가 있졍");
         var pk;
         // 먼저 해당 서비스의 pk를 알아옵니다.
         $("select option").each(function() {
@@ -132,71 +151,51 @@
           },
           dataType: "json",
           success: function(response) {
-            $(".add_item").text(response+"원");
+            $(".add_item").attr("data-count", response);
+            // $(".add_item").text(formatNumber(response)+"원");
             if($(".select2-selection__rendered")[0].children.length >= 4) 
               $(".select2-selection__rendered")[0].children[1].remove();
+              function formatNumber(num) {
+            if(num !== undefined)
+              return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+            }
+
+            /* 숫자를 countUp 해주는 코드 */
+            if($(".add_item")[0].innerText !== (formatNumber($(".add_item").attr("data-count"))+"원")) {
+            $(".add_item").each(function() {
+                var $this = $(this),
+                  countTo = $this.attr("data-count");
+
+                $({ countNum: $this.text() }).animate(
+                  {
+                    countNum: countTo
+                  },
+
+                  {
+                    duration: 900,
+                    easing: "linear",
+                    step: function() {
+                      $this.text(formatNumber(Math.floor((this.countNum)))+"원");
+                    },
+                    complete: function() {
+                      $this.text(formatNumber(this.countNum)+"원");
+                      // alert('finished');
+                    }
+                  }
+                );
+              });
+            } else if($(".add_item")[0].innerText === (formatNumber($(".add_item").attr("data-count"))+"원")) {
+              console.log('똑같아요');
+            }
           },
           error: function(request, response, status, error) {
-            // console.log(request);
-            
-
             console.log(response);
             console.log(error);
             console.log(request);
-            
           }
         })
         }
-
-
-        // $(".select2-results").remove(); // 선택 옵션 창 지움
-        // $(".select2-selection__choice__remove").remove(); // 서비스 옆 x 지움
-        // $(".select2-search__field").remove(); // 추가 선택 필드 지움
       }, 1000);
 
-    // document.querySelector("body > div.page > form > div:nth-child(2) > span > span.selection > span > ul > span").click(function() {
-    //   console.log("다지웠졍");
-    // });
-
-      /*
-    $(".select2-selection__rendered").click(function(){
-    if($(".select2-selection__rendered")[0].innerText.length > 1) {
-        console.log("뭔가 있졍");
-        var pk;
-        // 먼저 해당 서비스의 pk를 알아옵니다.
-        $("select option").each(function() {
-          if(this.text == $(".select2-selection__choice")[0].title){ // option의 title과 유저가 선택한 서비스의 title이 일치하는지 비교합니다. 시간이 오래 걸릴 수 있는 코드입니다.
-             pk = this.value;
-            };
-        });
-        // 다음은 ajax 통신으로 pk를 전달합니다.
-        $.ajax({
-          type: "POST",
-          url: "{% url 'add' %}",
-          data: {
-            pk: pk,
-            csrfmiddlewaretoken: "{{ csrf_token }}"
-          },
-          dataType: "json",
-          success: function(response) {
-            $(".add_item").text(response+"원");
-            
-            $(".select2-search .select2-search--inline").remove(); // 선택 옵션 창 지움
-            // $(".select2-results").remove(); // 선택 옵션 창 지움
-            // $(".select2-selection__choice__remove").remove(); // 서비스 옆 x 지움
-            // $(".select2-search__field").remove(); // 추가 선택 필드 지움
-          },
-          error: function(request, response, status, error) {
-            // console.log(request);
-            
-
-            console.log(response);
-            console.log(error);
-            console.log(request);
-            
-          }
-        })
-    };
-    });*/
   </script>
 </html>

@@ -57,7 +57,7 @@ def add(request):
             service = get_object_or_404(Service, pk=service_pk)
             print(service)
             print(service.price)
-            return HttpResponse(json.dumps(format(service.price,',')))
+            return HttpResponse(json.dumps(service.price))
         except:  
             gudog_added, created = GuDogService.objects.get_or_create(
                 user=request.user,
