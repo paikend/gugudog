@@ -43,7 +43,7 @@
     <div class="main_banner"><h1> 
     <a class="usernamecolor">{{user}}</a> 회원님의 <br>이번 달 구독 금액은<br> 총 
     <a class="wholemoneycolor">12,900원</a>입니다.</h1></div>
-    <a href="{% url 'logout' %}">로그아웃</a>
+    <div class="logout"><a href="{% url 'logout' %}">로그아웃</a></div>
 
     <div class="service">
 
@@ -58,44 +58,55 @@
         {% endif %}
       {% endfor %}
 
-      <div class="service_box" id = "melon">
-          <h3>멜론 정기 스트리밍<br />
-          3,900원(8월 7일)</h3>
+      <div class="box">
+        <div class="service_box" id = "melon">
+            <h3>멜론 정기 스트리밍<br />
+            3,900원(8월 7일)</h3>
+        </div>
+        <div class="edit_hide">
+            <div class="hide_button"><h5>수정하기</h5></div>
+            <div class="hide_button"><h5>삭제하기</h5></div>
+        </div>
       </div>
-      <div class="edit_hide">
-          <div class="hide_button"><h5>수정하기</h5></div>
-          <div class="hide_button"><h5>삭제하기</h5></div>
+      
+      <div class="box">
+        <div class="service_box" id = "Netflix">
+            <h3>NETFLIX 4K UHD<br />
+            9,000원(8월 10일)</h3>
+        </div>
+        <div class="edit_hide">
+            <div class="hide_button"><h5>수정하기</h5></div>
+            <div class="hide_button"><h5>삭제하기</h5></div>
+        </div>
       </div>
-
-
-      <div class="service_box" id = "Netflix">
-          <h3>NETFLIX 4K UHD<br />
-          9,000원(8월 10일)</h3>
-      </div>
-      <div class="edit_hide">
-          <div class="hide_button"><h5>수정하기</h5></div>
-          <div class="hide_button"><h5>삭제하기</h5></div>
-      </div>
-
 
       <a href="{% url 'add' %}" style="width: 100%;">
-
         <div class="new_service">
           <h3>+ 추가하기<h3>
-        </div>
-        
+        </div>        
       </a>
 
+    </div>
+
+    
 
     <div class="banner bottom">
       <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" /></a>
       <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home.png' %}"/></a>
-      <a href="{% url 'mypage'%}"><img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" /></a>
+      <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
+    </div>
+
     <script>
-      $('.service_box').click(function() {
-        $('.edit_hide').toggleClass('edit_appear');
-        $('.hide_button').toggleClass('appear_button');
+      $('.box').click(function() {
+        $(this).children('.edit_hide').toggleClass('edit_appear');
+        $(this).children('.edit_hide').children('.hide_button').toggleClass('appear_button');
       });
+
+      // $(body).on('click','.box', function() {
+      //   $(this).children('.edit_hide').toggleClass("edit_appear");
+      //   $(this).children('.edit_hide').children('.hide_button').toggleClass('appear_button');
+      // });
+
     </script>
   </body>
 </html>
