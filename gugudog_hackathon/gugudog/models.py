@@ -28,7 +28,7 @@ class Service(models.Model):
    # category = models.CharField(choices=CATEGORY_CHOICES, max_length=50)
    # logo_image = models.FileField()
 
-   def get_price(self):
+    def get_price(self):
         return format(self.price, ',')
 
     def __str__(self):

@@ -38,16 +38,36 @@
   align-items: center;
 }
 
-.main_banner {
+.profileimg {
+  width: 70%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: gray 0.5px solid;
+}
+
+.wholeprofile {
   margin-top: 25%;
   margin-bottom: 15%;
-  height: 90px;
   width: 100%;
+  height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
   object-fit: contain;
+  border: gray 0.5px solid;
+}
+
+.profileimgbox {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_banner {
+  width: 50%;
   line-height: 300%;
+  border: gray 0.5px solid;
 }
 
 .service {

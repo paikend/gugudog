@@ -1,0 +1,61 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- css 버전 수정해가면서 사용하세요. -->
+    <link rel="stylesheet" type="text/css" href="{% static 'mypage.css' %}?v=0.1" />
+
+    <link
+      rel="shortcut icon"
+      type="image⁄x-icon"
+      href="{% static 'logo_dog.png' %}"
+    />
+    <style type="text/css">
+     a:link { color: none; text-decoration: none;}
+     a:visited { color: none; text-decoration: none;}
+     a:hover { color: none; text-decoration: none;}
+    </style>
+
+    <title>gugudog</title>
+  </head>
+  <body>
+
+    <div class="banner top">  
+       <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
+    </a></div>
+
+    <div class="wholeprofile">
+        <div class="profileimgbox">
+        <img class ="profileimg" src="{% static 'logo_circle.png' %}">
+        </div>
+
+        <div class="main_banner"><h2> 
+        <a class="usernamecolor">황철순</a>회원님<br> 
+        안녕하세요!</h2></div>
+    </div>
+    <div class="service">
+        <div class="service_box">
+            <div class="service_banner">
+              <img class="wcafe_icon" src="{% static 'detail_banner_wcafe.jpg' %}" />
+            </div>
+            <div class="service_detail">
+                <h3>3시간마다<br>
+                리필되는<br>
+                커피 한 잔<br></h3>
+            </div>
+          </div>
+
+    <div class="banner bottom">
+        <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" />
+        </a>
+
+      <a href="{% url 'home'%}"
+        ><img id="home" src="{% static 'bottom_home.png' %}"
+      /></a>
+      <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
+    </div></div>
+  </body>
+</html>

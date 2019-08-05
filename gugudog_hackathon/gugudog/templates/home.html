@@ -67,13 +67,17 @@
 
 
     <div class="banner bottom">
-        <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" />
+        <a href="{% url 'service_all'%}">
+        <img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" />
         </a>
 
-      <a href="{% url 'home'%}"
-        ><img id="home" src="{% static 'bottom_home.png' %}"
-      /></a>
-      <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
-    </div></div>
+        <a href="{% url 'home'%}">
+        <img id="home" src="{% static 'bottom_home.png' %}"/>
+        </a>
+        <a href="{% url 'mypage' %}">
+        <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
+        </a>
+    </div>
+  </div>
   </body>
 </html>
