@@ -20,7 +20,7 @@
 }
 
 .top {
-  position: absolute;
+  position: fixed;
   top: 0;
   text-align: center;
 }
@@ -139,8 +139,4 @@
 
 .wholemoneycolor {
   color: rgb(249, 161, 27);
-}
-
-.gugubanner {
-  color: white;
 }
