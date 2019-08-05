@@ -40,12 +40,11 @@
         <label>한달 구독료</label>
         <div class="add_item"></div>
       </div>
-      <button type="submit" class="new_service btn_submit">서비스 추가하기</button>
     </form>
+    <button type="submit" class="new_service btn_submit">서비스 추가하기</button>
     {{ form.media }}
-    
   </div>
-
+  
   <div class="banner bottom">
     <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" />
     </a>
@@ -55,7 +54,6 @@
     <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
   </div>
 </body>
-
 <style>
   /* 옵션 선택하면  */
   .select2-selection__choice[title="---------"] {
@@ -75,4 +73,3 @@
   }
 </style>
 </html>
-
