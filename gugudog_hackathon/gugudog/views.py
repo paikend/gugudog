@@ -5,7 +5,7 @@ from .forms import AddForm
 from .models import *
 from django.contrib.auth.decorators import login_required
 from dal import autocomplete
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.http import require_POST
 import json
 
@@ -51,37 +51,54 @@ def add(request):
     context = {
         'form': form,
         'models': model,
-        'error': '',
     }
 
-    if request.method == "POST":   
-        gudog_added, created = GuDogService.objects.get_or_create(
-            user=request.user,
-            service=Service.objects.get(pk=request.POST['service']),
-            register_date=request.POST['register_date']
-        )
-        
-        print(gudog_added)
-        gudog_qs = GuDog.objects.filter(user=request.user)
-        if gudog_qs.exists():
-            gudog = gudog_qs[0]
-            # 이미 해당 서비스를 구독했으면
-            if gudog.services.filter(service__pk=gudog_added.service.pk).exists():
-                gudog_added.delete()
-                return redirect('add')
+    if request.method == "POST": 
+        try:
+            service_pk = request.POST.get('pk', False)
+            service = get_object_or_404(Service, pk=service_pk)
+            print(service)
+            print(service.price)
+            return HttpResponse(json.dumps(service.price))
+        except:  
+            gudog_added, created = GuDogService.objects.get_or_create(
+                user=request.user,
+                service=Service.objects.get(pk=request.POST['service']),
+                register_date=request.POST['register_date']
+            )
+            
+            print(gudog_added)
+            gudog_qs = GuDog.objects.filter(user=request.user)
+            if gudog_qs.exists():
+                gudog = gudog_qs[0]
+                # 이미 해당 서비스를 구독했으면
+                if gudog.services.filter(service__pk=gudog_added.service.pk).exists():
+                    gudog_added.delete()
+                    return redirect('add')
+                else:
+                    gudog.services.add(gudog_added)
+                    service = Service.objects.get(pk=gudog_added.service.pk)
+                    service.gudog_users.add(request.user)
+                    return redirect('home')
             else:
+                gudog_added.save()
+                gudog = GuDog.objects.create(user=request.user)
                 gudog.services.add(gudog_added)
                 service = Service.objects.get(pk=gudog_added.service.pk)
                 service.gudog_users.add(request.user)
                 return redirect('home')
-        else:
-            gudog_added.save()
-            gudog = GuDog.objects.create(user=request.user)
-            gudog.services.add(gudog_added)
-            service = Service.objects.get(pk=gudog_added.service.pk)
-            service.gudog_users.add(request.user)
-            return redirect('home')
     else:
+        # GET 방식으로 요청이 들어오면
+        # ajax 요청이면 try 실행
+        # try:
+        #     pk = request.GET.get('pk')
+        #     service = get_object_or_404(Service, pk=pk)
+        #     print(service)
+        #     context['service']=service
+        #     print(context.service.price)
+        #     return JsonResponse(context['service'])
+        # # ajax 요청이 아니면 그냥 add 페이지 render
+        # except:
         return render(request, 'add.html', context)
 
 @login_required(login_url='signup/')
