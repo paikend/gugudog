@@ -36,7 +36,7 @@ def recommendation(request):
 
 def signup(request):
     return render(request, 'registration/signup.html')
-    
+
 @login_required(login_url='signup/')
 def mypage(request):
     return render(request, 'mypage.html')
@@ -235,3 +235,20 @@ def test2(request):
             'interests':interests
         }
         return render(request, 'test2.html', context)
+
+@login_required(login_url='signup/')
+def test3(request):
+    my_interest = InterestService.objects.filter(user=request.user)
+    my_inter_list = []
+    for i in my_interest:
+        my_inter_list.append(i.interest_cate.name)
+    print(my_inter_list)
+
+    my_reco = []
+    for i in my_inter_list:
+        my_reco.append(Service.objects.filter(category__name=i))
+
+    context = {
+        'my_reco':my_reco[0]
+    }
+    return render(request, 'test3.html', context)
