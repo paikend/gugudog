@@ -3,6 +3,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145178223-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-145178223-1');
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -49,8 +58,8 @@
           {% endif %}
         </div>
       </div>
+      <button type="submit" class="new_service btn_submit">서비스 추가하기</button>
     </form>
-    <button type="submit" class="new_service btn_submit">서비스 추가하기</button>
     {{ form.media }}
   </div>
   
@@ -99,7 +108,7 @@
     $(".add_item").each(function() {
         var $this = $(this),
           countTo = $this.attr("data-count");
-
+          console.log(countTo);
         $({ countNum: $this.text() }).animate(
           {
             countNum: countTo
@@ -110,6 +119,7 @@
             easing: "linear",
             step: function() {
               $this.text(Math.floor(this.countNum));
+              
             },
             complete: function() {
               $this.text(this.countNum);
@@ -165,7 +175,7 @@
             $(".add_item").each(function() {
                 var $this = $(this),
                   countTo = $this.attr("data-count");
-
+                
                 $({ countNum: $this.text() }).animate(
                   {
                     countNum: countTo

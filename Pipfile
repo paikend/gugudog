@@ -10,6 +10,7 @@ django = "*"
 django-allauth = "*"
 django-autocomplete-light = "*"
 django-widget-tweaks = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7"
