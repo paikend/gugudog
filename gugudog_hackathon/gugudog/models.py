@@ -33,7 +33,11 @@ class Service(models.Model):
     full_name = models.OneToOneField(
       'self', on_delete=models.CASCADE, null=True, blank=True)
    # category = models.CharField(choices=CATEGORY_CHOICES, max_length=50)
-   # logo_image = models.FileField()
+    image = models.ImageField(upload_to='logo_images', null=True, blank=True)
+# @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
 
     gudog_users = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
@@ -66,6 +70,15 @@ class GuDogService(models.Model):
         blank=True,
     )
     register_date = models.DateTimeField(null=True, blank=True)
+
+    # def get_total(self):
+    #     services = self.objects.all()
+    #     for servic
+    #     total_price = 0
+    #     for service in services:
+    #         total_price += service.price
+        
+        # return total_price
 
     def __str__(self):
         return f"{self.user} {self.service}"       

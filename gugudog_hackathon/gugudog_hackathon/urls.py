@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from gugudog import views
 from django.conf.urls import url
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -41,4 +43,5 @@ urlpatterns = [
     path('test/', views.test, name='test'),
     path('test2/', views.test2, name='test2'),
     path('test3/', views.test3, name='test3'),
-]
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
