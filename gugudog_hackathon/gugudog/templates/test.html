@@ -4,9 +4,9 @@
 <form method='POST' action="{% url 'test2' %}">{% csrf_token %}
     {% for cate in categories %}
         {% if cate.name in my_inter_list %}
-            {{ cate.name }},{{ cate.pk }}<input type='checkbox' name='cate_checked' value={{cate.pk}} checked><br>
+            {{ cate.name }}<input type='checkbox' name='cate_checked' value={{cate.pk}} checked><br>
         {% else %}
-            {{ cate.name }},{{ cate.pk }}<input type='checkbox' name='cate_checked' value={{cate.pk}}><br>
+            {{ cate.name }}<input type='checkbox' name='cate_checked' value={{cate.pk}}><br>
         {% endif %}
     {% endfor %}
     <button type='submit'>저장</button>
