@@ -27,6 +27,7 @@ urlpatterns = [
     path('signup/', views.signup, name="signup"),
     path('mypage/', views.mypage, name="mypage"),
     path('add/', views.add, name="add"),
+    path('hot/', views.hot, name="hot"),
     path('recommendation', views.recommendation, name="recommendation"),
     path('sevice_detail/<int:service_pk>/',
          views.service_detail, name='service_detail'),

@@ -30,6 +30,9 @@ def service_all(request):
     return render(request, 'service_all.html', context)
 
 @login_required(login_url='signup/')
+def hot(request):
+    return render(request, 'hot.html')
+
 def recommendation(request):
     return render(request, 'recommendation.html')
 

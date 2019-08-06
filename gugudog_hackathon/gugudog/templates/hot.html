@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'hot.css' %}?v=0.1" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="eight columns all slider main_banner">
+        <img class="banner_img hide" src="{% static 'main_banner_example.png' %}" >
+        <img class="banner_img hide" src="{% static 'detail_banner_weeklyshirts.jpg' %}" >
+        <img class="banner_img hide" src="{% static 'detail_banner_netflix.png' %}" >
+    </div>
+
+    <script>
+        var listPict = document.getElementsByClassName('slider')[0].children;
+        //This is the latest img, it will serve to know wich img to hide
+        var old = listPict.length - 1;
+        //This will represent the current img to show
+        var current = 0;
+
+        //The timeout will recall this function every 3 sec
+        function loop() {
+            //We set the class of the current img to show
+            listPict[current].setAttribute('class', 'show');
+            //We hide the last img
+            listPict[old].setAttribute('class', 'hide');
+
+            //Update the variables !
+            old = current;
+            current++;
+
+            //If the current is bigger then the list of images, return to 0
+            if (current === listPict.length)
+                current = 0;
+
+            //Recall every 3 sec
+            //Note that we don't put () because we don't want to execute it right away
+            setTimeout(loop, 3000);
+            }
+
+        loop();
+    </script>
+</body>
+</html>
