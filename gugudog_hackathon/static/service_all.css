@@ -9,6 +9,18 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+  .usernamecolor {
+    color: rgb(249, 161, 27);
+  }
+  
+  .gugubanner {
+    color: white;
+  }
+  
+  .wholemoneycolor {
+    color: rgb(249, 161, 27);
+  }
   
   /* banner */
   .banner {

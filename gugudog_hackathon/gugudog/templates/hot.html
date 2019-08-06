@@ -6,43 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="{% static 'hot.css' %}?v=0.1" />
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'service_all.css' %}?v=0.1" />
+    <link rel="shortcut icon" type="image⁄x-icon" href="{% static 'logo_dog.png' %}"/>
+    <style type="text/css">
+      a:link { color: none; text-decoration: none;}
+      a:visited { color: none; text-decoration: none;}
+      a:hover { color: none; text-decoration: none;}
+    </style>
+    <title>gugudog</title>
 </head>
 <body>
-    <div class="eight columns all slider main_banner">
-        <img class="banner_img hide" src="{% static 'main_banner_example.png' %}" >
-        <img class="banner_img hide" src="{% static 'detail_banner_weeklyshirts.jpg' %}" >
-        <img class="banner_img hide" src="{% static 'detail_banner_netflix.png' %}" >
+    <div class="banner top">
+        <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
+    </div>
+    
+    <div class="category">
+        <div class="category_btn"><a href="{% url 'service_all'%}"><h5>전체</h5></a><div class="btn_default"></div></div>
+        <div class="category_btn"><a href="{% url 'hot'%}"><h5>HOT</h5></a><div id="line" class="btn_chosen"></div></div>
+        <div class="category_btn"><h5>NEW</h5><div id="line" class="btn_default"></div></div>
+        <div class="category_btn"><h5>태그별</h5><div id="line" class="btn_default"></div></div>
+        <div class="category_btn"><a href="{% url 'recommendation'%}"><h5>My추천</h5></a><div id="line" class="btn_default"></div></div>
     </div>
 
-    <script>
-        var listPict = document.getElementsByClassName('slider')[0].children;
-        //This is the latest img, it will serve to know wich img to hide
-        var old = listPict.length - 1;
-        //This will represent the current img to show
-        var current = 0;
+    <div class="main_banner_txt">
+        <h1><a class="usernamecolor">구구독&nbsp</a>회원님에게<br>
+        추천하는<br>
+        <a class="wholemoneycolor">8월</a>의 인기 서비스</h1>
+    </div>
 
-        //The timeout will recall this function every 3 sec
-        function loop() {
-            //We set the class of the current img to show
-            listPict[current].setAttribute('class', 'show');
-            //We hide the last img
-            listPict[old].setAttribute('class', 'hide');
-
-            //Update the variables !
-            old = current;
-            current++;
-
-            //If the current is bigger then the list of images, return to 0
-            if (current === listPict.length)
-                current = 0;
-
-            //Recall every 3 sec
-            //Note that we don't put () because we don't want to execute it right away
-            setTimeout(loop, 3000);
-            }
-
-        loop();
-    </script>
+    <div class="banner bottom">
+        <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" /></a>
+        <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home.png' %}"/></a>
+        <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
+    </div>
 </body>
 </html>
