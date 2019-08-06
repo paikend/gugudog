@@ -58,8 +58,8 @@
           {% endif %}
         </div>
       </div>
+      <button type="submit" class="new_service btn_submit">서비스 추가하기</button>
     </form>
-    <button type="submit" class="new_service btn_submit">서비스 추가하기</button>
     {{ form.media }}
   </div>
   
@@ -108,7 +108,7 @@
     $(".add_item").each(function() {
         var $this = $(this),
           countTo = $this.attr("data-count");
-
+          console.log(countTo);
         $({ countNum: $this.text() }).animate(
           {
             countNum: countTo
@@ -119,6 +119,7 @@
             easing: "linear",
             step: function() {
               $this.text(Math.floor(this.countNum));
+              
             },
             complete: function() {
               $this.text(this.countNum);
@@ -174,7 +175,7 @@
             $(".add_item").each(function() {
                 var $this = $(this),
                   countTo = $this.attr("data-count");
-
+                
                 $({ countNum: $this.text() }).animate(
                   {
                     countNum: countTo
