@@ -242,13 +242,15 @@ def test3(request):
     my_inter_list = []
     for i in my_interest:
         my_inter_list.append(i.interest_cate.name)
-    print(my_inter_list)
+    # print(my_inter_list)
 
     my_reco = []
     for i in my_inter_list:
-        my_reco.append(Service.objects.filter(category__name=i))
+        a = Service.objects.filter(category__name=i).values()
+        for element in a :
+            my_reco.append(element)
 
     context = {
-        'my_reco':my_reco[0]
+        'my_reco':my_reco
     }
     return render(request, 'test3.html', context)
