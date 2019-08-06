@@ -1,0 +1,36 @@
+:root {
+    --gugu-orange: rgb(249, 161, 27);
+    --gugu-gray: rgb(82, 97, 106);
+    --gugu-lightorange: rgb(255, 233, 220);
+} 
+
+.tag{
+    display: flex;
+    margin-bottom: 3%;
+    background: white;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 55px;
+    width: 100%;
+    /* margin-bottom : 3%; */
+    /* border: red 0.5px solid; */
+}
+
+.click{
+    background-color: rgba(82, 97, 106, 0.2);
+    padding: 2%;
+    border-radius: 15%;
+}
+
+.service{
+    margin-bottom: 5%;
+}
+
+.section_bar{
+    display: flex;
+    width: fit-content;
+    height: 15%;
+    padding: 1% 3%;
+    background-color: var(--gugu-orange);
+    border-radius: 15%;
+}
