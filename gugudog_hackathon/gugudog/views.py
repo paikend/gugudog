@@ -15,8 +15,15 @@ def home(request):
 
     gudog = GuDogService.objects.filter(user=request.user)
 
+    total_price = 0
+    
+    for service in gudog.values():
+        gudogService = Service.objects.get(pk=service['service_id'])
+        total_price += gudogService.price
+
     context = {
         'gudog': gudog,
+        'total_price': total_price,
     }
     return render(request, 'home.html', context)
 

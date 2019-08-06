@@ -152,3 +152,5 @@ SITE_ID = 2
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'signup/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
