@@ -10,7 +10,7 @@ from django.views.decorators.http import require_POST
 import json
 
 # Create your views here.
-@login_required(login_url='signup/')
+@login_required(login_url='signup')
 def home(request):
 
     gudog = GuDogService.objects.filter(user=request.user)
@@ -20,7 +20,7 @@ def home(request):
     }
     return render(request, 'home.html', context)
 
-@login_required(login_url='signup/')
+@login_required(login_url='signup')
 def service_all(request):
     services = Service.objects.all()
 
@@ -29,7 +29,7 @@ def service_all(request):
     }
     return render(request, 'service_all.html', context)
 
-@login_required(login_url='signup/')
+@login_required(login_url='signup')
 def recommendation(request):
     return render(request, 'recommendation.html')
 
@@ -37,7 +37,7 @@ def recommendation(request):
 def signup(request):
     return render(request, 'registration/signup.html')
 
-@login_required(login_url='signup/')
+@login_required(login_url='signup')
 def mypage(request):
     return render(request, 'mypage.html')
 
@@ -45,7 +45,7 @@ def logout(request):
     auth.logout(request)
     return redirect('signup')
 
-@login_required(login_url='signup/')
+@login_required(login_url='signup')
 def add(request):
     model = GuDogService.objects.all()
     form = AddForm()
@@ -102,7 +102,7 @@ def add(request):
         # except:
         return render(request, 'add.html', context)
 
-@login_required(login_url='signup/')
+@login_required(login_url='signup')
 def delete_service(request, gudog_service_pk, model_service_pk):
     deletingService = GuDogService.objects.get(pk=gudog_service_pk)
 
@@ -114,7 +114,7 @@ def delete_service(request, gudog_service_pk, model_service_pk):
     deletingService.delete()
     return redirect('home')
 
-@login_required(login_url='signup/')
+@login_required(login_url='signup')
 def service_detail(request, service_pk):
     service = Service.objects.get(pk=service_pk)
     context = {
@@ -128,7 +128,7 @@ def service_detail(request, service_pk):
     return render(request, 'service_detail.html', context)
 
 
-@login_required(login_url='signup/')
+@login_required(login_url='signup')
 def zzim(request):
     context = {
         'zzim':"찜했어용",
@@ -168,7 +168,7 @@ def zzim(request):
     
     return HttpResponse(json.dumps(context))
 
-@login_required(login_url='signup/')
+@login_required(login_url='signup')
 def mp(request):
     zzim = ZzimService.objects.filter(user=request.user)
     context = {
@@ -176,7 +176,7 @@ def mp(request):
     }
     return render(request, "mp.html", context)
 
-@login_required(login_url='signup/')
+@login_required(login_url='signup')
 def delete_zzim(request, zzim_service_pk, model_service_pk):
     deletingService = ZzimService.objects.get(pk=zzim_service_pk)
     deletingService.delete()
@@ -186,7 +186,7 @@ def delete_zzim(request, zzim_service_pk, model_service_pk):
 
     return redirect('home')
 
-@login_required(login_url='signup/')
+@login_required(login_url='signup')
 def test(request):
     categories = Category.objects.all()
     my_interests = InterestService.objects.filter(user=request.user)
@@ -200,7 +200,7 @@ def test(request):
     }
     return render(request, 'test.html', context)
 
-@login_required(login_url='signup/')
+@login_required(login_url='signup')
 def test2(request):
     interest_pk = request.POST.getlist('cate_checked')
 
@@ -236,7 +236,7 @@ def test2(request):
         }
         return render(request, 'test2.html', context)
 
-@login_required(login_url='signup/')
+@login_required(login_url='signup')
 def test3(request):
     my_interest = InterestService.objects.filter(user=request.user)
     my_inter_list = []
