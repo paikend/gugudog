@@ -27,14 +27,16 @@
 
     <div class="category">
       <div class="category_btn"><a href="{% url 'service_all'%}"><h5>전체</h5></a><div class="btn_chosen"></div></div>
-      <div class="category_btn"><h5>HOT</h5><div id="line" class="btn_default"></div></div>
+      <div class="category_btn"><a href="{% url 'hot'%}"><h5>HOT</h5></a><div id="line" class="btn_default"></div></div>
       <div class="category_btn"><h5>NEW</h5><div id="line" class="btn_default"></div></div>
-      <div class="category_btn"><h5>태그별</h5><div id="line" class="btn_default"></div></div>
+      <div class="category_btn"><a href="{% url 'tag'%}"><h5>태그별</h5></a><div id="line" class="btn_default"></div></div>
       <div class="category_btn"><a href="{% url 'recommendation'%}"><h5>My추천</h5></a><div id="line" class="btn_default"></div></div>
     </div>
 
-    <div class="main_banner">
-      <img class="banner_img" src="{% static 'main_banner_example.png' %}" />
+    <div class="slider main_banner">
+      <img class="banner_img hide" src="{% static 'main_banner_example.png' %}" >
+      <img class="banner_img hide" src="{% static 'detail_banner_netflix.png' %}" >
+      <img class="banner_img hide" src="{% static 'YTP_logo.png' %}" >
     </div>
 
     <div class="service">
@@ -80,12 +82,36 @@
     </div>
 
     <script>
-      let btn = document.getElementsByClassName('category_btn')
-      console.log(btn)
-      btn.addEventListener("click", function(){
-        console.log("click");
-      });
-    </script>
+      var listPict = document.getElementsByClassName('slider')[0].children;
+      //This is the latest img, it will serve to know wich img to hide
+      var old = listPict.length - 1;
+      //This will represent the current img to show
+      var current = 0;
+      console.log(listPict);
+      console.log(old);
+
+      //The timeout will recall this function every 3 sec
+      function loop() {
+
+        listPict[current].setAttribute('class', 'show');
+        listPict[old].setAttribute('class', 'hide');
+        console.log(listPict[current], listPict[old]);
+
+        //Update the variables !
+        old = current;
+        current++;
+
+        //If the current is bigger then the list of images, return to 0
+        if (current === listPict.length)
+            current = 0;
+
+        //Recall every 3 sec
+        //Note that we don't put () because we don't want to execute it right away
+        setTimeout(loop, 3000);
+        }
+
+        loop();
+      </script>
 
   </body>
   

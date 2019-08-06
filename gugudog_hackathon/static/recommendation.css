@@ -37,41 +37,28 @@
   line-height: 170%;
 }
 
-.service {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 100px;
-  margin-left: 5%;
-  margin-right: 5%;
-  /* background-color: antiquewhite; */
-}
-
 .wcafe_icon {
   width: 80%;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.service_banner {
+/* .service_banner {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 35%;
   height: 93.75%;
-  /* border: gray 0.5px solid; */
+  border: gray 0.5px solid;
 }
-
 .service_detail {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 40%;
   height: 93.75%;
-  /* border: gray 0.5px solid; */
-}
+  border: gray 0.5px solid;
+} */
 
 #serviceall,
 #home,
@@ -84,9 +71,10 @@
   color: rgb(249, 161, 27);
 }
 
-.wholemoneycolor {
-  color: rgb(249, 161, 27);
-
 .gugubanner {
   color: white;
+}
+
+.wholemoneycolor {
+  color: rgb(249, 161, 27);
 }

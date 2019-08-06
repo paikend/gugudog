@@ -1,181 +1,228 @@
 :root {
-    --gugu-orange: rgb(249, 161, 27);
-    --gugu-gray: rgb(82, 97, 106);
-    --gugu-lightorange: rgb(255, 233, 220);
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* banner */
-  .banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    background-color: rgb(249, 161, 27);
-  }
-  
-  .gugubanner {
-    color: white;
-  }
-  
-  .top {
-    position: fixed;
-    top: 0;
-    text-align: center;
-  }
-  
-  #bannerlogo {
-    height: auto;
-    width: 15%;
-  }
-  
-  .bottom {
-    position: fixed;
-    bottom: 0;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  
-  #serviceall, #home, #mypage {
-    width: 30px;
-    height: auto;
-  }
-  
-  /* service_all */
-  
-  .main_banner {
-    height: auto;
-    width: 100%;
-    object-fit: contain;
-    background-color: white;
-    padding: 30px 0px;
-    margin-top: 100px;
-    /* border: blue 0.5px solid; */
-  }
-  
-  /* @media (min-width: 1000px) {
-  #minjok {
-      width: 800px;
-      height: auto;
-  }
-  } */
-  
-  .category {
-    position: fixed;
-    top: 50px;
-    display: flex;
-    background: white;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 55px;
-    width: 100%;
-    /* margin-bottom : 3%; */
-    /* border: red 0.5px solid; */
-  }
-  
-  .category_btn {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: center;
-    height: 65%;
-    width: 18%;
-    /* border: red 0.5px solid; */
-  }
-  
-  .btn_default{
-    display:flex;
-    width: 80%;
-    height: 3px;
-  }
-  
-  .btn_chosen{
-    display:flex;
-    width: 70%;
-    height: 3px;
-    background-color: var(--gugu-orange);
-  }
-  
-  .service {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 100px;
-    margin-left: 0 5%;
-    /* background-color: antiquewhite; */
-  }
-  
-  .service_box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 90%;
-    height: auto;
-    margin-bottom: 7%;
-    box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.16), 0 2px 3px rgba(0, 0, 0, 0.23);
-    /* border: gray 0.5px solid; */
-    border-radius: 8px;
-    /* color: white; */
-    line-height: 170%;
-    padding: 3%;
-  }
-  
-  .service_banner {
-    display: flex;
-    width: 40%;
-    height: 6rem;
-    /* border: gray 0.5px solid; */
-  }
-  
-  .service_detail {
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    /* border: blue 0.5px solid; */
-  }
+  --gugu-orange: rgb(249, 161, 27);
+  --gugu-gray: rgb(82, 97, 106);
+  --gugu-lightorange: rgb(255, 233, 220);
+}
 
-  
-  .banner_img{
-    width: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.usernamecolor {
+  color: rgb(249, 161, 27);
+}
+
+.gugubanner {
+  color: white;
+}
+
+.wholemoneycolor {
+  color: rgb(249, 161, 27);
+}
+
+/* banner */
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: rgb(249, 161, 27);
+  z-index: 100;
+}
+
+.gugubanner {
+  color: white;
+}
+
+.top {
+  position: fixed;
+  top: 0;
+  text-align: center;
+}
+
+#bannerlogo {
+  height: auto;
+  width: 15%;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+#serviceall, #home, #mypage {
+  width: 30px;
+  height: auto;
+}
+
+/* service_all */
+
+/* @media (min-width: 1000px) {
+#minjok {
+    width: 800px;
     height: auto;
-    object-fit: fill;
-  }
-  .circle {
-    border-radius: 100%;
-    border: 1px solid rgb(224,224,224);
-    width:80%;
-  } 
+}
+} */
 
-  .description{
-    display: flex;
-    width: 100%;
-    /* border: red 1px solid; */
-  }
+/* category bar */
+.category {
+  position: fixed;
+  top: 50px;
+  display: flex;
+  background: white;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 55px;
+  width: 100%;
+  z-index: 100;
+  /* margin-bottom : 3%; */
+  /* border: red 0.5px solid; */
+}
 
-  .title{
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
+.category_btn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  height: 65%;
+  width: 18%;
+  /* border: red 0.5px solid; */
+}
 
-  .content{
-    font-size: 0.9rem;
-    
-  }
+.btn_default{
+  display:flex;
+  width: 80%;
+  height: 3px;
+}
 
-  .price{
-    font-weight: bold;
-  }
+.btn_chosen{
+  display:flex;
+  width: 70%;
+  height: 3px;
+  background-color: var(--gugu-orange);
+}
+
+/* banner   */
+.main_banner {
+  display:flex;
+  overflow: hidden;
+  object-fit: cover;
+  min-height: 200px;
+  max-height: 200px;
+  width: 100%;
+  background-color: white;
+  padding: 30px 0px;
+  margin-top: 100px;
+  justify-content: center;
+  /* border: blue 0.5px solid; */
+}
+
+.slider img{
+  display: flex;
+  object-fit: cover;
+  /* height: 95%; */
+  width:95%;
+}
+
+.slider img.show{
+  display: flex;
+  transition: 1.0s ease-in-out;
+  max-height: 100%;
+  /* -webkit-transition:all 1.0s ease-in-out;
+  -moz-transition:all 1.0s ease-in-out;
+  -o-transition:all 1.0s ease-in-out; */
+}
+
+.slider img.hide{
+  display: none;
+  transition: 1.0s ease-in-out;
+
+  /* -webkit-transition:all 1.0s ease-in-out;
+  -moz-transition:all 1.0s ease-in-out;
+  -o-transition:all 1.0s ease-in-out; */
+}
+
+
+/* sevice box */
+.service {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+  margin-left: 0 5%;
+  /* background-color: antiquewhite; */
+}
+
+.service_box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 90%;
+  height: auto;
+  margin-bottom: 7%;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.16), 0 2px 3px rgba(0, 0, 0, 0.23);
+  /* border: gray 0.5px solid; */
+  border-radius: 8px;
+  /* color: white; */
+  line-height: 170%;
+  padding: 3%;
+}
+
+.service_banner {
+  display: flex;
+  width: 40%;
+  height: 6rem;
+  /* border: gray 0.5px solid; */
+}
+
+.service_detail {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  /* border: blue 0.5px solid; */
+}
+
+
+.banner_img{
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.circle {
+  border-radius: 100%;
+  border: 1px solid rgb(224,224,224);
+  width:80%;
+} 
+
+.description{
+  display: flex;
+  width: 100%;
+  /* border: red 1px solid; */
+}
+
+.title{
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.content{
+  font-size: 0.9rem;
+}
+
+.price{
+  font-weight: bold;
+}
