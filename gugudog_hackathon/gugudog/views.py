@@ -37,6 +37,7 @@ def recommendation(request):
 def signup(request):
     return render(request, 'registration/signup.html')
 
+@login_required(login_url='signup/')
 def mypage(request):
     return render(request, 'mypage.html')
 
@@ -102,7 +103,6 @@ def add(request):
         return render(request, 'add.html', context)
 
 @login_required(login_url='signup/')
-
 def delete_service(request, gudog_service_pk, model_service_pk):
     deletingService = GuDogService.objects.get(pk=gudog_service_pk)
 
@@ -127,6 +127,8 @@ def service_detail(request, service_pk):
     
     return render(request, 'service_detail.html', context)
 
+
+@login_required(login_url='signup/')
 def zzim(request):
     context = {
         'zzim':"찜했어용",
@@ -166,7 +168,7 @@ def zzim(request):
     
     return HttpResponse(json.dumps(context))
 
-
+@login_required(login_url='signup/')
 def mp(request):
     zzim = ZzimService.objects.filter(user=request.user)
     context = {
@@ -184,20 +186,21 @@ def delete_zzim(request, zzim_service_pk, model_service_pk):
 
     return redirect('home')
 
-
+@login_required(login_url='signup/')
 def test(request):
     categories = Category.objects.all()
     my_interests = InterestService.objects.filter(user=request.user)
     my_inter_list = []
     for i in my_interests:
         my_inter_list.append(i.interest_cate.name)
-    print(my_inter_list)
+
     context = {
         'categories':categories,
         'my_inter_list':my_inter_list
     }
     return render(request, 'test.html', context)
 
+@login_required(login_url='signup/')
 def test2(request):
     interest_pk = request.POST.getlist('cate_checked')
 
@@ -232,3 +235,22 @@ def test2(request):
             'interests':interests
         }
         return render(request, 'test2.html', context)
+
+@login_required(login_url='signup/')
+def test3(request):
+    my_interest = InterestService.objects.filter(user=request.user)
+    my_inter_list = []
+    for i in my_interest:
+        my_inter_list.append(i.interest_cate.name)
+    # print(my_inter_list)
+
+    my_reco = []
+    for i in my_inter_list:
+        a = Service.objects.filter(category__name=i).values()
+        for element in a :
+            my_reco.append(element)
+
+    context = {
+        'my_reco':my_reco
+    }
+    return render(request, 'test3.html', context)
