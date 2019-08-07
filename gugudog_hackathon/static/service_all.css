@@ -10,6 +10,18 @@
   box-sizing: border-box;
 }
 
+.usernamecolor {
+  color: rgb(249, 161, 27);
+}
+
+.gugubanner {
+  color: white;
+}
+
+.wholemoneycolor {
+  color: rgb(249, 161, 27);
+}
+
 /* banner */
 .banner {
   display: flex;
@@ -18,6 +30,7 @@
   width: 100%;
   height: 50px;
   background-color: rgb(249, 161, 27);
+  z-index: 100;
 }
 
 .gugubanner {
@@ -77,6 +90,7 @@
   align-items: center;
   height: 55px;
   width: 100%;
+  z-index: 100;
   /* margin-bottom : 3%; */
   /* border: red 0.5px solid; */
 }
@@ -104,6 +118,47 @@
   background-color: var(--gugu-orange);
 }
 
+/* banner   */
+.main_banner {
+  display: flex;
+  overflow: hidden;
+  object-fit: cover;
+  min-height: 200px;
+  max-height: 200px;
+  width: 100%;
+  background-color: white;
+  padding: 30px 0px;
+  margin-top: 100px;
+  justify-content: center;
+  /* border: blue 0.5px solid; */
+}
+
+.slider img {
+  display: flex;
+  object-fit: cover;
+  /* height: 95%; */
+  width: 95%;
+}
+
+.slider img.show {
+  display: flex;
+  transition: 1s ease-in-out;
+  max-height: 100%;
+  /* -webkit-transition:all 1.0s ease-in-out;
+  -moz-transition:all 1.0s ease-in-out;
+  -o-transition:all 1.0s ease-in-out; */
+}
+
+.slider img.hide {
+  display: none;
+  transition: 1s ease-in-out;
+
+  /* -webkit-transition:all 1.0s ease-in-out;
+  -moz-transition:all 1.0s ease-in-out;
+  -o-transition:all 1.0s ease-in-out; */
+}
+
+/* sevice box */
 .service {
   display: flex;
   flex-wrap: wrap;
@@ -151,9 +206,10 @@
 
 .banner_img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: fill;
 }
+
 .circle {
   border-radius: 100%;
   border: 1px solid rgb(224, 224, 224);

@@ -30,6 +30,8 @@ urlpatterns = [
     path('mypage/', views.mypage, name="mypage"),
     path('add/', views.add, name="add"),
     path('recommendation', views.recommendation, name="recommendation"),
+    path('tag', views.tag, name="tag"),
+    path('hot', views.hot, name="hot"),
     path('sevice_detail/<int:service_pk>/',
          views.service_detail, name='service_detail'),
 

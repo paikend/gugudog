@@ -36,6 +36,22 @@ def service_all(request):
     }
     return render(request, 'service_all.html', context)
 
+def hot(request):
+    services = Service.objects.all()
+
+    context = {
+        'services': services,
+    }
+    return render(request, 'hot.html', context)
+
+def tag(request):
+    services = Service.objects.all()
+
+    context = {
+        'services': services,
+    }
+    return render(request, 'tag.html', context)
+
 @login_required(login_url='signup')
 def recommendation(request):
     return render(request, 'recommendation.html')
