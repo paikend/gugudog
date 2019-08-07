@@ -32,7 +32,7 @@ urlpatterns = [
     path('recommendation', views.recommendation, name="recommendation"),
     path('tag', views.tag, name="tag"),
     path('hot', views.hot, name="hot"),
-    path('sevice_detail/<int:service_pk>/',
+    path('service_detail/<int:service_pk>/',
          views.service_detail, name='service_detail'),
 
     path('delete/<int:gudog_service_pk>/<int:model_service_pk>', views.delete_service, name="delete_service"),
