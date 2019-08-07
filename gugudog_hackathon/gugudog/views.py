@@ -82,26 +82,36 @@ def add(request):
         try:
             service_pk = request.POST.get('pk', False)
             service = get_object_or_404(Service, pk=service_pk)
-
             return HttpResponse(json.dumps(service.price))
-        except:  
+
+        except:
+
+            # 구독한 날짜를 기입하지 않았을 경우 error를 띄운다.
+            if request.POST['register_date'] == "":
+                context['error_date'] = "구독한 날짜를 입력해주세요"
+                return render(request, 'add.html', context)
+
             gudog_added, created = GuDogService.objects.get_or_create(
                 user=request.user,
                 service=Service.objects.get(pk=request.POST['service']),
                 register_date=request.POST['register_date']
             )
-            
+  
             gudog_qs = GuDog.objects.filter(user=request.user)
             if gudog_qs.exists():
                 gudog = gudog_qs[0]
+  
                 # 이미 해당 서비스를 구독했으면
                 if gudog.services.filter(service__pk=gudog_added.service.pk).exists():
-                    gudog_added.delete()
-                    return redirect('add')
+                    if created:
+                        gudog_added.delete()
+                
+                    return render(request, 'add.html', context)
                 else:
                     gudog.services.add(gudog_added)
                     service = Service.objects.get(pk=gudog_added.service.pk)
                     service.gudog_users.add(request.user)
+                    
                     return redirect('home')
             else:
                 gudog_added.save()
