@@ -28,6 +28,12 @@
     <!-- 링크 charfield -->
     <p>{{ service.description }}</p>
     <!-- 설명 textfield -->
+
+    <p>{{ service.get_gudog_users }}명이 구독한 서비스에요</p>
+    <!-- 구독한 유저수를 get_gudog_users를 이용해 표현 -->
+    <p>{{ service.get_zzim_users }}명이 찜한 서비스에요</p>
+    <!-- 찜한 유저수를 get_zzim_users를 이용해 표현 -->
+    
     <button class="zzim" name="{{ service.pk }}" value="Zzim">찜</button>
     <div class="banner bottom">
       <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" />
