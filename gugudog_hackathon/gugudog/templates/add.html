@@ -27,12 +27,17 @@
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"
   ></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
   <style type="text/css">
     a:link { color: none; text-decoration: none;}
     a:visited { color: none; text-decoration: none;}
     a:hover { color: none; text-decoration: none;}
-   </style>
+    body{
+       font-weight: 300;
+       font-family: 'NanumSquare', sans-serif; 
+     }
+  </style>
   <title>gugudog</title>
 </head>
 
@@ -64,13 +69,23 @@
   </div>
   
   <div class="banner bottom">
-    <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" />
-    </a>
-    <a href="{% url 'home'%}"
-      ><img id="home" src="{% static 'bottom_home.png' %}"
-    /></a>
-    <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
-  </div>
+      <div class="icons">
+        <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_service_2.png' %}" />
+          <p>스토어</p>
+        </a>
+      </div>
+      <div class="icons">
+        <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home_3.png' %}"/>
+          <p>홈</p>
+        </a>
+      </div>
+      <div class="icons">
+          <a href="{% url 'mypage'%}"><img id="mypage" src="{% static 'bottom_mypage_2.png' %}" />
+          <p>마이페이지</p>
+          </a>   
+      </div>
+    </div>
+
 </body>
 <style>
   /* 옵션 선택하면  */
