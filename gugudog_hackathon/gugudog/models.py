@@ -32,9 +32,9 @@ class Service(models.Model):
 
     full_name = models.OneToOneField(
       'self', on_delete=models.CASCADE, null=True, blank=True)
-   # category = models.CharField(choices=CATEGORY_CHOICES, max_length=50)
+
     image = models.ImageField(upload_to='logo_images', null=True, blank=True)
-# @property
+
     def image_url(self):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
@@ -54,6 +54,14 @@ class Service(models.Model):
     def get_price(self):
         return format(self.price, ',')
 
+    # 서비스를 구독하는 유저의 수
+    def get_gudog_users(self):
+        return self.gudog_users.all().count()
+
+    # 서비스를 찜한 유저의 수
+    def get_zzim_users(self):
+        return self.zzim_users.all().count()
+
     def __str__(self):
         return f"{self.company} {self.service_name} (+{self.price}원)"
 
@@ -70,15 +78,6 @@ class GuDogService(models.Model):
         blank=True,
     )
     register_date = models.DateTimeField(null=True, blank=True)
-
-    # def get_total(self):
-    #     services = self.objects.all()
-    #     for servic
-    #     total_price = 0
-    #     for service in services:
-    #         total_price += service.price
-        
-        # return total_price
 
     def __str__(self):
         return f"{self.user} {self.service}"       
