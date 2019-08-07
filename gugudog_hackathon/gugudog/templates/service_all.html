@@ -76,7 +76,7 @@
         <div id="line" class="btn_default"></div>
       </div>
       <div class="category_btn">
-        <h5>NEW</h5>
+          <a href="{% url 'service_new'%}"><h5>NEW</h5></a>
         <div id="line" class="btn_default"></div>
       </div>
       <div class="category_btn">
@@ -92,21 +92,20 @@
     <div class="slider main_banner">
       <img
         class="banner_img hide"
-        src="{% static 'main_banner_example.png' %}"
+        src="{% static 'adbanner_dailyshot.png' %}"
       />
       <img
         class="banner_img hide"
-        src="{% static 'detail_banner_netflix.png' %}"
+        src="{% static 'adbanner_kukka.png' %}"
       />
-      <img class="banner_img hide" src="{% static 'YTP_logo.png' %}" />
+      <img class="banner_img hide" src="{% static 'adbanner_mille.png' %}" />
     </div>
 
     <div class="service">
       <!-- 모든 등록된 service를 불러와서 회사명과 서비스명을 보여줍니다 -->
       {% for service in services %}
-      <!-- service detail로 가려고 a tag를 넣으니 css가 망가졌습니다 -->
+
       <a href="{% url 'service_detail' service.pk %}">
-        <!-- service detail로 가려고 a tag를 넣으니 css가 망가졌습니다 -->
         <div class="service_box">
           <div class="service_banner">
             <img
@@ -126,44 +125,12 @@
             </div>
             <div class="description price">월 {{ service.get_price }}원</div>
             <!-- 구독자 수 나타내는 코드입니다. 하트로 수정 - 0명이면 안보이고, 1명 이상부터 채워진 하트가 보이게 -->
-            {{ service.get_gudog_users }}명이 구독중
+            <div class="description">{{ service.get_gudog_users }}명이 구독중</div>
           </div>
         </div>
       </a>
+
       {% endfor %}
-
-      <div class="service_box">
-        <div class="service_banner">
-          <img
-            class="banner_img circle"
-            src="{% static 'detail_banner_wcafe.jpg' %}"
-          />
-        </div>
-        <div class="service_detail">
-          <div class="description title">W카페</div>
-          <div class="description content">
-            3시간마다 리필되는<br />
-            커피 한잔
-          </div>
-          <div class="description price">월 20,000원</div>
-        </div>
-      </div>
-
-      <div class="service_box">
-        <div class="service_banner">
-          <img
-            class="banner_img circle"
-            src="{% static 'detail_banner_weeklyshirts.jpg' %}"
-          />
-        </div>
-        <div class="service_detail">
-          <div class="description title">Weekly Shirts</div>
-          <div class="description content">
-            관리하기 힘든 셔츠,<br />집앞에서 받아보세요.
-          </div>
-          <div class="description price">월 49,000원</div>
-        </div>
-      </div>
 
       <div class="service_box">
         <div class="service_banner">
@@ -175,12 +142,14 @@
         <div class="service_detail">
           <div class="description title">NETFLIX</div>
           <div class="description content">
-            끝없는 무제한 컨텐츠. 한달 무료체험 해보세요.
+            끝없는 무제한 컨텐츠.<br> 한달 무료체험 해보세요.
           </div>
           <div class="description price">월 14,500원</div>
+          <div class="description">30명이 구독중</div>
         </div>
       </div>
-    </div>
+
+    </div><!-- service end -->    
 
     <div class="banner bottom">
       <a href="{% url 'service_all'%}"
@@ -194,29 +163,23 @@
 
     <script>
       var listPict = document.getElementsByClassName("slider")[0].children;
-      //This is the latest img, it will serve to know wich img to hide
-      var old = listPict.length - 1;
-      //This will represent the current img to show
-      var current = 0;
-      console.log(listPict);
-      console.log(old);
 
-      //The timeout will recall this function every 3 sec
+      var old = listPict.length - 1;
+      var current = 0;
+
       function loop() {
         listPict[current].setAttribute("class", "show");
         listPict[old].setAttribute("class", "hide");
         console.log(listPict[current], listPict[old]);
 
-        //Update the variables !
+        //Update the variables
         old = current;
         current++;
 
         //If the current is bigger then the list of images, return to 0
         if (current === listPict.length) current = 0;
 
-        //Recall every 3 sec
-        //Note that we don't put () because we don't want to execute it right away
-        setTimeout(loop, 3000);
+        setTimeout(loop, 5000);
       }
 
       loop();

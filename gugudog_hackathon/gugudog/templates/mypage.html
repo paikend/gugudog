@@ -10,13 +10,17 @@
 
   gtag('config', 'UA-145178223-1');
 </script>
+<script
+src="http://code.jquery.com/jquery-3.3.1.js"
+integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+crossorigin="anonymous"
+></script>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- css 버전 수정해가면서 사용하세요. -->
     <link rel="stylesheet" type="text/css" href="{% static 'mypage.css' %}?v=0.1" />
-
     <link
       rel="shortcut icon"
       type="image⁄x-icon"
@@ -26,6 +30,10 @@
      a:link { color: none; text-decoration: none;}
      a:visited { color: none; text-decoration: none;}
      a:hover { color: none; text-decoration: none;}
+     body{
+       font-weight: 300;
+       font-family: 'NanumSquare', sans-serif; 
+     }
     </style>
 
     <title>gugudog</title>
@@ -37,50 +45,46 @@
     </a></div>
 
     <div class="wholeprofile">
-        <div class="profileimgbox">
-        <img class ="profileimg" src="{% static 'logo_circle.png' %}">
-        </div>
-        
-        <div class="editting">
-          <div class="main_banner">
-            <h2> <a class="usernamecolor">{{user}}}&nbsp</a>회원님<br> 안녕하세요!</h2>
-            <div class="edittinguserbox">
-              <div class ="edittinguser">내 정보 수정하기</div>
-              <img class="gearbaby" src="{% static '70367.png' %}"/>
-            </div>
+      <div class="profileimgbox"><img class ="profileimg" src="{% static 'logo_circle.png' %}"></div>
+      <div class="editting">
+        <div class="main_banner">
+          <h2><a class="usernamecolor">{{user}}&nbsp</a>회원님<br> 안녕하세요!</h2>
+          <div class="edittinguserbox">
+            <div class ="edittinguser">내 정보 수정하기</div>
+            <img class="gearbaby" src="{% static '70367.png' %}"/>
           </div>
         </div>
       </div>
+    </div>
+    
+    <div class="service cate">
+      <div class="title"><h3>내 카테고리</h3></div>
+      <div class="cate_list">
+        {% for i in interests %}
+          {% if i %}
+            <div class="my_cate"><h4>{{ i.interest_cate.name }}</h4></div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
      
     <div class="service">
-      <div class="zzimlist">
-        <div class="myzzim"><h3>나의 찜 목록따리</h3></div>
+      <div class="myzzim">
+        <h3>나의 찜 목록따리</h3>
+      </div>
       
         <div class="service_box">
-            <div class="service_banner">
-              <img class="wcafe_icon" src="{% static 'detail_banner_wcafe.jpg' %}" />
-            </div>
-            <div class="service_detail">
-                <h3>3시간마다<br>
-                리필되는<br>
-                커피 한 잔<br></h3>   
-            </div>
-            <div class="heartbox">
-            <img class =" heartbaby"src="{% static '148836.png' %}"></div>
-        </div>
-        <div class="service_box">
-            <div class="service_banner">
-              <img class="wcafe_icon" src="{% static 'detail_banner_wcafe.jpg' %}" />
-            </div>
-            <div class="service_detail">
-                <h3>3시간마다<br>
-                리필되는<br>
-                커피 한 잔<br></h3>
-            </div>
-            <div class="heartbox">
-            <img class =" heartbaby"src="{% static '148836.png' %}"></div>
+          <div class="service_banner">
+            <img class="wcafe_icon" src="{% static 'detail_banner_wcafe.jpg' %}" />
           </div>
-      </div>
+          <div class="service_detail">
+              <h3>3시간마다<br>
+              리필되는<br>
+              커피 한 잔<br></h3>
+          </div>
+          <div class="heartbox"><img class =" heartbaby"src="{% static '148836.png' %}"></div>
+        </div>
+       
     </div>
 
       <div class="banner bottom">

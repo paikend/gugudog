@@ -28,15 +28,15 @@
     <div class="category">
         <div class="category_btn"><a href="{% url 'service_all'%}"><h5>전체</h5></a><div class="btn_default"></div></div>
         <div class="category_btn"><a href="{% url 'hot'%}"><h5>HOT</h5></a><div id="line" class="btn_default"></div></div>
-        <div class="category_btn"><h5>NEW</h5><div id="line" class="btn_default"></div></div>
+        <div class="category_btn"><a href="{% url 'service_new'%}"><h5>NEW</h5></a><div id="line" class="btn_default"></div></div>
         <div class="category_btn"><a href="{% url 'tag'%}"><h5>태그별</h5></a><div id="line" class="btn_chosen"></div></div>
         <div class="category_btn"><a href="{% url 'recommendation'%}"><h5>My추천</h5></a><div id="line" class="btn_default"></div></div>
     </div>
 
     <div class="slider main_banner">
-        <img class="banner_img hide" src="{% static 'main_banner_example.png' %}" >
-        <img class="banner_img hide" src="{% static 'detail_banner_netflix.png' %}" >
-        <img class="banner_img hide" src="{% static 'YTP_logo.png' %}" >
+        <img class="banner_img hide" src="{% static 'adbanner_dailyshot.png' %}" >
+        <img class="banner_img hide" src="{% static 'adbanner_kukka.png' %}" >
+        <img class="banner_img hide" src="{% static 'adbanner_mille.png' %}" >
     </div>
 
     <div class="tag">
@@ -51,10 +51,35 @@
     </div>
 
     <div class="service">
-        {% for service in services %}
-          <div class="service_box"><a href="{% url 'service_detail' service.pk %}" style="width: 100%;">{{service}}</a></div>
-        {% endfor %}
-        
+      <!-- 모든 등록된 service를 불러와서 회사명과 서비스명을 보여줍니다 -->
+      {% for service in services %}
+
+      <a href="{% url 'service_detail' service.pk %}">
+  
+        <div class="service_box">
+          <div class="service_banner">
+            <img
+              class="banner_img circle"
+              style="object-fit: contain; padding: 5px;"
+              src="{{ service.image_url }}"
+            />
+          </div>
+          <div class="service_detail">
+            <div class="description title">
+              {{ service.company }}
+            </div>
+            <div class="description content">
+              {{ service.service_name }}
+              <br />
+              {{ service.description }}
+            </div>
+            <div class="description price">월 {{ service.get_price }}원</div>
+            <!-- 구독자 수 나타내는 코드입니다. 하트로 수정 - 0명이면 안보이고, 1명 이상부터 채워진 하트가 보이게 -->
+            <div class="description">{{ service.get_gudog_users }}명이 구독중</div>
+          </div>
+        </div>
+      </a>
+      {% endfor %}      
     </div>
 
     <div class="banner bottom">

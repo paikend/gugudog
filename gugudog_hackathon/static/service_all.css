@@ -64,16 +64,6 @@
 
 /* service_all */
 
-.main_banner {
-  height: auto;
-  width: 100%;
-  object-fit: contain;
-  background-color: white;
-  padding: 30px 0px;
-  margin-top: 100px;
-  /* border: blue 0.5px solid; */
-}
-
 /* @media (min-width: 1000px) {
   #minjok {
       width: 800px;
@@ -122,13 +112,12 @@
 .main_banner {
   display: flex;
   overflow: hidden;
-  object-fit: cover;
+  object-fit: contain;
   min-height: 200px;
   max-height: 200px;
   width: 100%;
   background-color: white;
-  padding: 30px 0px;
-  margin-top: 100px;
+  margin: 100px 0 8% 0;
   justify-content: center;
   /* border: blue 0.5px solid; */
 }
@@ -137,7 +126,7 @@
   display: flex;
   object-fit: cover;
   /* height: 95%; */
-  width: 95%;
+  width: 100%;
 }
 
 .slider img.show {
@@ -165,8 +154,7 @@
   justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 100px;
-  margin-left: 0 5%;
+  margin: 0 7% 30% 7%;
   /* background-color: antiquewhite; */
 }
 
@@ -176,9 +164,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 90%;
+  width: 100%;
   height: auto;
-  margin-bottom: 7%;
+  margin-bottom: 10%;
   box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.16), 0 2px 3px rgba(0, 0, 0, 0.23);
   /* border: gray 0.5px solid; */
   border-radius: 8px;

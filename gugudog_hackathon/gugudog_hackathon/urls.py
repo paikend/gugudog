@@ -29,9 +29,10 @@ urlpatterns = [
     path('signup/', views.signup, name="signup"),
     path('mypage/', views.mypage, name="mypage"),
     path('add/', views.add, name="add"),
-    path('recommendation', views.recommendation, name="recommendation"),
-    path('tag', views.tag, name="tag"),
     path('hot', views.hot, name="hot"),
+    path('service_new/', views.service_new, name='service_new'),
+    path('tag', views.tag, name="tag"),
+    path('recommendation', views.recommendation, name="recommendation"),
     path('sevice_detail/<int:service_pk>/',
          views.service_detail, name='service_detail'),
 
@@ -43,7 +44,7 @@ urlpatterns = [
     path('test/', views.test, name='test'),
     path('test2/', views.test2, name='test2'),
     path('test3/', views.test3, name='test3'),
-    path('service_new/', views.service_new, name='service_new'),
+   
 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 

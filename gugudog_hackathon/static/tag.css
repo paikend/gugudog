@@ -1,8 +1,6 @@
-:root {
-    --gugu-orange: rgb(249, 161, 27);
-    --gugu-gray: rgb(82, 97, 106);
-    --gugu-lightorange: rgb(255, 233, 220);
-} 
+.main_banner{
+    margin-bottom: 2%;
+}
 
 .tag{
     display: flex;
@@ -23,7 +21,7 @@
 }
 
 .service{
-    margin-bottom: 5%;
+    margin-bottom: 30%;
 }
 
 .section_bar{

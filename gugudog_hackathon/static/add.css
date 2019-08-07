@@ -6,10 +6,12 @@
     height: 80%;
     margin: 0 5%;
 }
+
 .form{
     padding-top: 20%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .add_service{
