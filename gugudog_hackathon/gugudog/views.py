@@ -277,3 +277,7 @@ def test3(request):
         'my_reco':my_reco
     }
     return render(request, 'test3.html', context)
+
+@login_required(login_url='signup/')
+def service_new(request):
+    return render(request, 'service_new.html')
