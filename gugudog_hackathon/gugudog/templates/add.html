@@ -47,13 +47,19 @@
   </a></div>
 
   <div class="page">
-    <form method="POST" class="form">
+    <form method="POST" class="form" required="true">
       {% csrf_token %}
       <div class="add_service">
-        <label>서비스 검색</label>{% render_field form.service %}
+        <label>서비스 검색</label>{% render_field form.service required="true" %}
+        {% if error_service %}
+          <div class="error_service">{{ error_service}}</div>
+        {% endif %}
       </div>
       <div class="add_service">
         <label>최초 이용일</label>{% render_field form.register_date type="date" %}
+        {% if error_date %}
+          {{ error_date}}
+        {% endif %}
       </div>
       <div class="add_service">
         <label>한달 구독료</label>
@@ -152,6 +158,8 @@
     setInterval(function() {
       if($(".select2-selection__choice").length > 0 && $(".select2-selection__rendered")[0].children.length >= 4) 
         $(".select2-selection__rendered")[0].children[1].remove();
+
+        // $(".error_service").remove();
       // 사용자가 서비스를 선택하면
         var pk;
         // 먼저 해당 서비스의 pk를 알아옵니다.
