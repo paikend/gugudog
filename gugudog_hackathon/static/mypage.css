@@ -49,8 +49,10 @@
 }
 
 .wholeprofile {
-  margin-top: 25%;
+  margin-top: 13%;
   margin-bottom: 10%;
+  padding-top: 30%;
+  padding-bottom: 30%;
   width: 100%;
   height: 10rem;
   display: flex;
@@ -58,6 +60,7 @@
   align-items: center;
   object-fit: contain;
   /* border: gray 0.5px solid; */
+  background-color: whitesmoke;
 }
 
 .profileimgbox {
@@ -78,7 +81,8 @@
 
 .main_banner {
   width: 100%;
-  line-height: 300%;
+  font-size: 1.5rem;
+  line-height: 200%;
   /* border: gray 0.5px solid; */
 }
 
@@ -91,7 +95,7 @@
 }
 
 .gearbaby {
-  display:flex;
+  display: flex;
   width: 20%;
   margin-left: 5%;
   /* border: gray 0.5px solid; */
@@ -117,17 +121,17 @@
   /* background-color: antiquewhite; */
 }
 
-.cate{
+.cate {
   flex-direction: row;
-  margin-bottom: 10%; 
+  margin-bottom: 10%;
 }
 
-.title{
-  width:100%;
+.title {
+  width: 100%;
   margin-bottom: 5%;
 }
 
-.cate_list{
+.cate_list {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -135,7 +139,7 @@
   /* border: 1px red solid; */
 }
 
-.my_cate{
+.my_cate {
   display: flex;
   width: 20%;
   height: 40px;
@@ -151,11 +155,11 @@
 .service_box {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
   width: 100%;
-  height: 8rem;
+  height: 7rem;
   margin-bottom: 5%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   /* border: gray 0.5px solid; */
@@ -244,11 +248,12 @@ a {
 }
 
 /* floating menu */
-.label_box{
+.label_box {
   width: 100%;
 }
 
-.show-menu-btn, .hide-menu-btn{
+.show-menu-btn,
+.hide-menu-btn {
   display: flex;
   transition: 0.4s;
   font-size: 30px;
@@ -257,29 +262,30 @@ a {
   /* border: 1px red solid; */
 }
 
-#chk{
+#chk {
   position: absolute;
   visibility: hidden;
   z-index: -100;
 }
 
-.show_menu_btn_a{
+.show_menu_btn_a {
   color: black;
-  font-size: 1rem;
+  font-size: 0.8rem;
   /* border: 1px blue solid; */
 }
 
-@media screen and (max-width:800px){
-  .show-menu-btn, .hide-menu-btn{
+@media screen and (max-width: 800px) {
+  .show-menu-btn,
+  .hide-menu-btn {
     display: flex;
     color: white;
   }
 
-  .menu{
+  .menu {
     position: fixed;
     width: 50%;
     height: 100%;
-    background:rgb(114, 133, 145);
+    background: rgb(114, 133, 145);
     right: -100%;
     top: 50px;
     text-align: center;
@@ -288,20 +294,20 @@ a {
     transition: 0.7s;
   }
 
-  .menu a{
+  .menu a {
     display: block;
     padding: 20px;
     color: white;
     font-weight: bold;
   }
 
-  .hide-menu-btn{
+  .hide-menu-btn {
     position: absolute;
     top: 40px;
     right: 40px;
   }
 
-  #chk:checked ~ .menu{
+  #chk:checked ~ .menu {
     right: 0;
   }
 }
