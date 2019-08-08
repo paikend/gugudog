@@ -36,6 +36,9 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: white;
+  border-top: 1px solid lightgray;
+  height: 60px;
 }
 
 .profileimg {
@@ -66,6 +69,7 @@
 
 .editting {
   display: flex;
+  flex-wrap: wrap;
   width: 50%;
   height: 10rem;
   justify-content: center;
@@ -80,7 +84,6 @@
 
 .edittinguserbox {
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 100%;
   height: 2rem;
@@ -88,19 +91,21 @@
 }
 
 .gearbaby {
-  width: 10%;
+  display:flex;
+  width: 20%;
   margin-left: 5%;
   /* border: gray 0.5px solid; */
 }
 
 .edittinguser {
   display: flex;
-  width: 70%;
-  /* border: gray 0.5px solid; */
+  flex-wrap: wrap;
+  margin-left: 5%;
+  width: 50%;
   height: 2rem;
   align-content: center;
-  justify-content: center;
   align-items: center;
+  /* border: gray 0.5px solid; */
 }
 
 .service {
@@ -108,11 +113,39 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 100px;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 0 8% 20% 8%;
   /* background-color: antiquewhite; */
+}
+
+.cate{
+  flex-direction: row;
+  margin-bottom: 10%; 
+}
+
+.title{
+  width:100%;
+  margin-bottom: 5%;
+}
+
+.cate_list{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 30%;
+  /* border: 1px red solid; */
+}
+
+.my_cate{
+  display: flex;
+  width: 20%;
+  height: 40px;
+  margin-right: 5%;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 8px;
+
+  /* border: 1px red solid; */
 }
 
 .service_box {
@@ -128,18 +161,6 @@
   /* border: gray 0.5px solid; */
   border-radius: 8px;
   line-height: 170%;
-}
-
-.service {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 100px;
-  margin-left: 5%;
-  margin-right: 5%;
-  /* background-color: antiquewhite; */
 }
 
 .wcafe_icon {
@@ -182,10 +203,32 @@
   /* border: gray 0.5px solid; */
 }
 #serviceall,
-#home,
-#mypage {
-  width: 30px;
+#mypage,
+#home {
+  width: 27px;
   height: auto;
+  -webkit-filter: opacity(0.3) drop-shadow(0 0 0 white);
+  filter: opacity(0.3) drop-shadow(0 0 0 white);
+}
+
+#mypage {
+  -webkit-filter: opacity(0.6) drop-shadow(0 0 0 #808080);
+  filter: opacity(0.6) drop-shadow(0 0 0 #808080);
+}
+
+.icons {
+  width: 20%;
+  font-size: 0.7rem;
+  text-align: center;
+  font-weight: 400;
+  color: gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  color: gray;
 }
 
 .usernamecolor {
@@ -198,4 +241,67 @@
 
 .gugubanner {
   color: white;
+}
+
+/* floating menu */
+.label_box{
+  width: 100%;
+}
+
+.show-menu-btn, .hide-menu-btn{
+  display: flex;
+  transition: 0.4s;
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+  /* border: 1px red solid; */
+}
+
+#chk{
+  position: absolute;
+  visibility: hidden;
+  z-index: -100;
+}
+
+.show_menu_btn_a{
+  color: black;
+  font-size: 1rem;
+  /* border: 1px blue solid; */
+}
+
+@media screen and (max-width:800px){
+  .show-menu-btn, .hide-menu-btn{
+    display: flex;
+    color: white;
+  }
+
+  .menu{
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    background:rgb(114, 133, 145);
+    right: -100%;
+    top: 50px;
+    text-align: center;
+    padding: 80px 0;
+    line-height: normal;
+    transition: 0.7s;
+  }
+
+  .menu a{
+    display: block;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+  }
+
+  .hide-menu-btn{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+  }
+
+  #chk:checked ~ .menu{
+    right: 0;
+  }
 }

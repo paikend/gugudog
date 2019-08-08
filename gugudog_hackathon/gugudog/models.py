@@ -82,7 +82,7 @@ class ZzimService(models.Model):
     )
 
     def __str__(self):
-        return f"{self.service}"    
+        return self.service    
 
 class GuDog(models.Model):
     user = models.ForeignKey(
