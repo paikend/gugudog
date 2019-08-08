@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.utils import timezone
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -64,6 +65,13 @@ class GuDogService(models.Model):
         blank=True,
     )
     register_date = models.DateTimeField(null=True, blank=True)
+    def _remained_date(self):
+        today = timezone.now().day
+        sub_date = self.register_date.day - today
+        if sub_date < 0:
+            sub_date += 100
+        return sub_date
+    remained_date = property(_remained_date)
 
     def __str__(self):
         return self.user + " " + self.service       
