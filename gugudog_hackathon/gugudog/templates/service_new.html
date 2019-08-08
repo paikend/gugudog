@@ -45,6 +45,24 @@
         text-decoration: none;
       }
     </style>
+    <style type="text/css">
+      a:link {
+        color: none;
+        text-decoration: none;
+      }
+      a:visited {
+        color: none;
+        text-decoration: none;
+      }
+      a:hover {
+        color: none;
+        text-decoration: none;
+      }
+      body {
+        font-weight: 300;
+        font-family: "NanumSquare", sans-serif;
+      }
+    </style>
   </head>
   <body>
     <div class="banner top">
@@ -57,7 +75,7 @@
         <div id="line" class="btn_default"></div>
       </div>
       <div class="category_btn">
-        <h5>HOT</h5>
+        <a href="{% url 'hot'%}"><h5>HOT</h5></a>
         <div id="line" class="btn_default"></div>
       </div>
       <div class="category_btn">
@@ -65,8 +83,7 @@
         <div class="btn_chosen"></div>
       </div>
       <div class="category_btn">
-        <h5>태그별</h5>
-        <div id="line" class="btn_default"></div>
+        <a href="{% url 'tag'%}"><h5>태그별</h5></a><div id="line" class="btn_default"></div>
       </div>
       <div class="category_btn">
         <a href="{% url 'recommendation'%}"><h5>My추천</h5></a>

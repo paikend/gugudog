@@ -1,7 +1,53 @@
-<h1>TEST3</h1>
-<a href="{% url 'test' %}">테스트1</a>
-<a href="{% url 'test2' %}">테스트2</a><br>
-<h4>=====================================</h4>
-{% for i in my_reco %}
-    {{ i.company }}<br>
-{% endfor %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'namhome.css' %}?v=0.1" />
+    <link rel="stylesheet" type="text/css" href="{% static 'test.css' %}?v=0.1" />
+    <link
+      rel="shortcut icon"
+      type="image⁄x-icon"
+      href="{% static 'logo_dog.png' %}"
+    />
+    <script
+    src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"
+  ></script>
+
+    <style type="text/css">
+     a:link { color: none; text-decoration: none;}
+     a:visited { color: none; text-decoration: none;}
+     a:hover { color: none; text-decoration: none;}
+     body{
+       font-weight: 300;
+       font-family: 'NanumSquare', sans-serif; 
+     }
+    </style>
+    <title>gugudog</title>
+</head>
+<body>
+    <div class="banner top">
+        <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
+    </div>
+    <div class="blank"></div>
+    <h1>해당 서비스</h1>
+    
+    <h4>=====================================</h4>
+    {% for i in my_reco %}
+        {{ i.company }}<br>
+    {% endfor %}
+
+    <a href="{% url 'test' %}">카테고리 선택하기</a><br>
+    <a href="{% url 'test2' %}">해당서비스 보러가기</a>
+
+    <div class="banner bottom">
+        <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" /></a>
+        <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home.png' %}"/></a>
+        <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
+    </div>
+</body>
+</html>

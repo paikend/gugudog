@@ -55,15 +55,61 @@ def tag(request):
 
 @login_required(login_url='signup')
 def recommendation(request):
-    return render(request, 'recommendation.html')
+    my_interest = InterestService.objects.filter(user=request.user)
+    my_inter_list = []
+    for i in my_interest:
+        my_inter_list.append(i.interest_cate.name)
 
+    my_reco = []
+    for i in my_inter_list:
+        a = Service.objects.filter(category__name=i).values()
+        for element in a :
+            my_reco.append(element)
+
+    context = {
+        'my_reco':my_reco
+    }
+    return render(request, 'recommendation.html', context)
 
 def signup(request):
     return render(request, 'registration/signup.html')
 
 @login_required(login_url='signup')
 def mypage(request):
-    return render(request, 'mypage.html')
+    interest_pk = request.POST.getlist('cate_checked')
+
+    if request.method == 'POST':
+        deleting = InterestService.objects.filter(user=request.user)
+        deleting.delete()
+
+        for pks in interest_pk:
+            interest_add, created = InterestService.objects.get_or_create(
+                user = request.user,
+                interest_cate = Category.objects.get(pk=pks)
+            )
+            inter_qs = Interest.objects.filter(
+                user = request.user
+            )
+            if inter_qs.exists():
+                inter_cate = inter_qs[0]
+                if inter_cate.interests.filter(interest_cate__pk=interest_add.interest_cate.pk).exists():
+                    interest_add.save()
+                else:
+                    inter_cate.interests.add(interest_add)
+            else:
+                inter_cate = Interest.objects.create(user=request.user)
+                inter_cate.interests.add(interest_add)
+
+        interests = InterestService.objects.filter(user=request.user)
+        return redirect('mypage')
+
+    else:
+        interests = InterestService.objects.filter(user=request.user)
+        context = {
+            'interests':interests
+        }
+        return render(request, 'mypage.html', context)
+
 
 def logout(request):
     auth.logout(request)
