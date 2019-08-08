@@ -1,20 +1,6 @@
 from django.db import models
 from django.conf import settings
 
-CATEGORY_CHOICES = (
-    ('music', '음악'),
-    ('clothing', '의류'),
-    ('media', '영상')
-)
-
-# Create your models here.
-interestChoice = (
-    ('FAHION', '패션'),
-    ('MEDIA', '미디어'),
-    ('FOOD', '음식'),
-    ('ETC', '기타'),
-)
-
 class Category(models.Model):
     name = models.CharField(max_length=50)
     eng_name = models.CharField(max_length=50, null=True, blank=True)
