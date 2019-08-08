@@ -245,6 +245,7 @@ a {
 
 /* floating menu */
 .label_box{
+  display: flex;
   width: 100%;
 }
 
@@ -265,43 +266,47 @@ a {
 
 .show_menu_btn_a{
   color: black;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  margin-right: 5%;
   /* border: 1px blue solid; */
 }
 
-@media screen and (max-width:800px){
-  .show-menu-btn, .hide-menu-btn{
-    display: flex;
-    color: white;
-  }
+.show-menu-btn{
+  display: flex;
+  font-size: 1.3rem;
+}
 
-  .menu{
-    position: fixed;
-    width: 50%;
-    height: 100%;
-    background:rgb(114, 133, 145);
-    right: -100%;
-    top: 50px;
-    text-align: center;
-    padding: 80px 0;
-    line-height: normal;
-    transition: 0.7s;
-  }
+.hide-menu-btn{
+  display: flex;
+  color: white;
+}
 
-  .menu a{
-    display: block;
-    padding: 20px;
-    color: white;
-    font-weight: bold;
-  }
+.menu{
+  position: fixed;
+  width: 50%;
+  height: 100%;
+  background:rgb(114, 133, 145);
+  right: -100%;
+  top: 50px;
+  text-align: center;
+  padding: 80px 0;
+  line-height: normal;
+  transition: 0.7s;
+}
 
-  .hide-menu-btn{
-    position: absolute;
-    top: 40px;
-    right: 40px;
-  }
+.menu a{
+  display: block;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+}
 
-  #chk:checked ~ .menu{
-    right: 0;
-  }
+.hide-menu-btn{
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+#chk:checked ~ .menu{
+  right: 0;
 }

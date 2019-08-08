@@ -43,9 +43,19 @@
     <form method='POST' action="{%url 'mypage'%}" class="form">{% csrf_token %}
         {% for cate in categories %}
             {% if cate.name in my_inter_list %}
-                {{ cate.name }}<input type='checkbox' name='cate_checked' value={{cate.pk}} checked><br>
+                <div class="cate_name">
+                    <label>
+                        <input type='checkbox' class="chk_box" name='cate_checked' value={{cate.pk}} checked>
+                    </label>
+                    <h3>{{ cate.name }}</h3>
+                </div>
             {% else %}
-                {{ cate.name }}<input type='checkbox' name='cate_checked' value={{cate.pk}}><br>
+                <div class="cate_name">
+                    <label>
+                        <input type='checkbox' class="chk_box" name='cate_checked' value={{cate.pk}}>
+                    </label>
+                    <h3>{{ cate.name }}</h3>
+                </div>
             {% endif %}
         {% endfor %}
         <button type='submit' class='new_service btn_submit'>저장</button>
