@@ -1,0 +1,39 @@
+.blank{
+    display:flex;
+    height: 60px;
+}
+
+.main_banner_txt {
+    margin-top: 20%;
+    margin-bottom: 8%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+    line-height: 300%;
+}
+
+.form{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 10%;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+#text{
+    border:red 10px solid;
+}
+
+.checkbox{
+    border:red 10px solid;
+}
+
+.btn_submit{
+    display: flex;
+    font-size: 1.17rem;
+    margin-top: 10%;
+    width: 80%;
+}

@@ -1,62 +1,166 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
   <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145178223-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'UA-145178223-1');
+</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- css 버전 수정해가면서 사용하세요. -->
     <link rel="stylesheet" type="text/css" href="{% static 'namhome.css' %}?v=0.1" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
 
     <link
       rel="shortcut icon"
       type="image⁄x-icon"
       href="{% static 'logo_dog.png' %}"
     />
+    <script
+    src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"
+  ></script>
+
     <style type="text/css">
      a:link { color: none; text-decoration: none;}
      a:visited { color: none; text-decoration: none;}
      a:hover { color: none; text-decoration: none;}
+     body{
+       font-weight: 300;
+       font-family: 'NanumSquare', sans-serif; 
+     }
     </style>
-
-
-
     <title>gugudog</title>
   </head>
-  <body>
 
+  <body>
     <div class="banner top">
        <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
-    </a></div>
+    </div>
 
     <div class="main_banner"><h1> 
-    <a class="usernamecolor">황철순</a> 회원님의 <br>이번 달 구독 금액은<br> 총 
-    <a class="wholemoneycolor">12,900원</a>입니다.</h1></div>
+    <a class="usernamecolor">{{user}}</a> 회원님의 <br>이번 달 구독 금액은<br> 총 
+    <a class="wholemoneycolor" id="add_item" data-count="{{ total_price }}"></a>입니다.</h1></div>
+    <div class="logout"><a href="{% url 'logout' %}">로그아웃</a></div>
 
     <div class="service">
-      <div class="service_box" id = "melon">
-          <h3>멜론 정기 스트리밍<br />
-          3,900원(8월 7일)</h3>
+
+      {% for gudog_service in gudog %}
+        {% if gudog_service %}
+        <div class="service_box">
+          <!-- 로고 안 넣을 꺼면 주석 지워도 됩니다 -->
+          <img src ="{{gudog_service.service.image_url }}"
+           style="object-fit: contain; 
+                  padding: 5px;
+                  border-radius: 50%; 
+                  width: 30%;">
+          <h3 style="color: black;">{{ gudog_service.service.company }} {{ gudog_service.service.service_name }}<br/>
+            {{ gudog_service.service.get_price }}원(매월 {{ gudog_service.register_date.day}}일)
+              <a style="color: blue;" href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}">삭제하기</a>
+          </h3>
+        </div>
+        {% endif %}
+      {% endfor %}
+
+      <div class="box">
+        <div class="service_box" id = "melon">
+            <h3>멜론 정기 스트리밍<br />
+            3,900원(8월 7일)</h3>
+        </div>
+        <div class="edit_hide">
+            <div class="hide_button"><h5>수정하기</h5></div>
+            <div class="hide_button"><h5>삭제하기</h5></div>
+        </div>
+      </div>
+      
+      <div class="box">
+        <div class="service_box" id = "Netflix">
+            <h3>NETFLIX 4K UHD<br />
+            9,000원(8월 10일)</h3>
+        </div>
+        <div class="edit_hide">
+            <div class="hide_button"><h5>수정하기</h5></div>
+            <div class="hide_button"><h5>삭제하기</h5></div>
+        </div>
       </div>
 
-      <div class="service_box" id = "Netflix">
-          <h3>NETFLIX 4K UHD<br />
-          9,000원(8월 10일)</h3>
-      </div>
+      <a href="{% url 'add' %}" style="width: 100%;">
+        <div class="new_service">
+          <h3>+ 추가하기<h3>
+        </div>        
+      </a>
+    </div>
 
-      <div class="new_service">
-        <h3>+ 추가하기<h3>
-      </div>
-
-
+    
     <div class="banner bottom">
-        <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" />
+      <div class="icons">
+        <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_service_2.png' %}" />
+          <p>스토어</p>
         </a>
+      </div>
+      <div class="icons">
+        <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home_3.png' %}"/>
+          <p>홈</p>
+        </a>
+      </div>
+      <div class="icons">
+          <a href="{% url 'mypage'%}"><img id="mypage" src="{% static 'bottom_mypage_2.png' %}" />
+          <p>마이페이지</p>
+          </a>   
+      </div>
+    </div>
 
-      <a href="{% url 'home'%}"
-        ><img id="home" src="{% static 'bottom_home.png' %}"
-      /></a>
-      <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
-    </div></div>
+    <script>
+      $('.box').click(function() {
+        $(this).children('.edit_hide').toggleClass('edit_appear');
+        $(this).children('.edit_hide').children('.hide_button').toggleClass('appear_button');
+      });
+
+      // $(body).on('click','.box', function() {
+      //   $(this).children('.edit_hide').toggleClass("edit_appear");
+      //   $(this).children('.edit_hide').children('.hide_button').toggleClass('appear_button');
+      // });
+
+    /* 숫자를 countUp 해주는 코드 */
+    // 3자리 마다 , 넣어주는 코드
+    function formatNumber(num) {
+      if(num !== undefined)
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+
+    $("#add_item").each(function() {
+        var $this = $(this),
+          countTo = $this.attr("data-count");
+          console.log(countTo);
+        $({ countNum: $this.text() }).animate(
+          {
+            countNum: countTo
+          },
+
+          {
+            duration: 700,
+            easing: "linear",
+            step: function() {
+              $this.text(formatNumber(Math.floor((this.countNum)))+"원");
+              
+            },
+            complete: function() {
+              $this.text(formatNumber(Math.floor((this.countNum)))+"원");
+              //alert('finished');
+            }
+          }
+        );
+      });
+    </script>
+
+    
   </body>
 </html>

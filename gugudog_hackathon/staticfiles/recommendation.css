@@ -1,0 +1,131 @@
+:root {
+  --gugu-orange: rgb(249, 161, 27);
+  --gugu-gray: rgb(82, 97, 106);
+  --gugu-lightorange: rgb(255, 233, 220);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: rgb(249, 161, 27);
+}
+
+.top {
+  position: absolute;
+  top: 0;
+  text-align: center;
+}
+
+#bannerlogo {
+  height: auto;
+  width: 15%;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main_banner {
+  margin-top: 25%;
+  margin-bottom: 15%;
+  height: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  line-height: 300%;
+}
+
+.service {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+  margin-left: 5%;
+  margin-right: 5%;
+  /* background-color: antiquewhite; */
+}
+
+.service_box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 8rem;
+  margin-bottom: 5%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  /* border: gray 0.5px solid; */
+  border-radius: 8px;
+  line-height: 170%;
+}
+
+.service {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+  margin-left: 5%;
+  margin-right: 5%;
+  /* background-color: antiquewhite; */
+}
+
+.wcafe_icon {
+  width: 80%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.service_banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 93.75%;
+  /* border: gray 0.5px solid; */
+}
+
+.service_detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 93.75%;
+  /* border: gray 0.5px solid; */
+}
+
+#serviceall, #home, #mypage {
+  width: 30px;
+  height: auto;
+}
+
+.usernamecolor {
+  color: rgb(249, 161, 27);
+}
+
+.wholemoneycolor {
+  color: rgb(249, 161, 27);
+}
+
+.gugubanner {
+  color: white;
+}

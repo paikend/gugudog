@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script>
+      src = "http://code.jquery.com/jquery-3.3.1.js";
+      integrity = "sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=";
+      crossorigin = "anonymous";
+    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'service_all.css' %}"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'tag.css' %}" />
+    <link
+      rel="shortcut icon"
+      type="image⁄x-icon"
+      href="{% static 'logo_dog.png' %}"
+    />
+    <style type="text/css">
+      a:link {
+        color: none;
+        text-decoration: none;
+      }
+      a:visited {
+        color: none;
+        text-decoration: none;
+      }
+      a:hover {
+        color: none;
+        text-decoration: none;
+      }
+    </style>
+    <title>gugudog</title>
+  </head>
+  <body>
+    <div class="banner top">
+      <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
+    </div>
+
+    <div class="category">
+      <div class="category_btn">
+        <a href="{% url 'service_all'%}"><h5>전체</h5></a>
+        <div class="btn_default"></div>
+      </div>
+      <div class="category_btn">
+        <a href="{% url 'hot'%}"><h5>HOT</h5></a>
+        <div id="line" class="btn_default"></div>
+      </div>
+      <div class="category_btn">
+        <h5>NEW</h5>
+        <div id="line" class="btn_default"></div>
+      </div>
+      <div class="category_btn">
+        <a href="{% url 'tag'%}"><h5>태그별</h5></a>
+        <div id="line" class="btn_chosen"></div>
+      </div>
+      <div class="category_btn">
+        <a href="{% url 'recommendation'%}"><h5>My추천</h5></a>
+        <div id="line" class="btn_default"></div>
+      </div>
+    </div>
+
+    <div class="slider main_banner">
+      <img class="banner_img hide" src="{% static 'banner_hobbyful_2.jpg' %}" />
+      <img
+        class="banner_img hide"
+        src="{% static 'banner_opengallery.jpg' %}"
+      />
+      <img class="banner_img hide" src="{% static 'banner_kukka_2.jpg' %}" />
+
+    </div>
+
+    <div class="tag">
+      <div class="tag_btn click"><h5>#전체</h5></div>
+      <div class="tag_btn click"><h5>#미디어</h5></div>
+      <div class="tag_btn"><h5>#음식</h5></div>
+      <div class="tag_btn"><h5>#의류</h5></div>
+      <div class="tag_btn"><h5>#라이프스타일</h5></div>
+    </div>
+
+    <div class="main_banner_txt"></div>
+
+    <div class="service">
+
+      <!-- 모든 등록된 service를 불러와서 회사명과 서비스명을 보여줍니다 -->
+      {% for service in services %}
+
+      <a href="{% url 'service_detail' service.pk %}">
+  
+        <div class="service_box">
+          <div class="service_banner">
+            <img
+              class="banner_img circle"
+              style="object-fit: contain; padding: 5px;"
+              src="{{ service.image_url }}"
+            />
+          </div>
+          <div class="service_detail">
+            <div class="description title">
+              {{ service.company }}
+            </div>
+            <div class="description content">
+              {{ service.service_name }}
+              <br />
+              {{ service.description }}
+            </div>
+            <div class="description price">월 {{ service.get_price }}원</div>
+            <!-- 구독자 수 나타내는 코드입니다. 하트로 수정 - 0명이면 안보이고, 1명 이상부터 채워진 하트가 보이게 -->
+            <div class="description">{{ service.get_gudog_users }}명이 구독중</div>
+          </div>
+        </div>
+      </a>
+      {% endfor %}      
+    </div>
+
+    <div class="banner bottom">
+      <div class="icons">
+        <a href="{% url 'service_all'%}"
+          ><img id="serviceall" src="{% static 'bottom_service_2.png' %}" />
+          <p>스토어</p>
+        </a>
+      </div>
+      <div class="icons">
+        <a href="{% url 'home'%}"
+          ><img id="home" src="{% static 'bottom_home_3.png' %}" />
+          <p>홈</p>
+        </a>
+      </div>
+      <div class="icons">
+        <a href="{% url 'mypage'%}"
+          ><img id="mypage" src="{% static 'bottom_mypage_2.png' %}" />
+          <p>마이페이지</p>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      var listPict = document.getElementsByClassName("slider")[0].children;
+      //This is the latest img, it will serve to know wich img to hide
+      var old = listPict.length - 1;
+      //This will represent the current img to show
+      var current = 0;
+
+      let tag = document.getElementsByClassName("tag")[0].children;
+      console.log(tag);
+
+      //The timeout will recall this function every 3 sec
+      function loop() {
+        listPict[current].setAttribute("class", "show");
+        listPict[old].setAttribute("class", "hide");
+        console.log(listPict[current], listPict[old]);
+
+        //Update the variables !
+        old = current;
+        current++;
+
+        //If the current is bigger then the list of images, return to 0
+        if (current === listPict.length) current = 0;
+
+        //Recall every 3 sec
+        //Note that we don't put () because we don't want to execute it right away
+        setTimeout(loop, 3000);
+      }
+
+      loop();
+    </script>
+  </body>
+</html>

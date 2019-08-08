@@ -97,21 +97,18 @@
 .service {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 3% 7% 17% 7%;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+  margin-left: 5%;
+  margin-right: 5%;
   /* background-color: antiquewhite; */
 }
+<<<<<<< HEAD
+=======
 
-.service_box {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  width: 45%;
-  height: 12rem;
-  margin-bottom: 5%;
-  /* border: gray 0.5px solid; */
-}
-
+>>>>>>> 7c11ac011c93ba359e635e81662cd4972b064032
 .service_banner {
   display: flex;
   width: 100%;

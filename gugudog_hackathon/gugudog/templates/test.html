@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'namhome.css' %}?v=0.1" />
+    <link rel="stylesheet" type="text/css" href="{% static 'service_all.css' %}?v=0.1" />
+    <link rel="stylesheet" type="text/css" href="{% static 'test.css' %}?v=0.1" />
+    <link
+      rel="shortcut icon"
+      type="image⁄x-icon"
+      href="{% static 'logo_dog.png' %}"
+    />
+    <script
+    src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"
+  ></script>
+
+    <style type="text/css">
+     a:link { color: none; text-decoration: none;}
+     a:visited { color: none; text-decoration: none;}
+     a:hover { color: none; text-decoration: none;}
+     body{
+       font-weight: 300;
+       font-family: 'NanumSquare', sans-serif; 
+     }
+    </style>
+    <title>gugudog</title>
+</head>
+<body>
+    <div class="banner top">
+        <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
+    </div>
+
+    <div class="main_banner_txt">
+        <h1><a class="usernamecolor">{{user}}&nbsp</a>회원님,<br>
+        <a class="wholemoneycolor">카테고리</a>를 선택하세요.</h1>
+    </div>
+    
+    <form method='POST' action="{%url 'mypage'%}" class="form">{% csrf_token %}
+        {% for cate in categories %}
+            {% if cate.name in my_inter_list %}
+                {{ cate.name }}<input type='checkbox' name='cate_checked' value={{cate.pk}} checked><br>
+            {% else %}
+                {{ cate.name }}<input type='checkbox' name='cate_checked' value={{cate.pk}}><br>
+            {% endif %}
+        {% endfor %}
+        <button type='submit' class='new_service btn_submit'>저장</button>
+    </form>
+
+    <!-- <a href="{% url 'mypage' %}">내 카테고리</a><br>
+    <a href="{% url 'recommendation' %}">해당 서비스 보러가기</a> -->
+    
+    <div class="banner bottom">
+        <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" /></a>
+        <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home.png' %}"/></a>
+        <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
+    </div>
+</body>
+</html>

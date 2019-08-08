@@ -1,12 +1,98 @@
 {% load widget_tweaks %}
-<form method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% render_field form.register_date type="date" %}
-  <button type="submit">추가!</button>
-</form>
-{{ form.media }}
-<a href="{% url 'home'">홈으로</a>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145178223-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-145178223-1');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="{% static 'namhome.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'add.css' %}" />
+  <link
+      rel="shortcut icon"
+      type="image⁄x-icon"
+      href="{% static 'logo_dog.png' %}"
+    />
+  <script
+    src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"
+  ></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <style type="text/css">
+    a:link { color: none; text-decoration: none;}
+    a:visited { color: none; text-decoration: none;}
+    a:hover { color: none; text-decoration: none;}
+    body{
+       font-weight: 300;
+       font-family: 'NanumSquare', sans-serif; 
+     }
+  </style>
+  <title>gugudog</title>
+</head>
+
+<body>
+  <div class="banner top">
+      <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
+  </a></div>
+
+  <div class="page">
+    <form method="POST" class="form" required="true">
+      {% csrf_token %}
+      <div class="add_service">
+        <label>서비스 검색</label>{% render_field form.service required="true" %}
+        {% if error_service %}
+          <div class="error_service">{{ error_service}}</div>
+        {% endif %}
+      </div>
+      <div class="add_service">
+        <label>최초 이용일</label>{% render_field form.register_date type="date" %}
+        {% if error_date %}
+          {{ error_date}}
+        {% endif %}
+      </div>
+      <div class="add_service">
+        <label>한달 구독료</label>
+        <div class="add_item">
+          {% if service %}
+          {{ service.get_price }}
+          {% endif %}
+        </div>
+      </div>
+      <button type="submit" class="new_service btn_submit">서비스 추가하기</button>
+    </form>
+    {{ form.media }}
+  </div>
+  
+  <div class="banner bottom">
+      <div class="icons">
+        <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_service_2.png' %}" />
+          <p>스토어</p>
+        </a>
+      </div>
+      <div class="icons">
+        <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home_3.png' %}"/>
+          <p>홈</p>
+        </a>
+      </div>
+      <div class="icons">
+          <a href="{% url 'mypage'%}"><img id="mypage" src="{% static 'bottom_mypage_2.png' %}" />
+          <p>마이페이지</p>
+          </a>   
+      </div>
+    </div>
+
+</body>
 <style>
   /* 옵션 선택하면  */
   .select2-selection__choice[title="---------"] {
@@ -19,9 +105,130 @@
   }
   .select2-container--default
     .select2-selection--multiple
-    .select2-selection__choice {
+    .select2-selection__choice,
+    .select2-selection__choice__remove {
     border: none;
     background: none;
     outline: none;
   }
+
+  .select2-selection__choice__remove {
+    display: none!important;
+  }
+
 </style>
+
+<script>
+
+    function formatNumber(num) {
+      if(num !== undefined)
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+
+    /* 숫자를 countUp 해주는 코드 */
+    $(".add_item").each(function() {
+        var $this = $(this),
+          countTo = $this.attr("data-count");
+          console.log(countTo);
+        $({ countNum: $this.text() }).animate(
+          {
+            countNum: countTo
+          },
+
+          {
+            duration: 1200,
+            easing: "linear",
+            step: function() {
+              $this.text(Math.floor(this.countNum));
+              
+            },
+            complete: function() {
+              $this.text(this.countNum);
+              //alert('finished');
+            }
+          }
+        );
+      });
+
+
+
+
+    /* 서비스를 지정하면 ajax 통신으로 해당 서비스의 price를 가져오는 코드 */
+    
+    setInterval(function() {
+      if($(".select2-selection__choice").length > 0 && $(".select2-selection__rendered")[0].children.length >= 4) 
+        $(".select2-selection__rendered")[0].children[1].remove();
+
+        // $(".error_service").remove();
+      // 사용자가 서비스를 선택하면
+        var pk;
+        // 먼저 해당 서비스의 pk를 알아옵니다.
+        $("select option").each(function() {
+          if(this.text === "---------") {
+            this.remove();
+          }
+          if($(".select2-selection__choice")[0]) {
+            if(this.text === $(".select2-selection__choice")[0].title){ // option의 title과 유저가 선택한 서비스의 title이 일치하는지 비교합니다. 시간이 오래 걸릴 수 있는 코드입니다.
+                pk = this.value;
+              };
+            }
+        });
+        if (pk !== undefined) {
+        // 다음은 ajax 통신으로 pk를 전달합니다.
+        $.ajax({
+          type: "POST",
+          url: "{% url 'add' %}",
+          data: {
+            pk: pk,
+            csrfmiddlewaretoken: "{{ csrf_token }}"
+          },
+          dataType: "json",
+          success: function(response) {
+            $(".add_item").attr("data-count", response);
+            // $(".add_item").text(formatNumber(response)+"원");
+            if($(".select2-selection__rendered")[0].children.length >= 4) 
+              $(".select2-selection__rendered")[0].children[1].remove();
+              function formatNumber(num) {
+            if(num !== undefined)
+              return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+            }
+
+            /* 숫자를 countUp 해주는 코드 */
+            if($(".add_item")[0].innerText !== (formatNumber($(".add_item").attr("data-count"))+"원")) {
+            $(".add_item").each(function() {
+                var $this = $(this),
+                  countTo = $this.attr("data-count");
+                
+                $({ countNum: $this.text() }).animate(
+                  {
+                    countNum: countTo
+                  },
+
+                  {
+                    duration: 900,
+                    easing: "linear",
+                    step: function() {
+                      $this.text(formatNumber(Math.floor((this.countNum)))+"원");
+                    },
+                    complete: function() {
+                      $this.text(formatNumber(this.countNum)+"원");
+                      // alert('finished');
+                    }
+                  }
+                );
+              });
+            } else if($(".add_item")[0].innerText === (formatNumber($(".add_item").attr("data-count"))+"원")) {
+              console.log('똑같아요');
+            }
+          },
+          error: function(request, response, status, error) {
+            console.log(response);
+            console.log(error);
+            console.log(request);
+          }
+        })
+        }
+      }, 1000);
+
+  </script>
+</html>
