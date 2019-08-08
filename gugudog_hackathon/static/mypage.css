@@ -69,6 +69,7 @@
 
 .editting {
   display: flex;
+  flex-wrap: wrap;
   width: 50%;
   height: 10rem;
   justify-content: center;
@@ -90,17 +91,21 @@
 }
 
 .gearbaby {
-  width: 10%;
+  display:flex;
+  width: 20%;
   margin-left: 5%;
   /* border: gray 0.5px solid; */
 }
 
 .edittinguser {
   display: flex;
-  /* border: gray 0.5px solid; */
+  flex-wrap: wrap;
+  margin-left: 5%;
+  width: 50%;
   height: 2rem;
   align-content: center;
   align-items: center;
+  /* border: gray 0.5px solid; */
 }
 
 .service {
@@ -236,4 +241,67 @@ a {
 
 .gugubanner {
   color: white;
+}
+
+/* floating menu */
+.label_box{
+  width: 100%;
+}
+
+.show-menu-btn, .hide-menu-btn{
+  display: flex;
+  transition: 0.4s;
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+  /* border: 1px red solid; */
+}
+
+#chk{
+  position: absolute;
+  visibility: hidden;
+  z-index: -100;
+}
+
+.show_menu_btn_a{
+  color: black;
+  font-size: 1rem;
+  /* border: 1px blue solid; */
+}
+
+@media screen and (max-width:800px){
+  .show-menu-btn, .hide-menu-btn{
+    display: flex;
+    color: white;
+  }
+
+  .menu{
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    background:rgb(114, 133, 145);
+    right: -100%;
+    top: 50px;
+    text-align: center;
+    padding: 80px 0;
+    line-height: normal;
+    transition: 0.7s;
+  }
+
+  .menu a{
+    display: block;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+  }
+
+  .hide-menu-btn{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+  }
+
+  #chk:checked ~ .menu{
+    right: 0;
+  }
 }
