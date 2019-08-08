@@ -21,9 +21,11 @@ def home(request):
         gudogService = Service.objects.get(pk=service['service_id'])
         total_price += gudogService.price
 
+    sorted_gudog = sorted(GuDogService.objects.filter(user=request.user), key=lambda a: a.remained_date)
+
     context = {
-        'gudog': gudog,
         'total_price': total_price,
+        'gudog':sorted_gudog
     }
     return render(request, 'home.html', context)
 
