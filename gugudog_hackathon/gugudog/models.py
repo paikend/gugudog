@@ -49,7 +49,7 @@ class Service(models.Model):
         return self.zzim_users.all().count()
 
     def __str__(self):
-        return f"{self.company} {self.service_name} (+{self.price}원)"
+        return self.company + " " + self.service_name + " (+" + str(self.price) + "원)"
 
 
 class GuDogService(models.Model):
@@ -66,7 +66,7 @@ class GuDogService(models.Model):
     register_date = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return f"{self.user} {self.service}"       
+        return self.user + " " + self.service       
 
 class ZzimService(models.Model):
     user = models.ForeignKey(
@@ -118,7 +118,7 @@ class InterestService(models.Model):
     )
 
     def __str__(self):
-        return f"{self.interest_cate}"    
+        return self.interest_cate    
 
 class Interest(models.Model):
     user = models.ForeignKey(
