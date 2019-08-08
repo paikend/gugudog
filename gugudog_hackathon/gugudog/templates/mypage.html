@@ -21,6 +21,7 @@ crossorigin="anonymous"
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- css 버전 수정해가면서 사용하세요. -->
     <link rel="stylesheet" type="text/css" href="{% static 'mypage.css' %}?v=0.1" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link
       rel="shortcut icon"
       type="image⁄x-icon"
@@ -49,11 +50,31 @@ crossorigin="anonymous"
       <div class="editting">
         <div class="main_banner">
           <h2><a class="usernamecolor">{{user}}&nbsp</a>회원님<br> 안녕하세요!</h2>
-          <div class="edittinguserbox">
-            <div class ="edittinguser">내 정보 수정하기</div>
-            <img class="gearbaby" src="{% static '70367.png' %}"/>
-          </div>
         </div>
+
+        <div class="edittinguserbox">
+
+          <div class ="edittinguser">
+            <input type="checkbox" id="chk">
+            <label for="chk" class="show-menu-btn label_box">
+              <h5 class="show_menu_btn_a">수정하기</h5>
+              <!-- wheel -->
+              <img class="gearbaby" src="{% static '70367.png' %}"/>              
+            </label>
+  
+            <ul class="menu">
+              <a href="{% url 'logout' %}">로그아웃</a>
+              <a href="{% url 'test' %}">내 카테고리 수정하기</a>
+              <a href="#">구구독 About</a>
+              <label for="chk" class="hide-menu-btn">
+                <i class="fas fa-times"></i>
+                <!-- X -->
+              </label>
+            </ul>
+          </div>
+
+        </div>
+        
       </div>
     </div>
     
