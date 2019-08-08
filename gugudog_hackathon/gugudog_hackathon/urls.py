@@ -30,10 +30,12 @@ urlpatterns = [
     path('mypage/', views.mypage, name="mypage"),
     path('add/', views.add, name="add"),
     path('hot', views.hot, name="hot"),
+
     path('service_new/', views.service_new, name='service_new'),
     path('tag', views.tag, name="tag"),
     path('recommendation', views.recommendation, name="recommendation"),
     path('sevice_detail/<int:service_pk>/',
+
          views.service_detail, name='service_detail'),
 
     path('delete/<int:gudog_service_pk>/<int:model_service_pk>', views.delete_service, name="delete_service"),

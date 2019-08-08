@@ -63,13 +63,25 @@
           </div>
         </div>
       </a>
-      {% endfor %}      
-    </div>
 
-    <div class="banner bottom">
-        <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_serviceall_gray.png' %}" /></a>
-        <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home.png' %}"/></a>
-        <img id="mypage" src="{% static 'bottom_mypage_gray.png' %}" />
-    </div>
-</body>
+      {% endfor %}
+      <div class="banner bottom">
+          <div class="icons">
+            <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_service_2.png' %}" />
+              <p>스토어</p>
+            </a>
+          </div>
+          <div class="icons">
+            <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home_3.png' %}"/>
+              <p>홈</p>
+            </a>
+          </div>
+          <div class="icons">
+              <a href="{% url 'mypage'%}"><img id="mypage" src="{% static 'bottom_mypage_2.png' %}" />
+              <p>마이페이지</p>
+              </a>   
+          </div>
+        </div>
+    </body>
+
 </html>

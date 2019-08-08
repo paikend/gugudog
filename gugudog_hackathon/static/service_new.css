@@ -40,13 +40,38 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: white;
+  border-top: 1px solid lightgray;
+  height: 60px;
 }
 
 #serviceall,
-#home,
-#mypage {
-  width: 30px;
+#mypage,
+#home {
+  width: 27px;
   height: auto;
+  -webkit-filter: opacity(0.3) drop-shadow(0 0 0 white);
+  filter: opacity(0.3) drop-shadow(0 0 0 white);
+}
+
+#home {
+  -webkit-filter: opacity(0.6) drop-shadow(0 0 0 #808080);
+  filter: opacity(0.6) drop-shadow(0 0 0 #808080);
+}
+
+.icons {
+  width: 20%;
+  font-size: 0.7rem;
+  text-align: center;
+  font-weight: 400;
+  color: gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  color: gray;
 }
 
 .category {
