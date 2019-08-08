@@ -64,9 +64,10 @@ def recommendation(request):
 
     my_reco = []
     for i in my_inter_list:
-        a = Service.objects.filter(category__name=i).values()
+        a = Service.objects.filter(category__name=i)
         for element in a :
             my_reco.append(element)
+            print(my_reco)
 
     context = {
         'my_reco':my_reco

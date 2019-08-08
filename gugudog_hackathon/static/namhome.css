@@ -61,6 +61,14 @@
   margin: 5% 5% 5% 75%;
 }
 
+.tuto{
+  text-align: center;
+}
+
+.tutorial{
+  color: rgba(0, 0, 0, 0.616);
+}
+
 .service {
   /* display: flex;
   flex-wrap: wrap;
