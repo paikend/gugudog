@@ -73,7 +73,7 @@
                       padding: 5px;
                       border-radius: 50%; 
                       width: 30%;">
-              <p style="color: black;">{{ gudog_service.service.company }} {{ gudog_service.service.service_name }}<br/>
+              <p>{{ gudog_service.service.company }} {{ gudog_service.service.service_name }}<br/>
                 {{ gudog_service.service.get_price }}원 (매월 {{ gudog_service.register_date.day}}일)
                   <!-- <a style="color: blue;" href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}">삭제하기</a> -->
               </p>
@@ -81,8 +81,9 @@
                 <img class="arrow up" src="{% static 'arrow_up.png' %}"></div>
             </div>
             <div class="edit_hide">
-              <div class="hide_button"><a href="{% url 'add' %}"><h5 class="btn_txt">수정하기</h5></a></div>
-              <div class="hide_button"><a href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}"><h5 class="btn_txt">삭제하기</h5></a></div>
+              <div class="hide_button"><a href="{% url 'service_detail' gudog_service.service.pk %}"><img class="menu detail" src="{% static 'icon_detail_gray.png' %}"></a></div>
+              <div class="hide_button"><a href="{% url 'add' %}"><img class="menu edit" src="{% static 'icon_edit_gray.png' %}"></a></div>
+              <div class="hide_button"><a href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}"><img class="menu delete" src="{% static 'icon_delete_gray.png' %}"></a></div>
             </div>
           </div>
           {% endif %}
@@ -122,12 +123,14 @@
     </div>
 
     <script>
-      $('.box').click(function() {
-        $(this).children('.edit_hide').toggleClass('edit_appear');
-        $(this).children('.edit_hide').children('.hide_button').toggleClass('appear_button');
-        $(this).children(".service_box").children('.arrows').children('.up').toggleClass('appear');
-        $(this).children(".service_box").children('.arrows').children('.down').toggleClass('hide');
+      $('.service_box').click(function() {
+        $(this).parent('.box').children('.edit_hide').toggleClass('edit_appear');
+        $(this).parent('.box').children('.edit_hide').children('.hide_button').toggleClass('appear_button');
+        $(this).children('.arrows').children('.up').toggleClass('appear');
+        $(this).children('.arrows').children('.down').toggleClass('hide');
+        $(this).toggleClass('change');
       });
+
 
       // $('.arrows').click(function(){
       //   $(this).children('.arrow_down').toggleClass('arrow_up');
