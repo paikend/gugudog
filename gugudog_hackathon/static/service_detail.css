@@ -82,7 +82,7 @@
   width: 40%;
   height: 67%;
   color: black;
-  
+
   /* border: gray 0.5px solid; */
 }
 
@@ -190,7 +190,8 @@
   font-weight: 500;
 }
 
-.logo{
-  object-fit: contain; 
+.logo {
+  object-fit: contain;
   width: 70%;
+  border-radius: 40%;
 }
