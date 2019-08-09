@@ -48,12 +48,23 @@ def hot(request):
     return render(request, 'hot.html', context)
 
 def tag(request):
-    services = Service.objects.all()
+    my_interest = InterestService.objects.filter(user=request.user).values()
+    tags = Category.objects.all()
 
     context = {
-        'services': services,
+        'tags':tags,
+        'services':''
     }
-    return render(request, 'tag.html', context)
+
+    if request.method == 'POST':
+        tag_checked = request.POST.get('tag_checked')
+        services = Service.objects.filter(category__name=tag_checked)
+        context['services'] = services
+        return render(request, 'tag.html', context)
+    else:
+        services = Service.objects.all()
+        context['services'] = services
+        return render(request, 'tag.html', context)
 
 @login_required(login_url='signup')
 def recommendation(request):
@@ -64,13 +75,13 @@ def recommendation(request):
 
     my_reco = []
     for i in my_inter_list:
-        a = Service.objects.filter(category__name=i)
-        for element in a :
+        sorted_data = sorted(Service.objects.filter(category__name=i), key=lambda k: k.count_gudog_users)
+        for element in sorted_data:
             my_reco.append(element)
-            print(my_reco)
+    sorted_my_reco = sorted(my_reco, reverse=True, key=lambda k: k.count_gudog_users)
 
     context = {
-        'my_reco':my_reco
+        'my_reco':sorted_my_reco
     }
     return render(request, 'recommendation.html', context)
 
@@ -80,6 +91,7 @@ def signup(request):
 @login_required(login_url='signup')
 def mypage(request):
     interest_pk = request.POST.getlist('cate_checked')
+    zzim = ZzimService.objects.filter(user=request.user)
 
     if request.method == 'POST':
         deleting = InterestService.objects.filter(user=request.user)
@@ -109,7 +121,8 @@ def mypage(request):
     else:
         interests = InterestService.objects.filter(user=request.user)
         context = {
-            'interests':interests
+            'interests':interests,
+            'zzim': zzim
         }
         return render(request, 'mypage.html', context)
 
@@ -191,9 +204,14 @@ def service_detail(request, service_pk):
         'service': service,
     }
     if request.user in service.gudog_users.all():
-        context['isGuDoged'] = "이미 구독하고 있는 서비스에요!"
+
+        context['yes'] = True
+        context['isGuDoged'] = "구독하고 있는 서비스에요!"
+        context['myDelete'] = "삭제하기"
+
     elif request.user in service.zzim_users.all():
         context['isZzimed'] = "찜한 구독 서비스에요!"
+        context['yes'] = False
     
     return render(request, 'service_detail.html', context)
 
@@ -212,8 +230,14 @@ def zzim(request):
         )
 
         if not created:
+            print(zzim_service)
             zzim_service.delete()
-            context['zzim']="찜"
+            service.zzim_users.remove(request.user)
+            # print(service.get_zzim_users)
+            context['get_zzim_users'] = service.count_zzim_users
+            context['zzim']="찜 취소"
+            print('취소됐어요')
+            print(context)
             return HttpResponse(json.dumps(context))
     
         zzim_qs = Zzim.objects.filter(user=request.user)
@@ -221,13 +245,16 @@ def zzim(request):
             zzim = zzim_qs[0]
             if zzim.services.filter(service__pk=zzim_service.service.pk):
                 zzim_service.delete()
-                context['zzim']="찜"
+                print('hello')
+                context['zzim']="찜 취소"
+                # context['get_zzim_users']
                 return HttpResponse(json.dumps(context))
             else:
                 zzim_service.save()
                 zzim.services.add(zzim_service)
                 service = Service.objects.get(pk=zzim_service.service.pk)
                 service.zzim_users.add(request.user)
+                context['get_zzim_users'] = service.count_zzim_users
                 return HttpResponse(json.dumps(context))
         else:
             zzim_service.save()
@@ -235,6 +262,7 @@ def zzim(request):
             zzim.services.add(zzim_service)
             service = Service.objects.get(pk=zzim_service.service.pk)
             service.zzim_users.add(request.user)
+            context['get_zzim_users'] = service.count_zzim_users
     
     return HttpResponse(json.dumps(context))
 
@@ -312,15 +340,19 @@ def test3(request):
     my_inter_list = []
     for i in my_interest:
         my_inter_list.append(i.interest_cate.name)
+    print(my_inter_list)
 
     my_reco = []
     for i in my_inter_list:
-        a = Service.objects.filter(category__name=i).values()
-        for element in a :
+        # a = Service.objects.filter(category__name=i).values()
+        sorted_data = sorted(Service.objects.filter(category__name=i), key=lambda k: k.count_gudog_users)
+        for element in sorted_data:
             my_reco.append(element)
+    sorted_my_reco = sorted(my_reco, reverse=True, key=lambda k: k.count_gudog_users)
+    print(sorted_my_reco)
 
     context = {
-        'my_reco':my_reco
+        'my_reco':sorted_my_reco
     }
     return render(request, 'test3.html', context)
 

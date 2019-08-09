@@ -76,7 +76,7 @@
         <div id="line" class="btn_default"></div>
       </div>
       <div class="category_btn">
-          <a href="{% url 'service_new'%}"><h5>NEW</h5></a>
+        <a href="{% url 'service_new'%}"><h5>NEW</h5></a>
         <div id="line" class="btn_default"></div>
       </div>
       <div class="category_btn">
@@ -90,13 +90,24 @@
     </div>
 
     <div class="slider main_banner">
-      <img class="banner_img hide" src="{% static 'banner_hobbyful_2.jpg' %}" />
       <img
+        onclick="javascript:newin=window.open('about:blanck');
+        newin.location.href='https://hobbyful.co.kr/view-class.html?id=35';"
+        class="banner_img hide"
+        src="{% static 'banner_hobbyful_2.jpg' %}"
+      />
+      <img
+        onclick="javascript:newin=window.open('about:blanck');
+        newin.location.href='https://www.opengallery.co.kr/';"
         class="banner_img hide"
         src="{% static 'banner_opengallery.jpg' %}"
       />
-      <img class="banner_img hide" src="{% static 'adbanner_kukka.png' %}" />
-
+      <img
+        onclick="javascript:newin=window.open('about:blanck');
+        newin.location.href='https://kukka.kr/subscription/?utm_source=google_pc&utm_medium=sa_CPC&utm_name=subscription&utm_content=%EA%BE%B8%EA%B9%8C&gclid=Cj0KCQjws7TqBRDgARIsAAHLHP5ojbOqPM1Hii_ofOpMC0Gzcy0wdM3tItM0-6bQytwMsqtWH-LLKCEaAkQ_EALw_wcB';"
+        class="banner_img hide"
+        src="{% static 'adbanner_kukka.png' %}"
+      />
     </div>
 
     <div class="service">
@@ -108,7 +119,6 @@
           <div class="service_banner">
             <img
               class="banner_img circle"
-              style="object-fit: contain; padding: 5px;"
               src="{{ service.image_url }}"
             />
           </div>
@@ -123,13 +133,14 @@
             </div>
             <div class="description price">월 {{ service.get_price }}원</div>
             <!-- 구독자 수 나타내는 코드입니다. 하트로 수정 - 0명이면 안보이고, 1명 이상부터 채워진 하트가 보이게 -->
-            <div class="description">{{ service.get_gudog_users }}명이 구독중</div>
+            <div class="description">
+              {{ service.get_gudog_users }}명이 구독중
+            </div>
           </div>
         </div>
       </a>
 
       {% endfor %}
-
     </div><!-- service end -->    
 
     <div class="banner bottom">
