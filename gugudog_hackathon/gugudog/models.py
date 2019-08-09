@@ -44,6 +44,7 @@ class Service(models.Model):
     # 서비스를 구독하는 유저의 수
     def get_gudog_users(self):
         return self.gudog_users.all().count()
+    count_gudog_users = property(get_gudog_users)
 
     # 서비스를 찜한 유저의 수
     def get_zzim_users(self):
