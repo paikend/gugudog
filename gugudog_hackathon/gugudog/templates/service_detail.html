@@ -103,12 +103,19 @@
           >
         </div>
         <!-- wholeservicebox end -->
-
-        <!-- 여기 삭제해야 함 -->
-        <!-- <h2 id="isZzimed">{{ isZzimed }}</h2>
-        <h2 id="isGuDoged">{{ isGuDoged }}</h2> -->
-
+        {% if yes == False %}
+        <p id="isZzimed">{{ isZzimed }}</p>
+        <p id="isGuDoged">{{ isGuDoged }}</p>
         <div class="new_service add_btn"><p>내 서비스에 추가하기</p></div>
+        {% else %}
+        <p id="isZzimed">{{ isZzimed }}</p>
+        <p id="isGuDoged">{{ isGuDoged }}</p>
+        <div class="new_service add_btn">
+          <a href="#"
+            ><p>{{ myDelete }}</p></a
+          >
+        </div>
+        {% endif %}
       </div>
       <!-- zzimlist end -->
     </div>

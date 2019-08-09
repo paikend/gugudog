@@ -79,13 +79,14 @@
     </div>
 
     <div class="tag">
-    {% for tag in tags %}
+      {% for tag in tags %}
       <div class="tag_btn click">
-        <form method = 'POST' action='{% url "tag" %}'>{% csrf_token %}
-          <input type='submit' name='tag_checked' value='{{tag}}'>
+        <form method="POST" action='{% url "tag" %}'>
+          {% csrf_token %}
+          <input type="submit" name="tag_checked" value="{{ tag }}" />
         </form>
       </div>
-    {% endfor %}
+      {% endfor %}
     </div>
 
     <div class="main_banner_txt"></div>
