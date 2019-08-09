@@ -202,9 +202,6 @@ def service_detail(request, service_pk):
     service = Service.objects.get(pk=service_pk)
 
     gudog = GuDogService.objects.filter(user=request.user, service__pk=service_pk).values()
-    print("**********************************")
-    for i in gudog:
-        print(i)
 
     context = {
         'service': service,
