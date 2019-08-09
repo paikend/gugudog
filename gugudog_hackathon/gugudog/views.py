@@ -80,6 +80,7 @@ def signup(request):
 @login_required(login_url='signup')
 def mypage(request):
     interest_pk = request.POST.getlist('cate_checked')
+    zzim = ZzimService.objects.filter(user=request.user)
 
     if request.method == 'POST':
         deleting = InterestService.objects.filter(user=request.user)
@@ -109,7 +110,8 @@ def mypage(request):
     else:
         interests = InterestService.objects.filter(user=request.user)
         context = {
-            'interests':interests
+            'interests':interests,
+            'zzim': zzim
         }
         return render(request, 'mypage.html', context)
 
@@ -190,10 +192,10 @@ def service_detail(request, service_pk):
     context = {
         'service': service,
     }
-    if request.user in service.gudog_users.all():
-        context['isGuDoged'] = "구독하고 있는 서비스에요!"
-    elif request.user in service.zzim_users.all():
-        context['isZzimed'] = "찜한 구독 서비스에요!"
+    # if request.user in service.gudog_users.all():
+    #     context['isGuDoged'] = "구독하고 있는 서비스에요!"
+    # elif request.user in service.zzim_users.all():
+    #     context['isZzimed'] = "찜한 구독 서비스에요!"
     
     return render(request, 'service_detail.html', context)
 
@@ -212,8 +214,14 @@ def zzim(request):
         )
 
         if not created:
+            print(zzim_service)
             zzim_service.delete()
-            context['zzim']="찜"
+            service.zzim_users.remove(request.user)
+            # print(service.get_zzim_users)
+            context['get_zzim_users'] = service.count_zzim_users
+            context['zzim']="찜 취소"
+            print('취소됐어요')
+            print(context)
             return HttpResponse(json.dumps(context))
     
         zzim_qs = Zzim.objects.filter(user=request.user)
@@ -221,13 +229,16 @@ def zzim(request):
             zzim = zzim_qs[0]
             if zzim.services.filter(service__pk=zzim_service.service.pk):
                 zzim_service.delete()
-                context['zzim']="찜"
+                print('hello')
+                context['zzim']="찜 취소"
+                # context['get_zzim_users']
                 return HttpResponse(json.dumps(context))
             else:
                 zzim_service.save()
                 zzim.services.add(zzim_service)
                 service = Service.objects.get(pk=zzim_service.service.pk)
                 service.zzim_users.add(request.user)
+                context['get_zzim_users'] = service.count_zzim_users
                 return HttpResponse(json.dumps(context))
         else:
             zzim_service.save()
@@ -235,6 +246,7 @@ def zzim(request):
             zzim.services.add(zzim_service)
             service = Service.objects.get(pk=zzim_service.service.pk)
             service.zzim_users.add(request.user)
+            context['get_zzim_users'] = service.count_zzim_users
     
     return HttpResponse(json.dumps(context))
 
