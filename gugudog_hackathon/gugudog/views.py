@@ -48,12 +48,23 @@ def hot(request):
     return render(request, 'hot.html', context)
 
 def tag(request):
-    services = Service.objects.all()
+    my_interest = InterestService.objects.filter(user=request.user).values()
+    tags = Category.objects.all()
 
     context = {
-        'services': services,
+        'tags':tags,
+        'services':''
     }
-    return render(request, 'tag.html', context)
+
+    if request.method == 'POST':
+        tag_checked = request.POST.get('tag_checked')
+        services = Service.objects.filter(category__name=tag_checked)
+        context['services'] = services
+        return render(request, 'tag.html', context)
+    else:
+        services = Service.objects.all()
+        context['services'] = services
+        return render(request, 'tag.html', context)
 
 @login_required(login_url='signup')
 def recommendation(request):
@@ -64,13 +75,13 @@ def recommendation(request):
 
     my_reco = []
     for i in my_inter_list:
-        a = Service.objects.filter(category__name=i)
-        for element in a :
+        sorted_data = sorted(Service.objects.filter(category__name=i), key=lambda k: k.count_gudog_users)
+        for element in sorted_data:
             my_reco.append(element)
-            print(my_reco)
+    sorted_my_reco = sorted(my_reco, reverse=True, key=lambda k: k.count_gudog_users)
 
     context = {
-        'my_reco':my_reco
+        'my_reco':sorted_my_reco
     }
     return render(request, 'recommendation.html', context)
 
@@ -324,15 +335,19 @@ def test3(request):
     my_inter_list = []
     for i in my_interest:
         my_inter_list.append(i.interest_cate.name)
+    print(my_inter_list)
 
     my_reco = []
     for i in my_inter_list:
-        a = Service.objects.filter(category__name=i).values()
-        for element in a :
+        # a = Service.objects.filter(category__name=i).values()
+        sorted_data = sorted(Service.objects.filter(category__name=i), key=lambda k: k.count_gudog_users)
+        for element in sorted_data:
             my_reco.append(element)
+    sorted_my_reco = sorted(my_reco, reverse=True, key=lambda k: k.count_gudog_users)
+    print(sorted_my_reco)
 
     context = {
-        'my_reco':my_reco
+        'my_reco':sorted_my_reco
     }
     return render(request, 'test3.html', context)
 

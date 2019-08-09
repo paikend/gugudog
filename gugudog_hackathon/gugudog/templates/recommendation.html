@@ -92,10 +92,17 @@
     </div>
 
     <div class="main_banner_txt">
-      <p>
+    {% if user.first_name %}
+      <h1>
+        <a class="usernamecolor">{{ user.first_name }}{{ user.last_name }}&nbsp</a>회원님에게<br />
+        꼭 맞는&nbsp<a class="wholemoneycolor">추천서비스</a>
+      </h1>
+    {% else %}
+      <h1>
         <a class="usernamecolor">{{ user }}&nbsp</a>회원님에게<br />
         꼭 맞는&nbsp<a class="wholemoneycolor">추천서비스</a>
-      </p>
+      </h1>
+    {% endif %}
     </div>
 
     <div class="service">
@@ -130,18 +137,21 @@
         <div class="service_banner">
           <img
             class="banner_img circle"
-            src="{% static 'detail_banner_wcafe.jpg' %}"
+            src="{{i.image}}"
           />
         </div>
         <div class="service_detail">
-          <div class="description title">W카페</div>
+          <div class="description title">{{i.name}}</div>
           <div class="description content">
-            3시간마다 리필되는<br />
-            커피 한잔
+          <form method = 'POST' action = "{% url 'tag' %}">{% csrf_token %}
+            #<input type='submit' name='tag_checked' value="{{i.category}}"></a>
+          </form>
+            {{i.description}} / {{ i.count_gudog_users }}명 구독중
           </div>
-          <div class="description price">월 20,000원</div>
+          <div class="description price">월 {{i.price}}원</div>
         </div>
       </div>
+      {% endfor %} 
     </div>
 
     <div class="banner bottom">
