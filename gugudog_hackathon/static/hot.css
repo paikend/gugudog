@@ -1,11 +1,12 @@
 .main_banner_txt {
-    margin-top: 33%;
-    margin-bottom: 8%;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    object-fit: contain;
-    line-height: 300%;
-  }
+  margin-top: 33%;
+  margin-bottom: 8%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  line-height: 150%;
+  font-size: 2rem;
+}

@@ -16,6 +16,7 @@ class Service(models.Model):
     price = models.IntegerField()
     link = models.CharField(max_length=500)
     description = models.TextField(null=True, blank=True)
+    description_detail = models.TextField(null=True, blank=True)
 
     full_name = models.OneToOneField(
       'self', on_delete=models.CASCADE, null=True, blank=True)
@@ -44,6 +45,7 @@ class Service(models.Model):
     # 서비스를 구독하는 유저의 수
     def get_gudog_users(self):
         return self.gudog_users.all().count()
+    count_gudog_users = property(get_gudog_users)
 
     # 서비스를 찜한 유저의 수
     # @property

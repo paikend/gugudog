@@ -34,11 +34,9 @@ urlpatterns = [
     path('service_new/', views.service_new, name='service_new'),
     path('tag', views.tag, name="tag"),
     path('recommendation', views.recommendation, name="recommendation"),
-    path('sevice_detail/<int:service_pk>/',
+    path('sevice_detail/<int:service_pk>/', views.service_detail, name='service_detail'),
 
-         views.service_detail, name='service_detail'),
-
-    path('delete/<int:gudog_service_pk>/<int:model_service_pk>', views.delete_service, name="delete_service"),
+    path('delete_service/<int:gudog_service_pk>/<int:model_service_pk>', views.delete_service, name="delete_service"),
     path('delete_zzim/<int:zzim_service_pk>/<int:model_service_pk>', views.delete_zzim, name="delete_zzim"),
     url(r'^zzim/$', views.zzim, name='zzim'), 
 
