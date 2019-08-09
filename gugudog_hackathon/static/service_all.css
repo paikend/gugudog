@@ -203,8 +203,8 @@ a {
 
 .service_banner {
   display: flex;
-  width: 40%;
-  height: 6rem;
+  width: 35%;
+  height: auto;
   /* border: gray 0.5px solid; */
 }
 
@@ -213,7 +213,7 @@ a {
   flex-wrap: wrap;
   width: 50%;
   height: 100%;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   /* border: blue 0.5px solid; */
 }
