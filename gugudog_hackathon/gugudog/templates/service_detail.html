@@ -21,6 +21,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
       rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
       type="text/css"
       href="{% static 'namhome.css' %}?v=0.1"
     />
@@ -74,7 +80,7 @@
                 <h2>{{ service.company }}</h2>
               </div>
               <!-- 서비스명 charfield -->
-              <div class="detail_txt">
+              <div class="detail_txt service_name">
                 <p>{{ service.service_name }}</p>
               </div>
               <!-- 가격  integerfield -->
@@ -84,7 +90,8 @@
             </div>
 
             <div class="zzim" name="{{ service.pk }}" value="Zzim">
-              <img class=" heartbaby" src="{% static '148836.png' %}" />
+                <i class="far fa-heart selected" id="empty_heart"></i>
+                <i class="fas fa-heart selected" id="filled_heart"></i>        
             </div>
           </div>
           <!-- service_box end -->
@@ -94,21 +101,20 @@
             <h3>{{ service.description }}</h3>
             <div class="detail_txt">
               <p>{{ service.description_detail }}</p>
-            </div>
+            </div>            
+          </div>
+
+          <div class="adment no_border">
             <!-- 구독한 유저수를 get_gudog_users를 이용해 표현 -->
             <p>{{ service.get_gudog_users }}명이 구독한 서비스에요</p>
             <!-- 찜한 유저수를 get_zzim_users를 이용해 표현 -->
-            <p class="zzim_users_count">
-              {{ service.get_zzim_users }}명이 찜한 서비스에요
-            </p>
+            <p class="zzim_users_count">{{ service.get_zzim_users }}명이 찜한 서비스에요</p>
+            <!-- 링크 charfield -->
+            <a href="{{ service.link }}"><div class="linktoservice">사이트로 바로가기</div></a>
           </div>
-
-          <!-- 링크 charfield -->
-          <a href="{{ service.link }}"
-            ><div class="linktoservice">사이트로 바로가기</div></a
-          >
         </div>
         <!-- wholeservicebox end -->
+        
         {% if yes == False %}
           <p id="isZzimed">{{ isZzimed }}</p>
           <p id="isGuDoged">{{ isGuDoged }}</p>
@@ -152,11 +158,14 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
   <script type="text/javascript">
-    // if ($("#isGuDoged").text()) {
-    //   $(".zzim").remove();
-    // } else if ($("#isZzimed").text()) {
-    //   $(".zzim").remove();
-    // }
+    if($("#isZzimed")[0].innerText.length===0){
+      console.log("안찜했음");            
+      $("#filled_heart").addClass("hide");        
+    };
+    if($("#isZzimed")[0].innerText.length>0){
+      console.log("찜했음2");
+      $("#empty_heart").addClass("hide");
+    };
 
     $(".zzim").click(function() {
       var pk = $(this).attr("name");
@@ -173,6 +182,16 @@
             response.get_zzim_users + "명이 찜한 서비스에요"
           );
           $("#isZzimed").text(response.isZzimed);
+          if($("#isZzimed")[0].innerText.length===0){
+            console.log("안찜했음");
+            $("#empty_heart").removeClass("hide");
+            $("#filled_heart").addClass("hide");
+          };
+          if($("#isZzimed")[0].innerText.length>0){
+            $("#empty_heart").addClass("hide");
+            $("#filled_heart").removeClass("hide");            
+          };
+
         },
         error: function(request, response, status, error) {}
       });
