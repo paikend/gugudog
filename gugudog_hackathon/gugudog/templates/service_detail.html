@@ -118,14 +118,18 @@
         {% if yes == False %}
           <p id="isZzimed">{{ isZzimed }}</p>
           <p id="isGuDoged">{{ isGuDoged }}</p>
+          <a href="{% url 'add' %}">
           <div class="new_service add_btn"><p>내 서비스에 추가하기</p></div>
+          </a>
         {% else %}
           {% for gudog_service in gudog %}
             <p id="isZzimed">{{ isZzimed }}</p>
             <p id="isGuDoged">{{ isGuDoged }}</p>
+            <a href="{% url 'delete_service' gudog_service.id gudog_service.service_id %}">
             <div class="new_service add_btn">
-              <a href="{% url 'delete_service' gudog_service.id gudog_service.service_id %}"><p>{{ myDelete }}</p></a>
+              <p>{{ myDelete }}</p>
             </div>
+            </a>
           {% endfor %}
         {% endif %}
       </div>

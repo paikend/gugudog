@@ -101,13 +101,13 @@
         onclick="javascript:newin=window.open('about:blanck');
         newin.location.href='https://gugudog.tk/sevice_detail/19/';"
         class="banner_img hide"
-        src="{% static 'adbanner_mille.png' %}"
+        src="{% static 'mille.png' %}"
       />
       <img
         onclick="javascript:newin=window.open('about:blanck');
         newin.location.href='https://gugudog.tk/sevice_detail/16/';"
         class="banner_img hide"
-        src="{% static 'adbanner_kukka.png' %}"
+        src="{% static 'kukka.png' %}"
       />
     </div>
 
@@ -118,10 +118,7 @@
       <a href="{% url 'service_detail' service.pk %}">
         <div class="service_box">
           <div class="service_banner">
-            <img
-              class="banner_img circle"
-              src="{{ service.image_url }}"
-            />
+            <img class="banner_img circle" src="{{ service.image_url }}" />
           </div>
           <div class="service_detail">
             <div class="description title">
@@ -143,7 +140,8 @@
       </a>
 
       {% endfor %}
-    </div><!-- service end -->    
+    </div>
+    <!-- service end -->
 
     <div class="banner bottom">
       <div class="icons">
