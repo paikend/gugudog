@@ -18,17 +18,20 @@
 .form{
     display: flex;
     flex-wrap: wrap;
-    margin: 0 10%;
+    margin: 0 10% 30% 10%;
     justify-content: center;
     font-size: 1rem;
 }
 
-#text{
-    border:red 10px solid;
-}
-
-.checkbox{
-    border:red 10px solid;
+.cate_name{
+    display: flex;
+    padding: 0 10%;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 5%;
+    height: 40px;
+    flex-direction: row;
+    /* border:red 1px solid; */
 }
 
 .btn_submit{
@@ -36,4 +39,23 @@
     font-size: 1.17rem;
     margin-top: 10%;
     width: 80%;
+}
+
+label {
+    /* border:1px solid #ccc; */
+    width: 13%;
+    height: 80%;
+    padding:7px;
+    margin-right: 5%;
+    display:block; 
+}
+   
+label:hover {
+    /* background:#eee; */
+    cursor:pointer;
+}
+
+.chk_box{
+    width: 100%;
+    height: 100%;
 }

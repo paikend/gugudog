@@ -27,6 +27,7 @@
   top: 0;
   text-align: center;
   background-color: rgb(249, 161, 27);
+  /* font-style: italic; */
 }
 
 #bannerlogo {
@@ -46,19 +47,29 @@
 }
 
 .main_banner {
-  margin-top: 30%;
-  margin-bottom: 10%;
+  margin-top: 35%;
+  margin-bottom: 15%;
   height: 90px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   object-fit: contain;
-  line-height: 250%;
+  line-height: 150%;
+  font-size: 2rem;
 }
 
 .logout {
   margin: 5% 5% 5% 75%;
+}
+
+.tuto {
+  text-align: center;
+}
+
+.tutorial {
+  /* color: rgba(0, 0, 0, 0.616); */
+  color: black;
 }
 
 .service {
@@ -76,24 +87,54 @@
 .service_box {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: row;
   width: 100%;
-  height: 5rem;
+  height: auto;
   margin-bottom: 5%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  /* border: gray 0.5px solid; */
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.13), 1px 1px 2px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   color: white;
   background-color: whitesmoke;
   line-height: 170%;
+  padding: 2.5% 3%;
 }
 
 /* .service_box:hover, */
 .new_service:hover,
 .appear_button:hover {
   filter: brightness(70%);
+}
+
+.up {
+  display: none;
+}
+
+.down {
+  display: inline;
+}
+
+.hide {
+  display: none;
+}
+
+.appear {
+  display: inline;
+}
+
+.arrows {
+  margin-top: auto;
+  margin-left: 5%;
+}
+
+/* .appear {
+  display: inline;
+} */
+
+.arrow {
+  -webkit-filter: opacity(0.3) drop-shadow(0 0 0 white);
+  filter: opacity(0.3) drop-shadow(0 0 0 white);
 }
 
 .edit_hide,
@@ -117,10 +158,17 @@
   align-items: center;
   /* width: 50%; */
   height: 2rem;
-  background-color: lightgray;
+  /* background-color: whitesmoke; */
   border-radius: 8px;
-  color: var(--gugu-gray);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  color: gray;
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
+  font-size: 0.7rem;
+  font-weight: 500;
+  border: gray 1px solid;
+}
+
+.btn_txt{
+  color: black;
 }
 
 .new_service {
@@ -134,6 +182,7 @@
   border-radius: 8px;
   color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  font-weight: 500;
 }
 
 #serviceall,

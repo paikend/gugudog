@@ -1,5 +1,10 @@
+:root {
+  --gugu-orange: rgb(249, 161, 27);
+  --gugu-gray: rgb(82, 97, 106);
+  --gugu-lightorange: rgb(255, 233, 220);
+}
 .main_banner_txt {
-  margin-top: 33%;
+  margin-top: 40%;
   margin-bottom: 10%;
   height: 90px;
   width: 100%;
@@ -7,7 +12,9 @@
   justify-content: center;
   align-items: center;
   object-fit: contain;
-  line-height: 300%;
+  line-height: 150%;
+  font-size: 2rem;
+  color: var(--gugu-gray);
 }
 
 .service {
@@ -17,8 +24,8 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 100px;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 7%;
+  margin-right: 7%;
   /* background-color: antiquewhite; */
 }
 
@@ -31,7 +38,7 @@
   width: 100%;
   height: 8rem;
   margin-bottom: 5%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.13), 1px 1px 2px rgba(0, 0, 0, 0.1);
   /* border: gray 0.5px solid; */
   border-radius: 8px;
   line-height: 170%;

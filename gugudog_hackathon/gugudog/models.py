@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.utils import timezone
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -15,6 +16,7 @@ class Service(models.Model):
     price = models.IntegerField()
     link = models.CharField(max_length=500)
     description = models.TextField(null=True, blank=True)
+    description_detail = models.TextField(null=True, blank=True)
 
     full_name = models.OneToOneField(
       'self', on_delete=models.CASCADE, null=True, blank=True)
@@ -43,13 +45,18 @@ class Service(models.Model):
     # 서비스를 구독하는 유저의 수
     def get_gudog_users(self):
         return self.gudog_users.all().count()
+    count_gudog_users = property(get_gudog_users)
 
     # 서비스를 찜한 유저의 수
+    # @property
+
     def get_zzim_users(self):
         return self.zzim_users.all().count()
 
+    count_zzim_users = property(get_zzim_users)
+
     def __str__(self):
-        return f"{self.company} {self.service_name} (+{self.price}원)"
+        return self.company + " " + self.service_name + " (+" + str(self.price) + "원)"
 
 
 class GuDogService(models.Model):
@@ -64,9 +71,16 @@ class GuDogService(models.Model):
         blank=True,
     )
     register_date = models.DateTimeField(null=True, blank=True)
+    def _remained_date(self):
+        today = timezone.now().day
+        sub_date = self.register_date.day - today
+        if sub_date < 0:
+            sub_date += 100
+        return sub_date
+    remained_date = property(_remained_date)
 
     def __str__(self):
-        return f"{self.user} {self.service}"       
+        return str(self.user) + " " + str(self.service)       
 
 class ZzimService(models.Model):
     user = models.ForeignKey(
@@ -82,7 +96,7 @@ class ZzimService(models.Model):
     )
 
     def __str__(self):
-        return f"{self.service}"    
+        return str(self.user) + " " + str(self.service)    
 
 class GuDog(models.Model):
     user = models.ForeignKey(
@@ -118,7 +132,7 @@ class InterestService(models.Model):
     )
 
     def __str__(self):
-        return f"{self.interest_cate}"    
+        return self.interest_cate    
 
 class Interest(models.Model):
     user = models.ForeignKey(
