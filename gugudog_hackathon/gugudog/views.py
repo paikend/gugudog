@@ -239,6 +239,7 @@ def zzim(request):
             # print(service.get_zzim_users)
             context['get_zzim_users'] = service.count_zzim_users
             context['zzim']="찜 취소"
+            context['isZzimed'] = ""
             print('취소됐어요')
             print(context)
             return HttpResponse(json.dumps(context))
@@ -250,13 +251,14 @@ def zzim(request):
                 zzim_service.delete()
                 print('hello')
                 context['zzim']="찜 취소"
-                # context['get_zzim_users']
+                context['get_zzim_users']=""
                 return HttpResponse(json.dumps(context))
             else:
                 zzim_service.save()
                 zzim.services.add(zzim_service)
                 service = Service.objects.get(pk=zzim_service.service.pk)
                 service.zzim_users.add(request.user)
+                context['isZzimed'] = "찜한 구독 서비스에요!"
                 context['get_zzim_users'] = service.count_zzim_users
                 return HttpResponse(json.dumps(context))
         else:
@@ -265,6 +267,7 @@ def zzim(request):
             zzim.services.add(zzim_service)
             service = Service.objects.get(pk=zzim_service.service.pk)
             service.zzim_users.add(request.user)
+            context['isZzimed'] = "찜한 구독 서비스에요!"
             context['get_zzim_users'] = service.count_zzim_users
     
     return HttpResponse(json.dumps(context))

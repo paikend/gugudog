@@ -28,6 +28,7 @@
   text-align: center;
   background-color: rgb(249, 161, 27);
   /* font-style: italic; */
+  z-index: 1;
 }
 
 #bannerlogo {
@@ -102,8 +103,8 @@
 }
 
 /* .service_box:hover, */
-.new_service:hover,
-.appear_button:hover {
+
+.new_service:hover, .appear_button:hover {
   filter: brightness(70%);
 }
 
@@ -137,8 +138,7 @@
   filter: opacity(0.3) drop-shadow(0 0 0 white);
 }
 
-.edit_hide,
-.hide_button {
+.edit_hide, .hide_button {
   display: none;
 }
 
@@ -167,7 +167,7 @@
   border: gray 1px solid;
 }
 
-.btn_txt{
+.btn_txt {
   color: black;
 }
 
@@ -185,9 +185,7 @@
   font-weight: 500;
 }
 
-#serviceall,
-#mypage,
-#home {
+#serviceall, #mypage, #home {
   width: 27px;
   height: auto;
   -webkit-filter: opacity(0.3) drop-shadow(0 0 0 white);

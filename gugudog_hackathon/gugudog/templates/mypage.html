@@ -76,10 +76,17 @@
       </div>
       <div class="editting">
         <div class="main_banner">
+          {% if user.first_name %}
           <p>
-            <a class="usernamecolor">{{ user }}&nbsp</a>회원님<br />
+            <a class="usernamecolor">{{user.last_name}}{{user.first_name}}&nbsp</a>회원님<br />
             안녕하세요!
           </p>
+          {% else %}
+          <p>
+            <a class="usernamecolor">{{user}}&nbsp</a>회원님<br />
+            안녕하세요!
+          </p>
+          {% endif %}
         </div>
 
         <div class="edittinguserbox">
