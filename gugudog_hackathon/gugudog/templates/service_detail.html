@@ -103,20 +103,19 @@
           >
         </div>
         <!-- wholeservicebox end -->
-
-        {% if yes == False %}
-        <p id="isZzimed">{{ isZzimed }}</p>
-        <p id="isGuDoged">{{ isGuDoged }}</p>
-        <div class="new_service add_btn"><p>내 서비스에 추가하기</p></div>
-        {% else %}
-        <p id="isZzimed">{{ isZzimed }}</p>
-        <p id="isGuDoged">{{ isGuDoged }}</p>
-        <div class="new_service add_btn">
-          <a href="#"
-            ><p>{{ myDelete }}</p></a
-          >
-        </div>
-        {% endif %}
+        {% for gudog_service in gudog %}
+          {% if yes == False %}
+            <p id="isZzimed">{{ isZzimed }}</p>
+            <p id="isGuDoged">{{ isGuDoged }}</p>
+            <div class="new_service add_btn"><p>내 서비스에 추가하기</p></div>
+          {% else %}
+            <p id="isZzimed">{{ isZzimed }}</p>
+            <p id="isGuDoged">{{ isGuDoged }}</p>
+            <div class="new_service add_btn">
+              <a href="{% url 'delete_service' gudog_service.id gudog_service.service_id %}"><p>{{ myDelete }}</p></a>
+            </div>
+          {% endif %}
+        {% endfor %}
 
       </div>
       <!-- zzimlist end -->

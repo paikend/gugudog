@@ -200,8 +200,15 @@ def delete_service(request, gudog_service_pk, model_service_pk):
 @login_required(login_url='signup')
 def service_detail(request, service_pk):
     service = Service.objects.get(pk=service_pk)
+
+    gudog = GuDogService.objects.filter(user=request.user, service__pk=service_pk).values()
+    print("**********************************")
+    for i in gudog:
+        print(i)
+
     context = {
         'service': service,
+        'gudog':gudog
     }
     if request.user in service.gudog_users.all():
 
