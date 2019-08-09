@@ -46,62 +46,68 @@
        <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
     </div>
 
-    <div class="main_banner"><h1> 
+    <div class="main_banner">
 
     {% if user.first_name %}
-      <a class="usernamecolor">{{user.last_name}}{{user.first_name}}</a> 회원님의 <br>이번 달 구독 금액은<br> 총 
-      <a class="wholemoneycolor" id="add_item" data-count="{{ total_price }}"></a>입니다.</h1></div>
+      <p><a class="usernamecolor">{{user.last_name}}{{user.first_name}}</a> 회원님의 <br>이번 달 구독 금액은<br> 총 
+      <a class="wholemoneycolor" id="add_item" data-count="{{ total_price }}"></a>입니다.</p></div>
       <div class="logout"><a href="{% url 'logout' %}">로그아웃</a></div>
     {% else %}
+      <p>
       <a class="usernamecolor">{{user}}</a> 회원님의 <br>이번 달 구독 금액은<br> 총 
-      <a class="wholemoneycolor" id="add_item" data-count="{{ total_price }}"></a>입니다.</h1></div>
+      <a class="wholemoneycolor" id="add_item" data-count="{{ total_price }}"></a>입니다.</p></div>
     {% endif %}
 
 
     <div class="service">
 
-      {% for gudog_service in gudog %}
-        {% if gudog_service %}
-        <div class="service_box">
-          <!-- 로고 안 넣을 꺼면 주석 지워도 됩니다 -->
-          <img src ="{{gudog_service.service.image_url }}"
-           style="object-fit: contain; 
-                  padding: 5px;
-                  border-radius: 50%; 
-                  width: 30%;">
-          <h3 style="color: black;">{{ gudog_service.service.company }} {{ gudog_service.service.service_name }}<br/>
-            {{ gudog_service.service.get_price }}원(매월 {{ gudog_service.register_date.day}}일)
-              <a style="color: blue;" href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}">삭제하기</a>
-          </h3>
+      {% if gudog %}
+        {% for gudog_service in gudog %}
+          {% if gudog_service %}
+          <div class="box">
+            <div class="service_box">
+              <!-- 로고 안 넣을 꺼면 주석 지워도 됩니다 -->
+              <img src ="{{gudog_service.service.image_url }}"
+                style="object-fit: contain; 
+                        padding: 5px;
+                        border-radius: 50%; 
+                        width: 30%;">
+              <h3 style="color: black;">{{ gudog_service.service.company }} {{ gudog_service.service.service_name }}<br/>
+                {{ gudog_service.service.get_price }}원(매월 {{ gudog_service.register_date.day}}일)
+              </h3>
+            </div>
+            <div class="edit_hide">
+              <div class="hide_button"><a href="{% url 'add' %}"><h5 class="btn_txt">수정하기</h5></a></div>
+              <div class="hide_button"><a href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}"><h5 class="btn_txt">삭제하기</h5></a></div>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+      <div class="box">
+        <div class="service_box tuto">
+            <h3 class="tutorial">하단 추가하기 버튼으로<br> 구독하는 서비스를 추가해보세요!</h3>
         </div>
-        {% endif %}
-      {% endfor %}
+      </div>
+      {% endif %}
+  
 
       <div class="box">
         <div class="service_box" id = "melon">
-            <h3>멜론 정기 스트리밍<br />
-            3,900원(8월 7일)</h3>
+            <p>멜론 정기 스트리밍<br />
+            3,900원(8월 7일)</p>
+            <div class="arrows"><img class="arrow down" src="{% static 'arrow_down.png' %}">
+              <img class="arrow up" src="{% static 'arrow_up.png' %}"></div>
         </div>
         <div class="edit_hide">
-            <div class="hide_button"><h5>수정하기</h5></div>
-            <div class="hide_button"><h5>삭제하기</h5></div>
+            <div class="hide_button"><a href="#"><p>수정하기</p></a></div>
+            <div class="hide_button"><a href="#"><p>삭제하기</p></a></div>
         </div>
-      </div>
-      
-      <div class="box">
-        <div class="service_box" id = "Netflix">
-            <h3>NETFLIX 4K UHD<br />
-            9,000원(8월 10일)</h3>
-        </div>
-        <div class="edit_hide">
-            <div class="hide_button"><h5>수정하기</h5></div>
-            <div class="hide_button"><h5>삭제하기</h5></div>
-        </div>
-      </div>
+      </div>      
 
       <a href="{% url 'add' %}" style="width: 100%;">
         <div class="new_service">
-          <h3>+ 추가하기<h3>
+          <p>+ 추가하기</p>
         </div>        
       </a>
     </div>
@@ -129,7 +135,14 @@
       $('.box').click(function() {
         $(this).children('.edit_hide').toggleClass('edit_appear');
         $(this).children('.edit_hide').children('.hide_button').toggleClass('appear_button');
+        $(this).children(".service_box").children('.arrows').children('.up').toggleClass('appear');
+        $(this).children(".service_box").children('.arrows').children('.down').toggleClass('hide');
       });
+
+      // $('.arrows').click(function(){
+      //   $(this).children('.arrow_down').toggleClass('arrow_up');
+      //   $(this).children('.arrow_up').toggleClass('arrow_up');
+      // })
 
       // $(body).on('click','.box', function() {
       //   $(this).children('.edit_hide').toggleClass("edit_appear");

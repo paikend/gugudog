@@ -47,8 +47,12 @@ class Service(models.Model):
     count_gudog_users = property(get_gudog_users)
 
     # 서비스를 찜한 유저의 수
+    # @property
+
     def get_zzim_users(self):
         return self.zzim_users.all().count()
+
+    count_zzim_users = property(get_zzim_users)
 
     def __str__(self):
         return self.company + " " + self.service_name + " (+" + str(self.price) + "원)"
@@ -75,7 +79,7 @@ class GuDogService(models.Model):
     remained_date = property(_remained_date)
 
     def __str__(self):
-        return self.user + " " + self.service       
+        return str(self.user) + " " + str(self.service)       
 
 class ZzimService(models.Model):
     user = models.ForeignKey(
@@ -91,7 +95,7 @@ class ZzimService(models.Model):
     )
 
     def __str__(self):
-        return f"{self.service}"    
+        return str(self.user) + " " + str(self.service)    
 
 class GuDog(models.Model):
     user = models.ForeignKey(
