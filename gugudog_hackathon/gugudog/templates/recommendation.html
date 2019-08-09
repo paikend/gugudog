@@ -59,6 +59,11 @@
         font-weight: 300;
         font-family: "NanumSquare", sans-serif;
       }
+      .main_banner_txt {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+      }
     </style>
 
     <title>gugudog</title>
@@ -93,15 +98,11 @@
 
     <div class="main_banner_txt">
     {% if user.first_name %}
-      <h1>
-        <a class="usernamecolor">{{ user.first_name }}{{ user.last_name }}&nbsp</a>회원님에게<br />
-        꼭 맞는&nbsp<a class="wholemoneycolor">추천서비스</a>
-      </h1>
+        <div><a class="usernamecolor">{{ user.first_name }}{{ user.last_name }}&nbsp</a>회원님에게<br>
+        꼭 맞는&nbsp<a class="wholemoneycolor">추천서비스</a></div>
     {% else %}
-      <h1>
-        <a class="usernamecolor">{{ user }}&nbsp</a>회원님에게<br />
-        꼭 맞는&nbsp<a class="wholemoneycolor">추천서비스</a>
-      </h1>
+        <div><a class="usernamecolor">{{ user }}&nbsp</a>회원님에게<br>
+        꼭 맞는&nbsp<a class="wholemoneycolor">추천서비스</a></div>
     {% endif %}
     </div>
 
