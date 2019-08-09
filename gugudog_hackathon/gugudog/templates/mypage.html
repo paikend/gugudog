@@ -125,15 +125,22 @@
       {% if zzim %}
         {% for zzim_service in zzim %}
           {% if zzim_service %}
-  
-              {{ zzim_service.service.company }}
-              {{ zzim_service.service.service_name }}
-              {{ zzim_service.service.description }}
-              <br>
+          <div class="service_box">
+            <div class="service_banner">
+              <img class="wcafe_icon" src="{{ zzim_service.service.image_url }}" />
+            </div>
+            <div class="service_detail">
+                 {{ zzim_service.service.company }} <br>
+                 {{ zzim_service.service.service_name }} <br>
+                 {{ zzim_service.service.description }}  
+            </div>
+            
+        </div>
+                
           {% endif %}
         {% endfor %}
       {% endif %}
-    
+    </div>
     <div class="banner bottom">
       <div class="icons">
         <a href="{% url 'service_all'%}"
@@ -153,6 +160,5 @@
           <p>마이페이지</p>
         </a>
       </div>
-    </div>
   </body>
 </html>
