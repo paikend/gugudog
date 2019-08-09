@@ -80,9 +80,9 @@
                 <img class="arrow up" src="{% static 'arrow_up.png' %}"></div>
             </div>
             <div class="edit_hide">
-                <div class="hide_button"><a href="#"><p>수정하기</p></a></div>
-                <div class="hide_button"><a href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}"><p>삭제하기</p></a></div>
-            </div>  
+              <div class="hide_button"><a href="{% url 'add' %}"><h5 class="btn_txt">수정하기</h5></a></div>
+              <div class="hide_button"><a href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}"><h5 class="btn_txt">삭제하기</h5></a></div>
+            </div>
           </div>
           {% endif %}
         {% endfor %}
@@ -91,10 +91,6 @@
         <div class="service_box tuto">
             <p class="tutorial">하단 추가하기 버튼으로<br> 구독중인 서비스를 추가해보세요!</p>
         </div>
-        <!-- <div class="edit_hide">
-            <div class="hide_button"><a href="#"><p>수정하기</p></a></div>
-            <div class="hide_button"><a href="#"><p>삭제하기</p></a></div>
-        </div> -->
       </div>
       {% endif %}
   
@@ -142,7 +138,6 @@
       $('.box').click(function() {
         $(this).children('.edit_hide').toggleClass('edit_appear');
         $(this).children('.edit_hide').children('.hide_button').toggleClass('appear_button');
-
         $(this).children(".service_box").children('.arrows').children('.up').toggleClass('appear');
         $(this).children(".service_box").children('.arrows').children('.down').toggleClass('hide');
       });

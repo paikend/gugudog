@@ -167,6 +167,10 @@
   border: gray 1px solid;
 }
 
+.btn_txt{
+  color: black;
+}
+
 .new_service {
   display: flex;
   width: 100%;

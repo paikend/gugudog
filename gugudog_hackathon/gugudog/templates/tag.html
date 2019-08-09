@@ -79,11 +79,14 @@
     </div>
 
     <div class="tag">
-      <div class="tag_btn click"><p>#전체</p></div>
-      <div class="tag_btn click"><p>#미디어</p></div>
-      <div class="tag_btn"><p>#음식</p></div>
-      <div class="tag_btn"><p>#의류</p></div>
-      <div class="tag_btn"><p>#라이프스타일</p></div>
+      {% for tag in tags %}
+      <div class="tag_btn click">
+        <form method="POST" action='{% url "tag" %}'>
+          {% csrf_token %}
+          <input type="submit" name="tag_checked" value="{{ tag }}" />
+        </form>
+      </div>
+      {% endfor %}
     </div>
 
     <div class="main_banner_txt"></div>
