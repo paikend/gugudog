@@ -28,6 +28,7 @@
   text-align: center;
   background-color: rgb(249, 161, 27);
   /* font-style: italic; */
+  z-index: 1;
 }
 
 #bannerlogo {

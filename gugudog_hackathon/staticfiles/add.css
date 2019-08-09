@@ -1,4 +1,4 @@
-.page{
+.page {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -6,22 +6,23 @@
     height: 80%;
     margin: 0 5%;
 }
-.form{
+
+.form {
     padding-top: 20%;
     display: flex;
     flex-wrap: wrap;
 }
 
-.add_service{
+.add_service {
     display: flex;
     flex-wrap: wrap;
-    margin : 5% 0 5% 0;
+    margin: 5% 0 5% 0;
     padding: 0 5%;
     /* border: red 1px solid; */
     width: 100%;
 }
 
-label{
+label {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -37,21 +38,22 @@ label{
     line-height: 170%;
 }
 
-.select2-selection{
-    border : white 0.5px solid;
+.select2-selection {
+    border: white 0.5px solid;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     width: 95%;
 }
 
-#id_register_date{
+#id_register_date {
     display: flex;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    width: 95%;
 }
 
-.add_item{
+.add_item {
     display: flex;
     background-color: white;
     border-radius: 5px;
@@ -60,7 +62,7 @@ label{
     height: 40px;
 }
 
-.btn_submit{
+.btn_submit {
     display: flex;
     font-size: 1.17rem;
     margin-top: 10%;

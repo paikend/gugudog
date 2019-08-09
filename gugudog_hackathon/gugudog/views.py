@@ -200,18 +200,21 @@ def delete_service(request, gudog_service_pk, model_service_pk):
 @login_required(login_url='signup')
 def service_detail(request, service_pk):
     service = Service.objects.get(pk=service_pk)
+
+    gudog = GuDogService.objects.filter(user=request.user, service__pk=service_pk).values()
+
     context = {
         'service': service,
+        'gudog':gudog,
+        'yes':False
     }
     if request.user in service.gudog_users.all():
-
         context['yes'] = True
         context['isGuDoged'] = "구독하고 있는 서비스에요!"
         context['myDelete'] = "삭제하기"
 
     elif request.user in service.zzim_users.all():
         context['isZzimed'] = "찜한 구독 서비스에요!"
-        context['yes'] = False
     
     return render(request, 'service_detail.html', context)
 
@@ -236,6 +239,7 @@ def zzim(request):
             # print(service.get_zzim_users)
             context['get_zzim_users'] = service.count_zzim_users
             context['zzim']="찜 취소"
+            context['isZzimed'] = ""
             print('취소됐어요')
             print(context)
             return HttpResponse(json.dumps(context))
@@ -247,13 +251,14 @@ def zzim(request):
                 zzim_service.delete()
                 print('hello')
                 context['zzim']="찜 취소"
-                # context['get_zzim_users']
+                context['get_zzim_users']=""
                 return HttpResponse(json.dumps(context))
             else:
                 zzim_service.save()
                 zzim.services.add(zzim_service)
                 service = Service.objects.get(pk=zzim_service.service.pk)
                 service.zzim_users.add(request.user)
+                context['isZzimed'] = "찜한 구독 서비스에요!"
                 context['get_zzim_users'] = service.count_zzim_users
                 return HttpResponse(json.dumps(context))
         else:
@@ -262,6 +267,7 @@ def zzim(request):
             zzim.services.add(zzim_service)
             service = Service.objects.get(pk=zzim_service.service.pk)
             service.zzim_users.add(request.user)
+            context['isZzimed'] = "찜한 구독 서비스에요!"
             context['get_zzim_users'] = service.count_zzim_users
     
     return HttpResponse(json.dumps(context))

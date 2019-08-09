@@ -65,7 +65,7 @@
         <div class="wholeservicebox">
           <div class="detail_box">
             <div class="service_banner">
-              <img class="logo" src ="{{service.image_url }}">
+              <img class="logo" src="{{ service.image_url }}" />
             </div>
 
             <div class="service_detail">
@@ -93,7 +93,7 @@
             <!-- 설명 textfield -->
             <h3>{{ service.description }}</h3>
             <div class="detail_txt">
-              <p>월 {{ service.description_detail }}</p>
+              <p>{{ service.description_detail }}</p>
             </div>
             <!-- 구독한 유저수를 get_gudog_users를 이용해 표현 -->
             <p>{{ service.get_gudog_users }}명이 구독한 서비스에요</p>
@@ -109,21 +109,19 @@
           >
         </div>
         <!-- wholeservicebox end -->
-
         {% if yes == False %}
-        <p id="isZzimed">{{ isZzimed }}</p>
-        <p id="isGuDoged">{{ isGuDoged }}</p>
-        <div class="new_service add_btn"><p>내 서비스에 추가하기</p></div>
+          <p id="isZzimed">{{ isZzimed }}</p>
+          <p id="isGuDoged">{{ isGuDoged }}</p>
+          <div class="new_service add_btn"><p>내 서비스에 추가하기</p></div>
         {% else %}
-        <p id="isZzimed">{{ isZzimed }}</p>
-        <p id="isGuDoged">{{ isGuDoged }}</p>
-        <div class="new_service add_btn">
-          <a href="#"
-            ><p>{{ myDelete }}</p></a
-          >
-        </div>
+          {% for gudog_service in gudog %}
+            <p id="isZzimed">{{ isZzimed }}</p>
+            <p id="isGuDoged">{{ isGuDoged }}</p>
+            <div class="new_service add_btn">
+              <a href="{% url 'delete_service' gudog_service.id gudog_service.service_id %}"><p>{{ myDelete }}</p></a>
+            </div>
+          {% endfor %}
         {% endif %}
-
       </div>
       <!-- zzimlist end -->
     </div>
@@ -149,7 +147,6 @@
         </a>
       </div>
     </div>
-
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -175,15 +172,9 @@
           $(".zzim_users_count").text(
             response.get_zzim_users + "명이 찜한 서비스에요"
           );
-          console.log(response.get_zzim_users);
-          // $(".zzim").text(response.get_zzim_users);
+          $("#isZzimed").text(response.isZzimed);
         },
-        error: function(request, response, status, error) {
-          // alert("찜이 안돼 시발");
-          console.log(response);
-          console.log(request);
-          console.log(error);
-        }
+        error: function(request, response, status, error) {}
       });
     });
   </script>
