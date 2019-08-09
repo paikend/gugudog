@@ -70,20 +70,22 @@
     </div>
 
     <div class="slider main_banner">
-      <img class="banner_img hide" src="{% static 'banner_hobbyful_2.jpg' %}" />
+      <img class="banner_img hide" src="{% static 'adbanner_mille.png' %}" />
       <img
         class="banner_img hide"
-        src="{% static 'banner_opengallery.jpg' %}"
+        src="{% static 'adbanner_dailyshot.png' %}"
       />
       <img class="banner_img hide" src="{% static 'adbanner_kukka.png' %}" />
     </div>
 
     <div class="tag">
       {% for tag in tags %}
-      <div class="tag_btn click">
-        <form method="POST" action='{% url "tag" %}'>
+      <div class="tag_btn">
+        <form method="POST" class="btn" action='{% url "tag" %}'>
           {% csrf_token %}
-          <input type="submit" name="tag_checked" value="{{ tag }}" />
+          <div class="btn">
+            <input type="submit" name="tag_checked" value="{{ tag }}" />
+          </div>
         </form>
       </div>
       {% endfor %}
