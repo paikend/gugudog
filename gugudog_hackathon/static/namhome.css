@@ -28,6 +28,7 @@
   text-align: center;
   background-color: rgb(249, 161, 27);
   /* font-style: italic; */
+  z-index: 1;
 }
 
 #bannerlogo {
@@ -95,15 +96,22 @@
   margin-bottom: 5%;
   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.13), 1px 1px 2px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  color: white;
+  color: black;
   background-color: whitesmoke;
   line-height: 170%;
   padding: 2.5% 3%;
 }
 
+.change {
+  background-color: var(--gugu-orange);
+  opacity: 0.9;
+  color: white;
+}
+
 /* .service_box:hover, */
 .new_service:hover,
-.appear_button:hover {
+.appear_button:hover,
+.menu:hover {
   filter: brightness(70%);
 }
 
@@ -145,7 +153,7 @@
 .edit_appear {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   align-items: center;
   margin: 0% 0% 5% 0%;
 }
@@ -160,15 +168,10 @@
   height: 2rem;
   /* background-color: whitesmoke; */
   border-radius: 8px;
-  color: gray;
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
   font-size: 0.7rem;
   font-weight: 500;
-  border: gray 1px solid;
-}
-
-.btn_txt{
-  color: black;
+  /* border: var(--gugu-gray) 1px solid; */
 }
 
 .new_service {
@@ -228,4 +231,14 @@ a {
 
 .wholemoneycolor {
   color: rgb(249, 161, 27);
+}
+
+.menu {
+  width: 1.6rem;
+  height: auto;
+}
+
+.menu:hover {
+  -webkit-filter: opacity(0.3) drop-shadow(0 0 0 #f9a11b);
+  filter: opacity(0.3) drop-shadow(0 0 0 #f9a11b);
 }

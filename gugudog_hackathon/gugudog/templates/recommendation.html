@@ -20,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- css 버전 수정해가면서 사용하세요. -->
-    
+
     <link
       rel="stylesheet"
       type="text/css"
@@ -59,6 +59,31 @@
         font-weight: 300;
         font-family: "NanumSquare", sans-serif;
       }
+      .main_banner_txt {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+      }
+      .service_banner {
+        width: 30%;
+        padding: 0 3%;
+      }
+      .service_detail {
+        width: 60%;
+        padding-left: 3%;
+      }
+      .description content {
+        width: 100%;
+      }
+      .tags {
+        display: flex;
+        flex-direction: column;
+      }
+      .tag-btn {
+        color: rgb(249, 161, 27);
+        font-weight: 500;
+        font-size: 0.95rem;
+      }
     </style>
 
     <title>gugudog</title>
@@ -92,42 +117,47 @@
     </div>
 
     <div class="main_banner_txt">
-    {% if user.first_name %}
-      <h1>
-        <a class="usernamecolor">{{ user.first_name }}{{ user.last_name }}&nbsp</a>회원님에게<br />
+      {% if user.first_name %}
+      <div>
+        <a class="usernamecolor"
+          >{{ user.first_name }}{{ user.last_name }}&nbsp</a
+        >회원님에게<br />
         꼭 맞는&nbsp<a class="wholemoneycolor">추천서비스</a>
-      </h1>
-    {% else %}
-      <h1>
+      </div>
+      {% else %}
+      <div>
         <a class="usernamecolor">{{ user }}&nbsp</a>회원님에게<br />
         꼭 맞는&nbsp<a class="wholemoneycolor">추천서비스</a>
-      </h1>
-    {% endif %}
+      </div>
+      {% endif %}
     </div>
 
     <div class="service">
       {% for i in my_reco %}
-      
       <div class="service_box">
         <div class="service_banner">
-          <img
-            class="banner_img circle"
-            src="{{i.image}}"
-          />
+          <img class="banner_img circle" src="{{ i.image.url }}" />
         </div>
         <div class="service_detail">
-          <div class="description title">{{i.name}}</div>
-          <div class="description content">
-          <form method = 'POST' action = "{% url 'tag' %}">{% csrf_token %}
-            #<input type='submit' name='tag_checked' value="{{i.category}}"></a>
-          </form>
-            {{i.description}} / {{ i.count_gudog_users }}명 구독중
+          <div class="description title">{{ i.name }}</div>
+          <div class="tags">
+            <form method="POST" action="{% url 'tag' %}">
+              {% csrf_token %}
+              <p class="tag-btn">
+                #<input
+                  class="tag-btn"
+                  type="submit"
+                  name="tag_checked"
+                  value="{{ i.category }}"
+                />
+              </p>
+            </form>
           </div>
-          <div class="description price">월 {{i.price}}원</div>
+          <div class="description content">{{ i.description }}<br /></div>
+          <div class="description price">월 {{ i.get_price }}원</div>
         </div>
       </div>
-      {% endfor %} 
-
+      {% endfor %}
     </div>
 
     <div class="banner bottom">

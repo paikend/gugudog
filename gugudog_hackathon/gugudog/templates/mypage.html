@@ -76,10 +76,17 @@
       </div>
       <div class="editting">
         <div class="main_banner">
+          {% if user.first_name %}
           <p>
-            <a class="usernamecolor">{{ user }}&nbsp</a>회원님<br />
+            <a class="usernamecolor">{{user.last_name}}{{user.first_name}}&nbsp</a>회원님<br />
             안녕하세요!
           </p>
+          {% else %}
+          <p>
+            <a class="usernamecolor">{{user}}&nbsp</a>회원님<br />
+            안녕하세요!
+          </p>
+          {% endif %}
         </div>
 
         <div class="edittinguserbox">
@@ -125,15 +132,27 @@
       {% if zzim %}
         {% for zzim_service in zzim %}
           {% if zzim_service %}
-  
-              {{ zzim_service.service.company }}
-              {{ zzim_service.service.service_name }}
-              {{ zzim_service.service.description }}
-              <br>
+          <div class="service_box">
+            <div class="service_banner">
+              <img class="wcafe_icon" src="{{ zzim_service.service.image_url }}" />
+            </div>
+            <div class="service_detail">
+              <div class="description title">
+                 {{ zzim_service.service.company }}
+              </div>
+              <div class="description content">
+                 {{ zzim_service.service.service_name }} 
+                 <br />
+                 {{ zzim_service.service.description }}
+              </div>  
+            </div>
+            
+        </div>
+                
           {% endif %}
         {% endfor %}
       {% endif %}
-    
+    </div>
     <div class="banner bottom">
       <div class="icons">
         <a href="{% url 'service_all'%}"
@@ -153,6 +172,5 @@
           <p>마이페이지</p>
         </a>
       </div>
-    </div>
   </body>
 </html>
