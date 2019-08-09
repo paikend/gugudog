@@ -37,7 +37,7 @@
   align-items: center;
   flex-direction: row;
   width: 100%;
-  height: 10.5rem;
+  height: 10rem;
   margin-bottom: 7%;
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
   /* border: gray 0.5px solid; */
@@ -52,7 +52,7 @@
   justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 120px;
   margin-left: 5%;
   margin-right: 5%;
   /* background-color: antiquewhite; */
@@ -70,7 +70,7 @@
   align-items: center;
   width: 35%;
   height: 93.75%;
-  margin: 0 7%;
+  margin: 0 5% 0 3%;
   /* border: gray 0.5px solid; */
 }
 
@@ -82,7 +82,7 @@
   width: 40%;
   height: 67%;
   color: black;
-  
+
   /* border: gray 0.5px solid; */
 }
 
@@ -95,10 +95,9 @@
   /* border: 1px red solid; */
 }
 
-/* .heartbox {
-  width: 10%;
-  height: 93.75%;
-} */
+.service_name {
+  font-weight: 550;
+}
 
 .heartbaby {
   width: 80%;
@@ -106,12 +105,10 @@
 
 .zzim {
   display: flex;
-  /* background-color: pink; */
-  padding: 1%;
-  width: 10%;
-  height: auto;
-  padding-top: 40%;
-  /* height: 93.75%; */
+  padding: 10% 0%;
+  height: 100%;
+  font-size: 1.5rem;
+  align-items: flex-end;
 }
 
 .zzimlist {
@@ -151,18 +148,24 @@
   /* border: gray 0.5px solid; */
   border-radius: 8px;
   line-height: 170%;
-  margin-bottom: 5%;
 }
 
 .adment {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 5% 2% 5%;
+  word-break: keep-all;
   /* border: gray 0.5px solid; */
   margin-bottom: 5%;
-  margin-left: 7%;
+  border-bottom: lightgray 0.5px solid;
 }
 
 .linktoservice {
-  margin-left: 7%;
-  margin-bottom: 5%;
+  margin-top: 3%;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--gugu-orange);
   /* border: gray 0.5px solid; */
 }
 
@@ -190,7 +193,25 @@
   font-weight: 500;
 }
 
-.logo{
-  object-fit: contain; 
+.logo {
+  object-fit: contain;
   width: 70%;
+  border-radius: 40%;
+}
+
+.zzim_users_count {
+  width: 100%;
+}
+
+.no_border {
+  border: none;
+  margin-bottom: 0;
+}
+
+.selected {
+  color: palevioletred;
+}
+
+.hide {
+  display: none;
 }

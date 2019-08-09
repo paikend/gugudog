@@ -1,61 +1,75 @@
-.blank{
-    display:flex;
-    height: 60px;
+.blank {
+  display: flex;
+  height: 60px;
 }
 
 .main_banner_txt {
-    margin-top: 20%;
-    margin-bottom: 8%;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    object-fit: contain;
-    line-height: 300%;
+  margin-top: 20%;
+  margin-bottom: 8%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  line-height: 300%;
 }
 
-.form{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 10% 30% 10%;
-    justify-content: center;
-    font-size: 1rem;
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 10% 30% 10%;
+  justify-content: center;
+  font-size: 1rem;
 }
 
-.cate_name{
-    display: flex;
-    padding: 0 10%;
-    width: 100%;
-    align-items: center;
-    margin-bottom: 5%;
-    height: 40px;
-    flex-direction: row;
-    /* border:red 1px solid; */
+.cate_name {
+  display: flex;
+  padding: 0 10%;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 5%;
+  height: 40px;
+  flex-direction: row;
+  /* border:red 1px solid; */
 }
 
-.btn_submit{
-    display: flex;
-    font-size: 1.17rem;
-    margin-top: 10%;
-    width: 80%;
+.btn_submit {
+  display: flex;
+  font-size: 1.17rem;
+  margin-top: 10%;
+  width: 80%;
 }
 
 label {
-    /* border:1px solid #ccc; */
-    width: 13%;
-    height: 80%;
-    padding:7px;
-    margin-right: 5%;
-    display:block; 
-}
-   
-label:hover {
-    /* background:#eee; */
-    cursor:pointer;
+  /* border:1px solid #ccc; */
+  width: 13%;
+  height: 80%;
+  padding: 7px;
+  margin-right: 5%;
+  display: block;
 }
 
-.chk_box{
-    width: 100%;
-    height: 100%;
+label:hover {
+  /* background:#eee; */
+  cursor: pointer;
+}
+
+.chk_box {
+  width: 100%;
+  height: 100%;
+}
+
+#serviceall,
+#mypage,
+#home {
+  width: 27px;
+  height: auto;
+  -webkit-filter: opacity(0.3) drop-shadow(0 0 0 white);
+  filter: opacity(0.3) drop-shadow(0 0 0 white);
+}
+
+#mypage {
+  -webkit-filter: opacity(0.6) drop-shadow(0 0 0 #808080);
+  filter: opacity(0.6) drop-shadow(0 0 0 #808080);
 }

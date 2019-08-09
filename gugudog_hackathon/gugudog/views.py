@@ -57,9 +57,10 @@ def tag(request):
     }
 
     if request.method == 'POST':
-        tag_checked = request.POST.get('tag_checked')
-        services = Service.objects.filter(category__name=tag_checked)
+        tagged = request.POST.get('tag_checked')
+        services = Service.objects.filter(category__name=tagged)
         context['services'] = services
+        context['tagged'] = tagged
         return render(request, 'tag.html', context)
     else:
         services = Service.objects.all()
@@ -365,3 +366,6 @@ def test3(request):
 @login_required(login_url='signup/')
 def service_new(request):
     return render(request, 'service_new.html')
+
+def about(request):
+    return render(request, 'about.html')

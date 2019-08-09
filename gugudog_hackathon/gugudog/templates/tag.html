@@ -15,7 +15,11 @@
       type="text/css"
       href="{% static 'service_all.css' %}"
     />
-    <link rel="stylesheet" type="text/css" href="{% static 'tag.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'tag.css' %}?ver=1"
+    />
     <link
       rel="shortcut icon"
       type="image⁄x-icon"
@@ -37,6 +41,10 @@
       body {
         font-weight: 300;
         font-family: "NanumSquare", sans-serif;
+        background-color: whitesmoke;
+      }
+      #tagged-btn {
+        background-color: rgb(249, 161, 27);
       }
     </style>
     <title>gugudog</title>
@@ -70,22 +78,34 @@
     </div>
 
     <div class="slider main_banner">
-      <img class="banner_img hide" src="{% static 'adbanner_mille.png' %}" />
-      <img
-        class="banner_img hide"
-        src="{% static 'adbanner_dailyshot.png' %}"
-      />
-      <img class="banner_img hide" src="{% static 'adbanner_kukka.png' %}" />
+      <img class="banner_img hide" src="{% static 'mille.png' %}" />
+      <img class="banner_img hide" src="{% static 'dailyshot.png' %}" />
+      <img class="banner_img hide" src="{% static 'kukka.png' %}" />
     </div>
 
     <div class="tag">
       {% for tag in tags %}
       <div class="tag_btn">
         <form method="POST" class="btn" action='{% url "tag" %}'>
-          {% csrf_token %}
+          {% csrf_token %} {% if tag.name == tagged %}
           <div class="btn">
-            <input type="submit" name="tag_checked" value="{{ tag }}" />
+            <input
+              type="submit"
+              id="tagged-btn"
+              name="tag_checked"
+              value="{{ tag }}"
+            />
           </div>
+          {% else %}
+          <div class="btn">
+            <input
+              type="submit"
+              id="untagged-btn"
+              name="tag_checked"
+              value="{{ tag }}"
+            />
+          </div>
+          {% endif %}
         </form>
       </div>
       {% endfor %}
