@@ -103,19 +103,19 @@
           >
         </div>
         <!-- wholeservicebox end -->
-        {% for gudog_service in gudog %}
-          {% if yes == False %}
-            <p id="isZzimed">{{ isZzimed }}</p>
-            <p id="isGuDoged">{{ isGuDoged }}</p>
-            <div class="new_service add_btn"><p>내 서비스에 추가하기</p></div>
-          {% else %}
+        {% if yes == False %}
+          <p id="isZzimed">{{ isZzimed }}</p>
+          <p id="isGuDoged">{{ isGuDoged }}</p>
+          <div class="new_service add_btn"><p>내 서비스에 추가하기</p></div>
+        {% else %}
+          {% for gudog_service in gudog %}
             <p id="isZzimed">{{ isZzimed }}</p>
             <p id="isGuDoged">{{ isGuDoged }}</p>
             <div class="new_service add_btn">
               <a href="{% url 'delete_service' gudog_service.id gudog_service.service_id %}"><p>{{ myDelete }}</p></a>
             </div>
-          {% endif %}
-        {% endfor %}
+          {% endfor %}
+        {% endif %}
 
       </div>
       <!-- zzimlist end -->
@@ -168,14 +168,9 @@
           $(".zzim_users_count").text(
             response.get_zzim_users + "명이 찜한 서비스에요"
           );
-          console.log(response.get_zzim_users);
-          // $(".zzim").text(response.get_zzim_users);
+          $('#isZzimed').text(response.isZzimed);
         },
         error: function(request, response, status, error) {
-          // alert("찜이 안돼 시발");
-          console.log(response);
-          console.log(request);
-          console.log(error);
         }
       });
     });
