@@ -20,15 +20,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- css 버전 수정해가면서 사용하세요. -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'service_all.css' %}?v=0.1"
-    />
+    
     <link
       rel="stylesheet"
       type="text/css"
       href="{% static 'recommendation.css' %}?v=0.1"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'service_all.css' %}?v=0.1"
     />
     <link
       rel="stylesheet"
@@ -87,28 +88,30 @@
 
     <div class="service">
       {% for i in my_reco %}
-        <div class="service_box">
-          <div class="service_banner">
-            <img
-              class="banner_img circle"
-              style="object-fit: contain; padding: 5px;"
-              src="{{ service.image_url }}"
-            />
-          </div>
-          <div class="service_detail">
-            <div class="description title">
-              {{ i.company }}
+      <a href="{% url 'service_detail' i.pk %}">
+          <div class="service_box">
+            <div class="service_banner">
+              <img
+                class="banner_img circle"
+                style="object-fit: contain; padding: 5px;"
+                src="{{ service.image_url }}"
+              />
             </div>
-            <div class="description content">
-              {{ i.service_name }}
-              <br />
-              {{ i.description }}
+            <div class="service_detail">
+              <div class="description title">
+                {{ i.company }}
+              </div>
+              <div class="description content">
+                {{ i.service_name }}
+                <br />
+                {{ i.description }}
+              </div>
+              <div class="description price">월 {{ i.get_price }}원</div>
+              <!-- 구독자 수 나타내는 코드입니다. 하트로 수정 - 0명이면 안보이고, 1명 이상부터 채워진 하트가 보이게 -->
+              <div class="description">{{ i.get_gudog_users }}명이 구독중</div>
             </div>
-            <div class="description price">월 {{ i.get_price }}원</div>
-            <!-- 구독자 수 나타내는 코드입니다. 하트로 수정 - 0명이면 안보이고, 1명 이상부터 채워진 하트가 보이게 -->
-            <div class="description">{{ i.get_gudog_users }}명이 구독중</div>
           </div>
-        </div>
+        </a>
       {% endfor %}  
 
       <div class="service_box">

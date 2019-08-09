@@ -62,28 +62,29 @@
       {% if gudog %}
         {% for gudog_service in gudog %}
           {% if gudog_service %}
-          <div class="service_box">
-            <!-- 로고 안 넣을 꺼면 주석 지워도 됩니다 -->
-            <img src ="{{gudog_service.service.image_url }}"
-            style="object-fit: contain; 
-                    padding: 5px;
-                    border-radius: 50%; 
-                    width: 30%;">
-            <h3 style="color: black;">{{ gudog_service.service.company }} {{ gudog_service.service.service_name }}<br/>
-              {{ gudog_service.service.get_price }}원(매월 {{ gudog_service.register_date.day}}일)
-                <a style="color: blue;" href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}">삭제하기</a>
-            </h3>
+          <div class="box">
+            <div class="service_box">
+              <!-- 로고 안 넣을 꺼면 주석 지워도 됩니다 -->
+              <img src ="{{gudog_service.service.image_url }}"
+                style="object-fit: contain; 
+                        padding: 5px;
+                        border-radius: 50%; 
+                        width: 30%;">
+              <h3 style="color: black;">{{ gudog_service.service.company }} {{ gudog_service.service.service_name }}<br/>
+                {{ gudog_service.service.get_price }}원(매월 {{ gudog_service.register_date.day}}일)
+              </h3>
+            </div>
+            <div class="edit_hide">
+              <div class="hide_button"><a href="{% url 'add' %}"><h5 class="btn_txt">수정하기</h5></a></div>
+              <div class="hide_button"><a href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}"><h5 class="btn_txt">삭제하기</h5></a></div>
+            </div>
           </div>
           {% endif %}
         {% endfor %}
       {% else %}
       <div class="box">
         <div class="service_box tuto">
-            <h3 class="tutorial">하단 추가하기 버튼으로<br> 구독중인 서비스를 추가해보세요!</h3>
-        </div>
-        <div class="edit_hide">
-            <div class="hide_button"><h5>수정하기</h5></div>
-            <div class="hide_button"><h5>삭제하기</h5></div>
+            <h3 class="tutorial">하단 추가하기 버튼으로<br> 구독하는 서비스를 추가해보세요!</h3>
         </div>
       </div>
       {% endif %}
@@ -119,6 +120,7 @@
       $('.box').click(function() {
         $(this).children('.edit_hide').toggleClass('edit_appear');
         $(this).children('.edit_hide').children('.hide_button').toggleClass('appear_button');
+        //$(this).childern('.edit_hide').childern()
       });
 
       // $(body).on('click','.box', function() {
