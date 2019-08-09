@@ -57,9 +57,10 @@ def tag(request):
     }
 
     if request.method == 'POST':
-        tag_checked = request.POST.get('tag_checked')
-        services = Service.objects.filter(category__name=tag_checked)
+        tagged = request.POST.get('tag_checked')
+        services = Service.objects.filter(category__name=tagged)
         context['services'] = services
+        context['tagged'] = tagged
         return render(request, 'tag.html', context)
     else:
         services = Service.objects.all()

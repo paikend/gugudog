@@ -15,7 +15,7 @@
       type="text/css"
       href="{% static 'service_all.css' %}"
     />
-    <link rel="stylesheet" type="text/css" href="{% static 'tag.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'tag.css' %}?ver=1" />
     <link
       rel="shortcut icon"
       type="image⁄x-icon"
@@ -37,6 +37,9 @@
       body {
         font-weight: 300;
         font-family: "NanumSquare", sans-serif;
+      }
+      #tagged-btn {
+        background-color: rgb(249, 161, 27);
       }
     </style>
     <title>gugudog</title>
@@ -80,14 +83,20 @@
 
     <div class="tag">
       {% for tag in tags %}
-      <div class="tag_btn">
-        <form method="POST" class="btn" action='{% url "tag" %}'>
-          {% csrf_token %}
-          <div class="btn">
-            <input type="submit" name="tag_checked" value="{{ tag }}" />
-          </div>
-        </form>
-      </div>
+        <div class="tag_btn">
+          <form method="POST" class="btn" action='{% url "tag" %}'>
+            {% csrf_token %}
+            {% if tag.name == tagged %}
+            <div class="btn">
+              <input type="submit" id='tagged-btn' name="tag_checked" value="{{ tag }}"/>
+            </div>
+            {% else %}
+            <div class="btn">
+              <input type="submit" id='untagged-btn' name="tag_checked" value="{{ tag }}"/>
+            </div>
+            {% endif %}
+          </form>
+        </div>
       {% endfor %}
     </div>
 
