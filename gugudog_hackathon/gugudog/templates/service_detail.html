@@ -59,10 +59,7 @@
         <div class="wholeservicebox">
           <div class="detail_box">
             <div class="service_banner">
-              <img
-                class="wcafe_icon"
-                src="{% static 'detail_banner_wcafe.jpg' %}"
-              />
+              <img class="logo" src ="{{service.image_url }}">
             </div>
 
             <div class="service_detail">
@@ -76,7 +73,7 @@
               </div>
               <!-- 가격  integerfield -->
               <div class="detail_txt">
-                <p>월 {{ service.price }}원</p>
+                <p>월 {{ service.get_price }}원</p>
               </div>
             </div>
 
@@ -89,6 +86,9 @@
           <div class="adment">
             <!-- 설명 textfield -->
             <h3>{{ service.description }}</h3>
+            <div class="detail_txt">
+              <p>월 {{ service.description_detail }}</p>
+            </div>
             <!-- 구독한 유저수를 get_gudog_users를 이용해 표현 -->
             <p>{{ service.get_gudog_users }}명이 구독한 서비스에요</p>
             <!-- 찜한 유저수를 get_zzim_users를 이용해 표현 -->
@@ -103,6 +103,7 @@
           >
         </div>
         <!-- wholeservicebox end -->
+
         {% if yes == False %}
         <p id="isZzimed">{{ isZzimed }}</p>
         <p id="isGuDoged">{{ isGuDoged }}</p>
@@ -116,6 +117,7 @@
           >
         </div>
         {% endif %}
+
       </div>
       <!-- zzimlist end -->
     </div>
@@ -141,8 +143,7 @@
         </a>
       </div>
     </div>
-    <!-- <h2 id="isZzimed">{{ isZzimed }}</h2>
-    <h2 id="isGuDoged">{{ isGuDoged }}</h2> -->
+
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

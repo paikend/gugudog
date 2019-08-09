@@ -16,6 +16,7 @@ class Service(models.Model):
     price = models.IntegerField()
     link = models.CharField(max_length=500)
     description = models.TextField(null=True, blank=True)
+    description_detail = models.TextField(null=True, blank=True)
 
     full_name = models.OneToOneField(
       'self', on_delete=models.CASCADE, null=True, blank=True)
