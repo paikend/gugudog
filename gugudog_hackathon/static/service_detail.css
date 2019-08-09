@@ -82,7 +82,7 @@
   width: 40%;
   height: 67%;
   color: black;
-  
+
   /* border: gray 0.5px solid; */
 }
 
@@ -95,7 +95,7 @@
   /* border: 1px red solid; */
 }
 
-.service_name{
+.service_name {
   font-weight: 550;
 }
 
@@ -148,7 +148,6 @@
   /* border: gray 0.5px solid; */
   border-radius: 8px;
   line-height: 170%;
-
 }
 
 .adment {
@@ -194,25 +193,25 @@
   font-weight: 500;
 }
 
-.logo{
-  object-fit: contain; 
+.logo {
+  object-fit: contain;
   width: 70%;
-  border-radius: 30%;
+  border-radius: 40%;
 }
 
-.zzim_users_count{
+.zzim_users_count {
   width: 100%;
 }
 
-.no_border{
+.no_border {
   border: none;
   margin-bottom: 0;
 }
 
-.selected{
+.selected {
   color: palevioletred;
 }
 
-.hide{
+.hide {
   display: none;
 }

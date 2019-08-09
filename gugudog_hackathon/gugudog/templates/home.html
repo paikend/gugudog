@@ -55,8 +55,8 @@
       <div class="logout"><a href="{% url 'logout' %}">로그아웃</a></div>
     {% else %}
       <p>
-      <a class="usernamecolor">{{user}}</a> 회원님의 <br>이번 달 구독 금액은<br> 총 
-      <a class="wholemoneycolor" id="add_item" data-count="{{ total_price }}"></a>입니다.</p></div>
+      <a class="usernamecolor"><b>{{user}}</b></a> 회원님의 <br>이번 달 구독 금액은<br> 총 <b>
+      <a class="wholemoneycolor" id="add_item" data-count="{{ total_price }}"></a></b>입니다.</p></div>
     {% endif %}
 
 
@@ -71,12 +71,13 @@
               <img src ="{{gudog_service.service.image_url }}"
               style="object-fit: cover; 
                       padding: 5px;
-                      border-radius: 50%; 
-                      width: 30%;">
-              <p>{{ gudog_service.service.company }} {{ gudog_service.service.service_name }}<br/>
-                {{ gudog_service.service.get_price }}원 (매월 {{ gudog_service.register_date.day}}일)
+                      border-radius: 30%; 
+                      width: 25%;">
+              <div>   
+                <p style="font-weight: 500;">{{ gudog_service.service.company }} {{ gudog_service.service.service_name }}</p>
+                <p>{{ gudog_service.service.get_price }}원 (매월 {{ gudog_service.register_date.day}}일)</p>
+              </div>     
                   <!-- <a style="color: blue;" href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}">삭제하기</a> -->
-              </p>
               <div class="arrows"><img class="arrow down" src="{% static 'arrow_down.png' %}">
                 <img class="arrow up" src="{% static 'arrow_up.png' %}"></div>
             </div>

@@ -120,15 +120,19 @@
     <div class="main_banner_txt">
       {% if user.first_name %}
       <div>
-        <a class="usernamecolor"
-          >{{ user.first_name }}{{ user.last_name }}&nbsp</a
+        <b
+          ><a class="usernamecolor"
+            >{{ user.first_name }}{{ user.last_name }}&nbsp</a
+          ></b
         >회원님에게<br />
-        꼭 맞는&nbsp<a class="wholemoneycolor">추천서비스</a>
+        꼭 맞는&nbsp<b><a class="wholemoneycolor">추천서비스</a></b>
       </div>
       {% else %}
       <div>
-        <a class="usernamecolor">{{ user }}&nbsp</a>회원님에게<br />
-        꼭 맞는&nbsp<a class="wholemoneycolor">추천서비스</a>
+        <b
+          ><a class="usernamecolor">{{ user }}&nbsp</a></b
+        >회원님에게<br />
+        꼭 맞는&nbsp<b><a class="wholemoneycolor">추천서비스</a></b>
       </div>
       {% endif %}
     </div>
@@ -138,7 +142,6 @@
       <div class="service_box">
         <div class="service_banner">
           <img class="banner_img circle" src="{{ i.image.url }}" />
-
         </div>
         <div class="service_detail">
           <div class="description title">{{ i.name }}</div>
