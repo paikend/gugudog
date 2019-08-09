@@ -117,7 +117,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   flex-direction: column;
-  margin: 0 8% 20% 8%;
+  margin: 0 8% 30% 8%;
   /* background-color: antiquewhite; */
 }
 
@@ -144,6 +144,7 @@
   width: 20%;
   height: 40px;
   margin-right: 5%;
+  margin-bottom: 4%;
   justify-content: center;
   align-items: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -248,12 +249,8 @@ a {
 }
 
 /* floating menu */
-<<<<<<< HEAD
-.label_box {
-=======
 .label_box{
   display: flex;
->>>>>>> 4691394e50fd880ab87e27f849212069a32acbf3
   width: 100%;
 }
 
@@ -275,48 +272,6 @@ a {
 
 .show_menu_btn_a {
   color: black;
-<<<<<<< HEAD
-  font-size: 0.8rem;
-  /* border: 1px blue solid; */
-}
-
-@media screen and (max-width: 800px) {
-  .show-menu-btn,
-  .hide-menu-btn {
-    display: flex;
-    color: white;
-  }
-
-  .menu {
-    position: fixed;
-    width: 50%;
-    height: 100%;
-    background: rgb(114, 133, 145);
-    right: -100%;
-    top: 50px;
-    text-align: center;
-    padding: 80px 0;
-    line-height: normal;
-    transition: 0.7s;
-  }
-
-  .menu a {
-    display: block;
-    padding: 20px;
-    color: white;
-    font-weight: bold;
-  }
-
-  .hide-menu-btn {
-    position: absolute;
-    top: 40px;
-    right: 40px;
-  }
-
-  #chk:checked ~ .menu {
-    right: 0;
-  }
-=======
   font-size: 1.1rem;
   margin-right: 5%;
   /* border: 1px blue solid; */
@@ -360,5 +315,4 @@ a {
 
 #chk:checked ~ .menu{
   right: 0;
->>>>>>> 4691394e50fd880ab87e27f849212069a32acbf3
 }

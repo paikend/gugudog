@@ -33,12 +33,12 @@
 .detail_box {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: row;
   width: 100%;
-  height: 11rem;
-  margin-bottom: 5%;
+  height: 10.5rem;
+  margin-bottom: 7%;
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
   /* border: gray 0.5px solid; */
   /* border-radius: 8px; */
@@ -70,7 +70,7 @@
   align-items: center;
   width: 35%;
   height: 93.75%;
-  margin-right: 7%;
+  margin: 0 7%;
   /* border: gray 0.5px solid; */
 }
 
@@ -82,12 +82,14 @@
   width: 40%;
   height: 67%;
   color: black;
+  
   /* border: gray 0.5px solid; */
 }
 
 .detail_txt {
   display: flex;
   width: 100%;
+  margin: 2% 0;
   /* font-weight: 500; */
   /* color: var(--gugu-gray); */
   /* border: 1px red solid; */
@@ -177,4 +179,9 @@
   /* margin: 3% 10% 0 10%; */
   margin: auto;
   height: 2.5rem;
+}
+
+.logo{
+  object-fit: contain; 
+  width: 70%;
 }

@@ -191,7 +191,7 @@ def service_detail(request, service_pk):
         'service': service,
     }
     if request.user in service.gudog_users.all():
-        context['isGuDoged'] = "구독하고 있는 서비스에요!"
+        context['isGuDoged'] = "이미 구독하고 있는 서비스에요!"
     elif request.user in service.zzim_users.all():
         context['isZzimed'] = "찜한 구독 서비스에요!"
     
