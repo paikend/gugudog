@@ -92,7 +92,9 @@
             <!-- 구독한 유저수를 get_gudog_users를 이용해 표현 -->
             <p>{{ service.get_gudog_users }}명이 구독한 서비스에요</p>
             <!-- 찜한 유저수를 get_zzim_users를 이용해 표현 -->
-            <p>{{ service.get_zzim_users }}명이 찜한 서비스에요</p>
+            <p class="zzim_users_count">
+              {{ service.get_zzim_users }}명이 찜한 서비스에요
+            </p>
           </div>
 
           <!-- 링크 charfield -->
@@ -102,8 +104,10 @@
         </div>
         <!-- wholeservicebox end -->
 
-        <h2 id="isZzimed">{{ isZzimed }}</h2>
-        <h2 id="isGuDoged">{{ isGuDoged }}</h2>
+        <!-- 여기 삭제해야 함 -->
+        <!-- <h2 id="isZzimed">{{ isZzimed }}</h2>
+        <h2 id="isGuDoged">{{ isGuDoged }}</h2> -->
+
         <div class="new_service add_btn"><p>내 서비스에 추가하기</p></div>
       </div>
       <!-- zzimlist end -->
@@ -130,18 +134,18 @@
         </a>
       </div>
     </div>
-    <h2 id="isZzimed">{{ isZzimed }}</h2>
-    <h2 id="isGuDoged">{{ isGuDoged }}</h2>
+    <!-- <h2 id="isZzimed">{{ isZzimed }}</h2>
+    <h2 id="isGuDoged">{{ isGuDoged }}</h2> -->
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
   <script type="text/javascript">
-    if ($("#isGuDoged").text()) {
-      $(".zzim").remove();
-    } else if ($("#isZzimed").text()) {
-      $(".zzim").remove();
-    }
+    // if ($("#isGuDoged").text()) {
+    //   $(".zzim").remove();
+    // } else if ($("#isZzimed").text()) {
+    //   $(".zzim").remove();
+    // }
 
     $(".zzim").click(function() {
       var pk = $(this).attr("name");
@@ -154,10 +158,14 @@
         },
         dataType: "json",
         success: function(response) {
-          $(".zzim").text(response.zzim);
+          $(".zzim_users_count").text(
+            response.get_zzim_users + "명이 찜한 서비스에요"
+          );
+          console.log(response.get_zzim_users);
+          // $(".zzim").text(response.get_zzim_users);
         },
         error: function(request, response, status, error) {
-          alert("찜이 안돼 시발");
+          // alert("찜이 안돼 시발");
           console.log(response);
           console.log(request);
           console.log(error);
