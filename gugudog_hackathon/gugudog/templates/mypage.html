@@ -72,52 +72,55 @@
   
     <div class="wholeprofile">
       <div class="profileimgbox">
+        <input type="checkbox" id="chk" />
+        <label for="chk" class="show-menu-btn label_box">
         <img class="profileimg" src="{% static 'logo_circle.png' %}" />
+        </label>
+        <ul class="menu">
+            <a href="{% url 'about' %}">ABOUT 구구독</a>
+            <label for="chk" class="hide-menu-btn">
+              <i class="fas fa-times"></i>
+              <!-- X -->
+            </label>
+        </ul>
       </div>
       <div class="editting">
         <div class="main_banner">
           {% if user.first_name %}
           <p>
-            <a class="usernamecolor">{{user.last_name}}{{user.first_name}}&nbsp</a>회원님<br />
+            <a class="usernamecolor"><b>{{user.last_name}}{{user.first_name}}&nbsp</b></a>회원님<br />
             안녕하세요!
           </p>
+          <div class="edittinguserbox">
+              <div class="edittinguser">
+                  <a href="{% url 'logout' %}">로그아웃</a>
+              </div>
+          </div>    
           {% else %}
           <p>
-            <a class="usernamecolor">{{user}}&nbsp</a>회원님<br />
+            <a class="usernamecolor"><b>{{user}}&nbsp</b></a>회원님<br />
             안녕하세요!
           </p>
+          <div class="edittinguserbox">
+              <div class="edittinguser">
+                  <a href="{% url 'logout' %}"><p>로그아웃</p></a>
+              </div>
+          </div>    
           {% endif %}
-        </div>
-
-        <div class="edittinguserbox">
-          <div class="edittinguser">
-            <input type="checkbox" id="chk" />
-            <label for="chk" class="show-menu-btn label_box">
-              <p class="show_menu_btn_a">수정하기</p>
-              <!-- wheel -->
-              <i class="fas fa-cog"></i>              
-            </label>
-
-            <ul class="menu">
-              <a href="{% url 'logout' %}">로그아웃</a>
-              <a href="{% url 'test' %}">내 카테고리 수정하기</a>
-              <a href="#">구구독 About</a>
-              <label for="chk" class="hide-menu-btn">
-                <i class="fas fa-times"></i>
-                <!-- X -->
-              </label>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
 
     <div class="service cate">
-      <div class="title"><p>나의 카테고리</p></div>
+      <div class="cate_title">
+        <div class="title"><p>나의 카테고리</p></div>
+          <a href="{% url 'test' %}"><div class="wheel">         
+              <i class="fas fa-cog"></i></div></a>       
+      </div>
       <div class="cate_list">
         {% for i in interests %} {% if i %}
         <div class="my_cate">
-          <p>{{ i.interest_cate.name }}</p>
+          <p><b>#{{ i.interest_cate.name }}</b></p>
         </div>
         {% endif %} {% endfor %}
       </div>
@@ -126,7 +129,7 @@
     
 
     <div class="service">
-      <div class="myzzim">
+      <div class="title">
         <p>찜 목록</p>
       </div>
       {% if zzim %}
