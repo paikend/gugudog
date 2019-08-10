@@ -61,6 +61,9 @@
         font-weight: 300;
         font-family: "NanumSquare", sans-serif;
       }
+      .tag-btn {
+        color: rgb(249, 161, 27);
+      }
     </style>
 
     <title>gugudog</title>
@@ -120,8 +123,10 @@
       <div class="cate_list">
         {% for i in interests %} {% if i %}
         <div class="my_cate">
-          <p><b>#{{ i.interest_cate.name }}</b></p>
+        <form method='POST' action='{% url "tag" %}'>{% csrf_token %}
+          <p><b>#<input type='submit' class='tag-btn' name="tag_checked" value="{{ i.interest_cate.name }}"></b></p>
         </div>
+        </form>
         {% endif %} {% endfor %}
       </div>
     </div>

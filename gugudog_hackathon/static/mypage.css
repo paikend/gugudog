@@ -35,10 +35,11 @@
   bottom: 0;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
   background-color: white;
   border-top: 1px solid lightgray;
-  height: 60px;
+  height: 57px;
+  padding-bottom: 3px;
 }
 
 .profileimg {
@@ -240,13 +241,10 @@
 .myzzim {
   margin-bottom: 7%;
   font-weight: bold;
-
   /* border: gray 0.5px solid; */
 }
 
-#serviceall,
-#mypage,
-#home {
+#serviceall, #mypage, #home {
   width: 27px;
   height: auto;
   -webkit-filter: opacity(0.3) drop-shadow(0 0 0 white);
@@ -292,8 +290,7 @@ a {
   width: 100%;
 }
 
-.show-menu-btn,
-.hide-menu-btn {
+.show-menu-btn, .hide-menu-btn {
   display: flex;
   transition: 0.4s;
   font-size: 30px;
@@ -355,6 +352,6 @@ a {
   right: 40px;
 }
 
-#chk:checked ~ .menu {
+#chk:checked~.menu {
   right: 0;
 }
