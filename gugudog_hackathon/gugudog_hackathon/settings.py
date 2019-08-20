@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!9@ef^b&3$(4i0k-&h(km-6i%0zo0-(lb%ynh06kgn@b_n*8al'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'gugudog.tk', 'www.gugudog.tk']
 
 
 # Application definition

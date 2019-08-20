@@ -44,6 +44,7 @@
 
 .profileimg {
   width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 50%;
   /* border: gray 0.5px solid; */

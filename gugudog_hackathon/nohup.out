@@ -1,0 +1,189 @@
+[2019-08-08 13:42:58 +0000] [9975] [INFO] Starting gunicorn 19.9.0
+[2019-08-08 13:42:58 +0000] [9975] [INFO] Listening at: http://127.0.0.1:8000 (9975)
+[2019-08-08 13:42:58 +0000] [9975] [INFO] Using worker: sync
+[2019-08-08 13:42:58 +0000] [9984] [INFO] Booting worker with pid: 9984
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-09 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-10 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-04 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-03 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-23 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-06-09 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-13 00:00:00) while time zone support is active.
+  RuntimeWarning)
+[2019-08-09 09:31:14 +0000] [9984] [INFO] Worker exiting (pid: 9984)
+[2019-08-09 09:31:14 +0000] [13337] [INFO] Booting worker with pid: 13337
+[2019-08-09 09:31:24 +0000] [9975] [INFO] Handling signal: term
+[2019-08-09 09:31:24 +0000] [13337] [INFO] Worker exiting (pid: 13337)
+[2019-08-09 09:31:24 +0000] [9975] [INFO] Shutting down: Master
+[2019-08-09 13:53:32 +0000] [14259] [INFO] Starting gunicorn 19.9.0
+[2019-08-09 13:53:32 +0000] [14259] [INFO] Listening at: http://127.0.0.1:8000 (14259)
+[2019-08-09 13:53:32 +0000] [14259] [INFO] Using worker: sync
+[2019-08-09 13:53:32 +0000] [14268] [INFO] Booting worker with pid: 14268
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-09 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-17 00:00:00) while time zone support is active.
+  RuntimeWarning)
+[2019-08-09 17:28:37 +0000] [14268] [INFO] Worker exiting (pid: 14268)
+최세은 트렌디 패션 정기구독 (+59000원)
+취소됐어요
+{'zzim': '찜 취소', 'isZzimed': '', 'get_zzim_users': 0}
+최세은 트렌디 패션 정기구독 (+59000원)
+취소됐어요
+{'zzim': '찜 취소', 'isZzimed': '', 'get_zzim_users': 0}
+최세은 달나라 프리미엄 (+11900원)
+취소됐어요
+{'zzim': '찜 취소', 'isZzimed': '', 'get_zzim_users': 0}
+최세은 달나라 프리미엄 (+11900원)
+취소됐어요
+{'zzim': '찜 취소', 'isZzimed': '', 'get_zzim_users': 0}
+[2019-08-09 17:28:37 +0000] [14483] [INFO] Booting worker with pid: 14483
+[2019-08-09 17:30:08 +0000] [14483] [INFO] Worker exiting (pid: 14483)
+[2019-08-09 17:30:08 +0000] [14867] [INFO] Booting worker with pid: 14867
+[2019-08-09 17:30:24 +0000] [14259] [INFO] Handling signal: term
+[2019-08-09 17:30:24 +0000] [14867] [INFO] Worker exiting (pid: 14867)
+[2019-08-09 17:30:24 +0000] [14259] [INFO] Shutting down: Master
+[2019-08-09 17:31:41 +0000] [14968] [INFO] Starting gunicorn 19.9.0
+[2019-08-09 17:31:41 +0000] [14968] [INFO] Listening at: http://127.0.0.1:8000 (14968)
+[2019-08-09 17:31:41 +0000] [14968] [INFO] Using worker: sync
+[2019-08-09 17:31:41 +0000] [14977] [INFO] Booting worker with pid: 14977
+Invalid HTTP_HOST header: 'gugudog.tk'. You may need to add 'gugudog.tk' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'gugudog.tk'. You may need to add 'gugudog.tk' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+Invalid HTTP_HOST header: 'gugudog.tk'. You may need to add 'gugudog.tk' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: 'gugudog.tk'. You may need to add 'gugudog.tk' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+[2019-08-09 17:32:12 +0000] [14968] [INFO] Handling signal: term
+[2019-08-09 17:32:12 +0000] [14977] [INFO] Worker exiting (pid: 14977)
+[2019-08-09 17:32:12 +0000] [14968] [INFO] Shutting down: Master
+[2019-08-09 17:32:45 +0000] [14998] [INFO] Starting gunicorn 19.9.0
+[2019-08-09 17:32:45 +0000] [14998] [INFO] Listening at: http://127.0.0.1:8000 (14998)
+[2019-08-09 17:32:45 +0000] [14998] [INFO] Using worker: sync
+[2019-08-09 17:32:45 +0000] [15007] [INFO] Booting worker with pid: 15007
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-22 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-03-10 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-10-13 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-16 00:00:00) while time zone support is active.
+  RuntimeWarning)
+Not Found: /apple-touch-icon.png
+Not Found: /apple-touch-icon.png
+Not Found: /apple-touch-icon.png
+Not Found: /apple-touch-icon.png
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-10 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2017-06-07 00:00:00) while time zone support is active.
+  RuntimeWarning)
+Not Found: /favicon.ico
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-15 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-07 00:00:00) while time zone support is active.
+  RuntimeWarning)
+Not Found: /favicon.ico
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2018-12-30 00:00:00) while time zone support is active.
+  RuntimeWarning)
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-11-10 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-08 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-21 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-03-06 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2018-11-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-04 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-17 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-07-10 00:00:00) while time zone support is active.
+  RuntimeWarning)
+Not Found: /favicon.ico
+[2019-08-09 18:54:58 +0000] [14998] [INFO] Handling signal: term
+[2019-08-09 18:54:58 +0000] [15007] [INFO] Worker exiting (pid: 15007)
+박선영_Sonia 멜론 스트리밍 플러스 (+10900원)
+취소됐어요
+{'get_zzim_users': 0, 'zzim': '찜 취소', 'isZzimed': ''}
+남재용 트렌디 패션 정기구독 (+59000원)
+취소됐어요
+{'get_zzim_users': 0, 'zzim': '찜 취소', 'isZzimed': ''}
+[2019-08-09 18:54:58 +0000] [14998] [INFO] Shutting down: Master
+[2019-08-09 18:56:11 +0000] [15263] [INFO] Starting gunicorn 19.9.0
+[2019-08-09 18:56:11 +0000] [15263] [INFO] Listening at: http://127.0.0.1:8000 (15263)
+[2019-08-09 18:56:11 +0000] [15263] [INFO] Using worker: sync
+[2019-08-09 18:56:11 +0000] [15272] [INFO] Booting worker with pid: 15272
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-10 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-02-10 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-17 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-08 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-23 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-07-03 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-04 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-03-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-20 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-01-10 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-31 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-07-15 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-01-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-07 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-05-10 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-06-26 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2018-07-13 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2017-12-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2018-11-10 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-15 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-07-09 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-11 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-01-02 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-05-31 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-12 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-02 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-07-12 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-09 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-16 00:00:00) while time zone support is active.
+  RuntimeWarning)
