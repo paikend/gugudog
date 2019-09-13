@@ -46,6 +46,6 @@ urlpatterns = [
     path('test3/', views.test3, name='test3'),
     path('about/', views.about, name='about'),
    
-
+    path('survey/', include('survey.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
