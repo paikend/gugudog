@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!9@ef^b&3$(4i0k-&h(km-6i%0zo0-(lb%ynh06kgn@b_n*8al'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'gugudog.tk', 'www.gugudog.tk']
 
 
 # Application definition
@@ -156,6 +156,7 @@ LOGOUT_REDIRECT_URL = 'signup'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+<<<<<<< HEAD
 
 ## survey
 # -*- coding: utf-8 -*-
@@ -226,3 +227,5 @@ LANGUAGES = (
     ("fr", "french"),
     ("ja", "Japanese"),
 )
+=======
+>>>>>>> b835cf0e561c2d1f399ec54e1f36cc44c3a7fb09
