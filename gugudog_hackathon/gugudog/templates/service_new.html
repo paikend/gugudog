@@ -26,7 +26,7 @@
       integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
       crossorigin="anonymous"
     ></script>
-    <title>gugudog</title>
+    <title>구구독</title>
     <style>
       body {
         font-weight: 300;
@@ -84,7 +84,8 @@
         <div class="btn_chosen"></div>
       </div>
       <div class="category_btn">
-        <a href="{% url 'tag'%}"><h5>태그별</h5></a><div id="line" class="btn_default"></div>
+        <a href="{% url 'tag'%}"><h5>태그별</h5></a>
+        <div id="line" class="btn_default"></div>
       </div>
       <div class="category_btn">
         <a href="{% url 'recommendation'%}"><h5>My추천</h5></a>
@@ -105,7 +106,9 @@
         /></a>
       </div>
       <div class="service">
-        <a href="https://dalnara.me/"><img class="banner_img" src="{% static 'banner_dalnara.jpg' %}" /></a>
+        <a href="https://dalnara.me/"
+          ><img class="banner_img" src="{% static 'banner_dalnara.jpg' %}"
+        /></a>
       </div>
     </div>
 

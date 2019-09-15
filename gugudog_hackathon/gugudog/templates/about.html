@@ -1,16 +1,31 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145178223-1"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-145178223-1"
+    ></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- css 버전 수정해가면서 사용하세요. -->
-    <link rel="stylesheet" type="text/css" href="{% static 'namhome.css' %}?v=0.1" />
-    <link rel="stylesheet" type="text/css" href="{% static 'about.css' %}?v=0.1" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'namhome.css' %}?v=0.1"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'about.css' %}?v=0.1"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css"
+    />
 
     <link
       rel="shortcut icon"
@@ -18,74 +33,98 @@
       href="{% static 'logo_dog.png' %}"
     />
     <style type="text/css">
-     a:link { color: none; text-decoration: none;}
-     a:visited { color: none; text-decoration: none;}
-     a:hover { color: none; text-decoration: none;}
-     body{
-       font-weight: 300;
-       font-family: 'NanumSquare', sans-serif; 
-       background-color: whitesmoke;
-     }
-     a{
-         text-align: center;
-     }
+      a:link {
+        color: none;
+        text-decoration: none;
+      }
+      a:visited {
+        color: none;
+        text-decoration: none;
+      }
+      a:hover {
+        color: none;
+        text-decoration: none;
+      }
+      body {
+        font-weight: 300;
+        font-family: "NanumSquare", sans-serif;
+        background-color: whitesmoke;
+      }
+      a {
+        text-align: center;
+      }
     </style>
-    <title>gugudog</title>
-</head>
-<body>
+    <title>구구독</title>
+  </head>
+  <body>
     <div class="banner top">
-        <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
+      <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
     </div>
 
     <div class="blank"></div>
 
     <div>
-        <img class="img" src="{% static '0001.jpg' %}" />
+      <img class="img" src="{% static '0001.jpg' %}" />
     </div>
     <div>
-        <img class="img" src="{% static '0002.jpg' %}" />
+      <img class="img" src="{% static '0002.jpg' %}" />
     </div>
     <div>
-        <img class="img" src="{% static '0003.jpg' %}" />
+      <img class="img" src="{% static '0003.jpg' %}" />
     </div>
     <div>
-        <img class="img" src="{% static '0004.jpg' %}" />
+      <img class="img" src="{% static '0004.jpg' %}" />
     </div>
     <div>
-        <img class="img" src="{% static '0009.jpg' %}" />
+      <img class="img" src="{% static '0009.jpg' %}" />
     </div>
     <div>
-        <img class="img" src="{% static '0010.jpg' %}" />
+      <img class="img" src="{% static '0010.jpg' %}" />
     </div>
     <div>
-        <img class="img" src="{% static '0011.jpg' %}" />
+      <img class="img" src="{% static '0011.jpg' %}" />
     </div>
     <div>
-        <img class="img" src="{% static '0012.jpg' %}" />
+      <img class="img" src="{% static '0012.jpg' %}" />
     </div>
     <div>
-        <img class="img" src="{% static '0013.jpg' %}" />
+      <img class="img" src="{% static '0013.jpg' %}" />
     </div>
-    <a href="https://open.kakao.com/o/sq1NuQzb"><div>
-        <img class="img" src="{% static 'QRcode.png' %}" />
-    </div></a>
-    
-    <a href="https://open.kakao.com/o/sq1NuQzb"><button class="btn">정답<br> 입력하러가기<br> (ง •̀_•́)ง  </button></a>
+    <a href="https://open.kakao.com/o/sq1NuQzb"
+      ><div>
+        <img class="img" src="{% static 'QRcode.png' %}" /></div
+    ></a>
+
+    <a href="https://open.kakao.com/o/sq1NuQzb"
+      ><button class="btn">
+        정답<br />
+        입력하러가기<br />
+        (ง •̀_•́)ง
+      </button></a
+    >
 
     <div class="blank"></div>
     <div class="blank_2"></div>
 
     <div class="banner bottom">
-        <div class="icons">
-            <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_service_2.png' %}" /><p>스토어</p></a>
-        </div>
-        <div class="icons">
-            <a href="{% url 'home'%}"><img id="home" src="{% static 'bottom_home_3.png' %}"/><p>홈</p></a>
-        </div>
-        <div class="icons">
-            <a href="{% url 'mypage'%}"><img id="mypage" src="{% static 'bottom_mypage_2.png' %}" /><p>마이페이지</p></a>   
-        </div>
+      <div class="icons">
+        <a href="{% url 'service_all'%}"
+          ><img id="serviceall" src="{% static 'bottom_service_2.png' %}" />
+          <p>스토어</p></a
+        >
+      </div>
+      <div class="icons">
+        <a href="{% url 'home'%}"
+          ><img id="home" src="{% static 'bottom_home_3.png' %}" />
+          <p>홈</p></a
+        >
+      </div>
+      <div class="icons">
+        <a href="{% url 'mypage'%}"
+          ><img id="mypage" src="{% static 'bottom_mypage_2.png' %}" />
+          <p>마이페이지</p></a
+        >
+      </div>
     </div>
-    
-</body>
+  </body>
 </html>

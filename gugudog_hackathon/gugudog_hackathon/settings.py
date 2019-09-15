@@ -157,10 +157,6 @@ LOGOUT_REDIRECT_URL = 'signup'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-print('BASE_DIR', BASE_DIR)
-print('STATICFILES_DIRS', STATICFILES_DIRS)
-print('MEDIA_ROOT', MEDIA_ROOT)
-
 ## survey
 # -*- coding: utf-8 -*-
 

@@ -5,7 +5,7 @@ from survey import models
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 
-from survey.models import Answer, Category, Question, Response, Survey
+from survey.models import Answer, Category, Question, Response, Survey, Email
 
 from .actions import make_published
 
@@ -47,6 +47,7 @@ class ResponseAdmin(admin.ModelAdmin):
 # admin.site.register(Category, CategoryInline)
 admin.site.register(Survey, SurveyAdmin)
 admin.site.register(Response, ResponseAdmin)
+admin.site.register(Email)
 
 # Register your models here.
 admin.site.register(Service)

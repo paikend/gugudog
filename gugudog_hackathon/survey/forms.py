@@ -9,7 +9,7 @@ from django.forms import models
 from django.urls import reverse
 from django.utils.text import slugify
 
-from survey.models import Answer, Question, Response
+from survey.models import Answer, Question, Response, Email
 from survey.signals import survey_completed
 from survey.widgets import ImageSelectWidget
 
@@ -245,3 +245,26 @@ class ResponseForm(models.ModelForm):
                 answer.save()
         survey_completed.send(sender=Response, instance=response, data=data)
         return response
+
+class EmailForm(models.ModelForm):
+
+    class Meta:
+        model = Email
+        fields = ('email', )
+        labels = {
+            'email':'',    
+        }
+        widgets = {
+            'email': forms.TextInput(attrs={
+                'placeholder':'쿠폰을 받을 이메일 주소를 알려주세요.',
+                'class': 'email_input',
+            })
+        }
+    
+    def __init__(self, *args, **kwargs):
+        try:
+            user = kwargs.pop('user')
+        except:
+                pass
+        super(EmailForm, self).__init__(*args, **kwargs)
+        self.fields['email'].required = False
