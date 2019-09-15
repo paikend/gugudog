@@ -36,12 +36,12 @@
       href="{% static 'service_detail.css' %}?v=0.1"
     />
     <link
-    rel="shortcut icon"
-    type="image⁄x-icon"
-    href="{% static 'logo_dog.png' %}"
-  />
+      rel="shortcut icon"
+      type="image⁄x-icon"
+      href="{% static 'logo_dog.png' %}"
+    />
 
-    <title>gugudog</title>
+    <title>구구독</title>
     <style type="text/css">
       a:link {
         color: none;
@@ -90,8 +90,8 @@
             </div>
 
             <div class="zzim" name="{{ service.pk }}" value="Zzim">
-                <i class="far fa-heart selected" id="empty_heart"></i>
-                <i class="fas fa-heart selected" id="filled_heart"></i>        
+              <i class="far fa-heart selected" id="empty_heart"></i>
+              <i class="fas fa-heart selected" id="filled_heart"></i>
             </div>
           </div>
           <!-- service_box end -->
@@ -101,37 +101,41 @@
             <h3>{{ service.description }}</h3>
             <div class="detail_txt">
               <p>{{ service.description_detail }}</p>
-            </div>            
+            </div>
           </div>
 
           <div class="adment no_border">
             <!-- 구독한 유저수를 get_gudog_users를 이용해 표현 -->
             <p>{{ service.get_gudog_users }}명이 구독한 서비스에요</p>
             <!-- 찜한 유저수를 get_zzim_users를 이용해 표현 -->
-            <p class="zzim_users_count">{{ service.get_zzim_users }}명이 찜한 서비스에요</p>
+            <p class="zzim_users_count">
+              {{ service.get_zzim_users }}명이 찜한 서비스에요
+            </p>
             <!-- 링크 charfield -->
-            <a href="{{ service.link }}"><div class="linktoservice">사이트로 바로가기</div></a>
+            <a href="{{ service.link }}"
+              ><div class="linktoservice">사이트로 바로가기</div></a
+            >
           </div>
         </div>
         <!-- wholeservicebox end -->
-        
+
         {% if yes == False %}
-          <p id="isZzimed">{{ isZzimed }}</p>
-          <p id="isGuDoged">{{ isGuDoged }}</p>
-          <a href="{% url 'add' %}">
+        <p id="isZzimed">{{ isZzimed }}</p>
+        <p id="isGuDoged">{{ isGuDoged }}</p>
+        <a href="{% url 'add' %}">
           <div class="new_service add_btn"><p>내 서비스에 추가하기</p></div>
-          </a>
-        {% else %}
-          {% for gudog_service in gudog %}
-            <p id="isZzimed">{{ isZzimed }}</p>
-            <p id="isGuDoged">{{ isGuDoged }}</p>
-            <a href="{% url 'delete_service' gudog_service.id gudog_service.service_id %}">
-            <div class="new_service add_btn">
-              <p>{{ myDelete }}</p>
-            </div>
-            </a>
-          {% endfor %}
-        {% endif %}
+        </a>
+        {% else %} {% for gudog_service in gudog %}
+        <p id="isZzimed">{{ isZzimed }}</p>
+        <p id="isGuDoged">{{ isGuDoged }}</p>
+        <a
+          href="{% url 'delete_service' gudog_service.id gudog_service.service_id %}"
+        >
+          <div class="new_service add_btn">
+            <p>{{ myDelete }}</p>
+          </div>
+        </a>
+        {% endfor %} {% endif %}
       </div>
       <!-- zzimlist end -->
     </div>
@@ -162,14 +166,14 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
   <script type="text/javascript">
-    if($("#isZzimed")[0].innerText.length===0){
-      console.log("안찜했음");            
-      $("#filled_heart").addClass("hide");        
-    };
-    if($("#isZzimed")[0].innerText.length>0){
+    if ($("#isZzimed")[0].innerText.length === 0) {
+      console.log("안찜했음");
+      $("#filled_heart").addClass("hide");
+    }
+    if ($("#isZzimed")[0].innerText.length > 0) {
       console.log("찜했음2");
       $("#empty_heart").addClass("hide");
-    };
+    }
 
     $(".zzim").click(function() {
       var pk = $(this).attr("name");
@@ -186,16 +190,15 @@
             response.get_zzim_users + "명이 찜한 서비스에요"
           );
           $("#isZzimed").text(response.isZzimed);
-          if($("#isZzimed")[0].innerText.length===0){
+          if ($("#isZzimed")[0].innerText.length === 0) {
             console.log("안찜했음");
             $("#empty_heart").removeClass("hide");
             $("#filled_heart").addClass("hide");
-          };
-          if($("#isZzimed")[0].innerText.length>0){
+          }
+          if ($("#isZzimed")[0].innerText.length > 0) {
             $("#empty_heart").addClass("hide");
-            $("#filled_heart").removeClass("hide");            
-          };
-
+            $("#filled_heart").removeClass("hide");
+          }
         },
         error: function(request, response, status, error) {}
       });
