@@ -187,3 +187,123 @@ Not Found: /favicon.ico
   RuntimeWarning)
 /home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-16 00:00:00) while time zone support is active.
   RuntimeWarning)
+Warning: Your Pipfile requires python_version 3.7, but you are using 3.5.2 (/home/ubuntu/.local/share/v/g/bin/python).
+  $ pipenv --rm and rebuilding the virtual environment may resolve the issue.
+  $ pipenv check will surely fail.
+[2019-08-27 06:12:21 +0000] [22590] [INFO] Starting gunicorn 19.9.0
+[2019-08-27 06:12:21 +0000] [22590] [INFO] Listening at: http://127.0.0.1:8000 (22590)
+[2019-08-27 06:12:21 +0000] [22590] [INFO] Using worker: sync
+[2019-08-27 06:12:21 +0000] [22599] [INFO] Booting worker with pid: 22599
+[2019-08-29 12:07:36 +0000] [22590] [INFO] Handling signal: term
+[2019-08-29 12:07:36 +0000] [22599] [INFO] Worker exiting (pid: 22599)
+[2019-08-29 12:07:36 +0000] [22590] [INFO] Shutting down: Master
+Warning: Your Pipfile requires python_version 3.7, but you are using 3.5.2 (/home/ubuntu/.local/share/v/g/bin/python).
+  $ pipenv --rm and rebuilding the virtual environment may resolve the issue.
+  $ pipenv check will surely fail.
+[2019-09-06 00:35:04 +0000] [7424] [INFO] Starting gunicorn 19.9.0
+[2019-09-06 00:35:04 +0000] [7424] [INFO] Listening at: http://127.0.0.1:8000 (7424)
+[2019-09-06 00:35:04 +0000] [7424] [INFO] Using worker: sync
+[2019-09-06 00:35:04 +0000] [7433] [INFO] Booting worker with pid: 7433
+[2019-09-06 00:36:03 +0000] [7424] [INFO] Handling signal: term
+[2019-09-06 00:36:03 +0000] [7433] [INFO] Worker exiting (pid: 7433)
+[2019-09-06 00:36:03 +0000] [7424] [INFO] Shutting down: Master
+Warning: Your Pipfile requires python_version 3.7, but you are using 3.5.2 (/home/ubuntu/.local/share/v/g/bin/python).
+  $ pipenv --rm and rebuilding the virtual environment may resolve the issue.
+  $ pipenv check will surely fail.
+[2019-09-06 00:42:46 +0000] [7593] [INFO] Starting gunicorn 19.9.0
+[2019-09-06 00:42:46 +0000] [7593] [INFO] Listening at: http://127.0.0.1:8000 (7593)
+[2019-09-06 00:42:46 +0000] [7593] [INFO] Using worker: sync
+[2019-09-06 00:42:46 +0000] [7603] [INFO] Booting worker with pid: 7603
+[2019-09-06 00:42:46 +0000] [7603] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/local/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/local/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/share/virtualenvs/ubuntu-7Wf190Ea/local/lib/python2.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/ubuntu/gugudog/gugudog/gugudog_hackathon/gugudog_hackathon/wsgi.py", line 12, in <module>
+    from django.core.wsgi import get_wsgi_application
+ImportError: No module named django.core.wsgi
+[2019-09-06 00:42:46 +0000] [7603] [INFO] Worker exiting (pid: 7603)
+[2019-09-06 00:42:46 +0000] [7593] [INFO] Shutting down: Master
+[2019-09-06 00:42:46 +0000] [7593] [INFO] Reason: Worker failed to boot.
+Warning: Your Pipfile requires python_version 3.7, but you are using 3.5.2 (/home/ubuntu/.local/share/v/g/bin/python).
+  $ pipenv --rm and rebuilding the virtual environment may resolve the issue.
+  $ pipenv check will surely fail.
+[2019-09-06 00:43:57 +0000] [7681] [INFO] Starting gunicorn 19.9.0
+[2019-09-06 00:43:57 +0000] [7681] [INFO] Listening at: http://127.0.0.1:8000 (7681)
+[2019-09-06 00:43:57 +0000] [7681] [INFO] Using worker: sync
+[2019-09-06 00:43:57 +0000] [7690] [INFO] Booting worker with pid: 7690
+[2019-09-06 01:41:11 +0000] [7681] [INFO] Handling signal: term
+[2019-09-06 01:41:11 +0000] [7690] [INFO] Worker exiting (pid: 7690)
+[2019-09-06 01:41:11 +0000] [7681] [INFO] Shutting down: Master
+Warning: Your Pipfile requires python_version 3.7, but you are using 3.5.2 (/home/ubuntu/.local/share/v/g/bin/python).
+  $ pipenv --rm and rebuilding the virtual environment may resolve the issue.
+  $ pipenv check will surely fail.
+usage: gunicorn [OPTIONS] [APP_MODULE]
+gunicorn: error: No application module specified.
+Warning: Your Pipfile requires python_version 3.7, but you are using 3.5.2 (/home/ubuntu/.local/share/v/g/bin/python).
+  $ pipenv --rm and rebuilding the virtual environment may resolve the issue.
+  $ pipenv check will surely fail.
+[2019-09-06 01:44:48 +0000] [7860] [INFO] Starting gunicorn 19.9.0
+[2019-09-06 01:44:48 +0000] [7860] [INFO] Listening at: http://127.0.0.1:8000 (7860)
+[2019-09-06 01:44:48 +0000] [7860] [INFO] Using worker: sync
+[2019-09-06 01:44:48 +0000] [7869] [INFO] Booting worker with pid: 7869
+[2019-09-06 02:22:20 +0000] [7860] [INFO] Handling signal: term
+[2019-09-06 02:22:20 +0000] [7869] [INFO] Worker exiting (pid: 7869)
+[2019-09-06 02:22:20 +0000] [7860] [INFO] Shutting down: Master
+Warning: Your Pipfile requires python_version 3.7, but you are using 3.5.2 (/home/ubuntu/.local/share/v/g/bin/python).
+  $ pipenv --rm and rebuilding the virtual environment may resolve the issue.
+  $ pipenv check will surely fail.
+[2019-09-06 02:29:17 +0000] [8080] [INFO] Starting gunicorn 19.9.0
+[2019-09-06 02:29:17 +0000] [8080] [INFO] Listening at: http://127.0.0.1:8000 (8080)
+[2019-09-06 02:29:17 +0000] [8080] [INFO] Using worker: sync
+[2019-09-06 02:29:17 +0000] [8089] [INFO] Booting worker with pid: 8089
+[2019-09-06 02:49:43 +0000] [8080] [INFO] Handling signal: term
+[2019-09-06 02:49:43 +0000] [8089] [INFO] Worker exiting (pid: 8089)
+[2019-09-06 02:49:43 +0000] [8080] [INFO] Shutting down: Master
+Warning: Your Pipfile requires python_version 3.7, but you are using 3.5.2 (/home/ubuntu/.local/share/v/g/bin/python).
+  $ pipenv --rm and rebuilding the virtual environment may resolve the issue.
+  $ pipenv check will surely fail.
+[2019-09-06 02:51:20 +0000] [8256] [INFO] Starting gunicorn 19.9.0
+[2019-09-06 02:51:20 +0000] [8256] [INFO] Listening at: http://127.0.0.1:8000 (8256)
+[2019-09-06 02:51:20 +0000] [8256] [INFO] Using worker: sync
+[2019-09-06 02:51:20 +0000] [8265] [INFO] Booting worker with pid: 8265
+[2019-09-15 15:59:53 +0000] [8256] [INFO] Handling signal: term
+/home/ubuntu/.local/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-07-04 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-09-08 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-07-05 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-09-02 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-09 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-08-13 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-07-26 00:00:00) while time zone support is active.
+  RuntimeWarning)
+[2019-09-15 15:59:53 +0000] [8265] [INFO] Worker exiting (pid: 8265)
+root 인더웨어 월간 가슴 (+9900원)
+취소됐어요
+{'zzim': '찜 취소', 'isZzimed': '', 'get_zzim_users': 4}
+root Kukka 꽃 구독 (+4900원)
+취소됐어요
+{'zzim': '찜 취소', 'isZzimed': '', 'get_zzim_users': 1}
+user14 Netflix 스탠다드 (+12000원)
+취소됐어요
+{'zzim': '찜 취소', 'isZzimed': '', 'get_zzim_users': 2}
+user14 필리 맞춤영양제 (+10600원)
+취소됐어요
+{'zzim': '찜 취소', 'isZzimed': '', 'get_zzim_users': 1}
+[2019-09-15 15:59:53 +0000] [8256] [INFO] Shutting down: Master
