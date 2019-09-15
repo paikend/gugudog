@@ -14,4 +14,11 @@ class IndexView(TemplateView):
         if not self.request.user.is_authenticated:
             surveys = surveys.filter(need_logged_user=False)
         context["surveys"] = surveys
+        try:
+            post = self.request.get_full_path.__self__.GET['post']
+        except:
+            post = "1"
+
+        context["post"] = post
+        print(post)
         return context
