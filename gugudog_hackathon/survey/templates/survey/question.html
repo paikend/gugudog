@@ -27,13 +27,13 @@
                             <span class="help-inline" style="color:red">
                                 <strong> {% for error in  form.errors %}{{ error }}{% endfor %} </strong>
                             </span> 
-                            <div class="white-body">
+                            <div>
                             {% for field in form %}
                                 {{ field }}
                             {% endfor%}
                             </div>
                             <div class="buttons">
-                                <button class="previous" type="button">뒤로</button>
+                                <!-- <button class="previous" type="button">뒤로</button> -->
                                 <button class="next" type="button">다음</button>
                             </div>
                         </div>
@@ -143,10 +143,14 @@
                 alert(error);
                 return;
             } else {
-                if($next.children[0].children[0] != null) // 제출하기 가능하게 만들기
+                if ($next === null) {
+                    console.log('end of survey');
+                    document.querySelector("#container-main > div:nth-child(3) > form > input.btn.btn-default.btn-lg").click();
+                } else if ($next.children[0].children[0] != null) {
                     $stage.children[0].children[0].className ="stage question carousel-item"
-                $next.children[0].children[0].className ="stage question carousel-item active";
-                slide($(this).parents('tr').index(), true);
+                    $next.children[0].children[0].className ="stage question carousel-item active";
+                    slide($(this).parents('tr').index(), true);
+                } 
             }
             // console.log($stage, $next);
         })
@@ -167,7 +171,7 @@
             wrap.style.cssText = `width:calc(100% * ${len});display:flex;transition:1s`
             // .slide li의 너비 조정
             Array.from(wrap.children)
-            .forEach(ele => ele.style.cssText = `width:calc(100% / ${len});`)
+            .forEach(ele => ele.style.cssText = `width:calc(100% / ${len}); display:flex;`)
             // 화면 전환 실행
             // let pos = pos
             // setInterval(() => { 

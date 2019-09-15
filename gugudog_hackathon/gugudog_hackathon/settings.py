@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!9@ef^b&3$(4i0k-&h(km-6i%0zo0-(lb%ynh06kgn@b_n*8al'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'gugudog.tk', 'www.gugudog.tk']
 
@@ -156,7 +156,10 @@ LOGOUT_REDIRECT_URL = 'signup'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-<<<<<<< HEAD
+
+print('BASE_DIR', BASE_DIR)
+print('STATICFILES_DIRS', STATICFILES_DIRS)
+print('MEDIA_ROOT', MEDIA_ROOT)
 
 ## survey
 # -*- coding: utf-8 -*-
@@ -192,28 +195,28 @@ DEBUG_ADMIN_PASSWORD = "test_password"
 
 STATICFILES_DIRS = [os.path.normpath(os.path.join(ROOT, "..", "survey", "static"))]
 
-TEMPLATES = [
-    {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [
-            os.path.join(ROOT, "survey", "templates"),
-            os.path.join(ROOT, "dev", "templates"),
-        ],
-        "APP_DIRS": True,
-        "OPTIONS": {
-            "context_processors": [
-                # Default
-                "django.contrib.auth.context_processors.auth",
-                "django.template.context_processors.debug",
-                "django.template.context_processors.i18n",
-                "django.template.context_processors.media",
-                "django.template.context_processors.static",
-                "django.template.context_processors.tz",
-                "django.contrib.messages.context_processors.messages",
-            ]
-        },
-    }
-]
+# TEMPLATES = [
+#     {
+#         "BACKEND": "django.template.backends.django.DjangoTemplates",
+#         "DIRS": [
+#             os.path.join(ROOT, "survey", "templates"),
+#             os.path.join(ROOT, "dev", "templates"),
+#         ],
+#         "APP_DIRS": True,
+#         "OPTIONS": {
+#             "context_processors": [
+#                 # Default
+#                 "django.contrib.auth.context_processors.auth",
+#                 "django.template.context_processors.debug",
+#                 "django.template.context_processors.i18n",
+#                 "django.template.context_processors.media",
+#                 "django.template.context_processors.static",
+#                 "django.template.context_processors.tz",
+#                 "django.contrib.messages.context_processors.messages",
+#             ]
+#         },
+#     }
+# ]
 
 
 # INSTALLED_APPS = ("survey", "bootstrapform")
@@ -227,5 +230,3 @@ LANGUAGES = (
     ("fr", "french"),
     ("ja", "Japanese"),
 )
-=======
->>>>>>> b835cf0e561c2d1f399ec54e1f36cc44c3a7fb09

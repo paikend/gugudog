@@ -10,12 +10,12 @@
 {% load staticfiles %}
 
 {% block body %}
-	<h1> {{survey.name}} </h1>
+	<h1 class="survey-name"> {{survey.name}} </h1>
 	<div class="survey-description"> {{survey.description|safe}} </div>
-	<div><form action="{% url 'survey-detail' id=survey.id %}" method="post">
+	<div class="well"><form action="{% url 'survey-detail' id=survey.id %}" method="post">
 	    {% csrf_token %}
         {% for category in categories %}
-            <h3> {{category}} </h3>
+            <h3 class="category-name"> {{category}} </h3>
             <p> {{category.description}} </p>
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-default">
@@ -37,17 +37,16 @@
                 </div>
             </div>
         {% empty %}
-            <h3> {% trans "Questions" %} </h3>
 			{% include "survey/question.html" %}
 			
+			<input
+				class="btn btn-default btn-lg"
+				type="submit"
+				value="{% trans "I'm done!" %}"
+			>
         {% endfor %}
 
         <br>
 
-	    <input
-            class="btn btn-default btn-lg"
-	        type="submit"
-	        value="{% trans "I'm done!" %}"
-        >
 	</form></div>
 {% endblock %}

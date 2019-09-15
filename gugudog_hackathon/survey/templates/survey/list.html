@@ -1,14 +1,24 @@
-{% extends 'survey/base.html' %}
-{% load i18n %}
-
-{% block body %}
+{% extends 'survey/base.html' %} {% load i18n %} {% block body %}
 <div id="intro">
-	<h1>{% trans "Welcome to the Django Survey app"%}</h1>
+  <div class="centerbox wholebox">
+    <h2 class="service_name">
+      똑똑한 <br />
+      구독관리<br />
+      구구독
+    </h2>
+    {% for survey in surveys %}
 
-	<ul>
-		{% for survey in surveys %}
-		<li><a href="{{ survey.get_absolute_url }}">{% trans "Take the Survey"%} {{survey.name}}</a></li>
-		{% endfor %}
-	</div>
+    <p class="service_description">
+      당신의 월정액 구독 서비스를 <br />
+      똑똑하게 관리해드립니다.
+    </p>
+    <a href="{{ survey.get_absolute_url }}"
+      ><button id="toSurvey">
+        클릭하고 구독 서비스 관리받기 <strong class="go">></strong>
+      </button>
+      <!-- or 내게 맞는 구독 서비스 추천받기  -->
+    </a>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
