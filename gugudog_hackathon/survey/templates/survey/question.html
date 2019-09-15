@@ -125,7 +125,7 @@
         var nextButton = $('.next');
         nextButton.click(function(){
 
-            console.log($(this).parents('tr').index());
+            // console.log($(this).parents('tr').index());
 
             var $stage = $(this).parents('tr')[0];
             var $next = $stage.nextElementSibling;
@@ -133,7 +133,7 @@
 
             // var $inputs = $(this).parents('form').find('input[type=checkbox]:checked, input[type=radio]:checked');
             var $inputs = $(this).parents('div.middle-cell').find('input[type=checkbox]:checked, input[type=radio]:checked, input[type="text"], textarea');
-            console.log($(this).parents('div.middle-cell').find('input[type=checkbox]:checked, input[type=radio]:checked, input[type="text"], textarea'));
+            // console.log($(this).parents('div.middle-cell').find('input[type=checkbox]:checked, input[type=radio]:checked, input[type="text"], textarea'));
             // console.log($(this).parents('form').find('input'))
             // console.log(`input : ${$inputs.length}, checked_length: ${checked_length}`);
             var error = checked($inputs);
@@ -144,7 +144,7 @@
                 return;
             } else {
                 if ($next === null) {
-                    console.log('end of survey');
+                    // console.log('end of survey');
                     document.querySelector("#container-main > div:nth-child(3) > form > input.btn.btn-default.btn-lg").click();
                 } else if ($next.children[0].children[0] != null) {
                     $stage.children[0].children[0].className ="stage question carousel-item"
@@ -180,7 +180,7 @@
                 wrap.style.marginLeft = `${-pos * 100}%`
             } else {
                 pos = (pos-1) % len // 장면 선택
-                console.log(pos);
+                // console.log(pos);
                 wrap.style.marginLeft = `${-pos * 100}%`
             }
             // }, 1500) // 1500 = 1500ms = 1.5sec. 즉, 1.5초 마다 실행 
@@ -366,7 +366,7 @@
                 type: "POST",
                 data: body,
                 success: function(data) {
-                    console.log("!");
+                    // console.log("!");
                 }
             })
 
@@ -387,13 +387,13 @@
     Tracker.event("dsschool_SurveyPage1");
     var next = document.querySelector("#container-main > div:nth-child(3) > form > main > section > table > tbody > tr:nth-child(1) > td > section > div.buttons > button.next");
     next.on('click', function() {
-        console.log("clicked");
+        // console.log("clicked");
     })
 
     $('.stage .next').on('click', function() {
         var prevStage = $(this).parents('.stage');
         var stage = prevStage.next();
-        console.log('clickec');
+        // console.log('clickec');
         var stageName = stage.data('stage-name');
 
         switch(stageName) {

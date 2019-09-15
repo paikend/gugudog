@@ -20,5 +20,5 @@ class IndexView(TemplateView):
             post = "1"
 
         context["post"] = post
-        print(post)
+        # print(post)
         return context
