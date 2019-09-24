@@ -64,8 +64,9 @@
     </div>
 
     <form method="POST" action="{%url 'mypage'%}" class="form">
-      {% csrf_token %} {% for cate in categories %} {% if cate.name in
-      my_inter_list %}
+      {% csrf_token %} 
+	{% for cate in categories %} 
+	{% if cate.name in my_inter_list %}
       <div class="cate_name">
         <label>
           <input
