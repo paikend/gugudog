@@ -2677,3 +2677,95 @@ Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140'
 Bad Request: /
 Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
 Bad Request: /
+Invalid HTTP_HOST header: '54.180.102.140:80'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /service_detail
+Not Found: /favicon.ico
+Not Found: /service_detail/1
+Not Found: /home
+Not Found: /main
+[2019-09-24 08:42:48 +0000] [11350] [INFO] Handling signal: term
+/home/ubuntu/.local/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-09-25 00:00:00) while time zone support is active.
+  RuntimeWarning)
+[2019-09-24 08:42:48 +0000] [11359] [INFO] Worker exiting (pid: 11359)
+not valid
+valid
+not valid
+valid
+valid
+valid
+valid
+valid
+not valid
+valid
+not valid
+valid
+[2019-09-24 08:42:48 +0000] [11350] [INFO] Shutting down: Master
+Warning: Your Pipfile requires python_version 3.7, but you are using 3.5.2 (/home/ubuntu/.local/share/v/g/bin/python).
+  $ pipenv --rm and rebuilding the virtual environment may resolve the issue.
+  $ pipenv check will surely fail.
+[2019-09-24 08:43:19 +0000] [1249] [INFO] Starting gunicorn 19.9.0
+[2019-09-24 08:43:19 +0000] [1249] [INFO] Listening at: http://127.0.0.1:8000 (1249)
+[2019-09-24 08:43:19 +0000] [1249] [INFO] Using worker: sync
+[2019-09-24 08:43:19 +0000] [1258] [INFO] Booting worker with pid: 1258
+/home/ubuntu/.local/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-09-20 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-04-24 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/home/ubuntu/.local/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1421: RuntimeWarning: DateTimeField GuDogService.register_date received a naive datetime (2019-09-24 00:00:00) while time zone support is active.
+  RuntimeWarning)
+Not Found: /robots.txt
+[2019-09-24 10:54:38 +0000] [1447] [INFO] Booting worker with pid: 1447
+[2019-09-24 10:54:38 +0000] [1249] [INFO] Handling signal: hup
+[2019-09-24 10:54:38 +0000] [1249] [INFO] Hang up: Master
+[2019-09-24 10:54:38 +0000] [1449] [INFO] Booting worker with pid: 1449
+[2019-09-24 10:54:38 +0000] [1447] [INFO] Worker exiting (pid: 1447)
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /favicon.ico
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '54.180.102.140:80'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /
+Not Found: /apple-touch-icon-120x120-precomposed.png
+Not Found: /apple-touch-icon-120x120.png
+Not Found: /apple-touch-icon-precomposed.png
+Not Found: /apple-touch-icon.png
+Invalid HTTP_HOST header: '54.180.102.140:80'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '54.180.102.140:80'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /cm/
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /TP/public/index.php
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /TP/index.php
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /thinkphp/html/public/index.php
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /html/public/index.php
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /public/index.php
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /TP/html/public/index.php
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /elrekt.php
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /index.php
+Invalid HTTP_HOST header: '54.180.102.140:80'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '54.180.102.140:80'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '54.180.102.140'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '54.180.102.140:80'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '54.180.102.140:80'. You may need to add '54.180.102.140' to ALLOWED_HOSTS.
+Bad Request: /
