@@ -1,0 +1,350 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* background: #303ba2; */
+}
+
+body, button, input[type="button"], input[type="submit"], input[type="reset"] {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.white-body {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 0 30px 0;
+  /* width: 100%; */
+}
+
+label {
+  display: block;
+  position: relative;
+  padding: 10px 0 10px 40px;
+  color: white;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  opacity: 1;
+}
+
+input[type="radio"]:checked {
+  -webkit-appearance: none;
+  opacity: 1;
+  border: 2px solid #303ba2;
+}
+
+input[type="radio"]::before {
+  -webkit-appearance: none;
+  opacity: 1;
+}
+
+input[type="radio" i] {
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  margin-top: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: 2px solid rgb(170, 170, 170);
+  box-sizing: border-box;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+input[type="radio" i]:checked::before {
+  position: absolute;
+  display: block;
+  content: "";
+  left: 2px;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 100%;
+  background: #303ba2;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+input[type="radio" i]:checked::after {
+  position: absolute;
+  display: block;
+  content: "";
+  left: 2px;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 100%;
+  background: #303ba2;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+button.previous {
+  float: left;
+}
+
+button.next {
+  /* float: right; */
+}
+
+button {
+  display: block;
+  width: 45%;
+  /* max-width: 300px; */
+  height: 50px;
+  border-radius: 50px;
+  background: #fff;
+  color: #303ba2;
+  border: none;
+  font-size: 20px;
+}
+
+table {
+  width: 100%;
+  height: 100%;
+}
+
+/* tbody {
+  background: #303ba2;
+} */
+
+tr td {
+  margin: 0 auto;
+  width: 100%;
+}
+
+button.next:active {
+  color: red;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  opacity: 1;
+}
+
+input[type="checkbox"]:checked {
+  border: 2px solid #303ba2;
+}
+
+input[type="checkbox"]::before {
+  -webkit-appearance: none;
+  opacity: 1;
+}
+
+input[type="checkbox" i] {
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  margin-top: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid rgb(170, 170, 170);
+  box-sizing: border-box;
+}
+
+input[type="checkbox" i]::before {
+  position: absolute;
+  display: block;
+  content: "";
+  left: 2px;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 3px;
+  background: #303ba2;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+input[type="checkbox" i]:checked::before, input[type="checkbox" i]:checked::after {
+  opacity: 1;
+}
+
+main.survey-page {
+  height: 100%;
+  width: 100%;
+  /* background: #303ba2; */
+  perspective: 1000px;
+}
+
+.survey-name, .survey-description, .category-name {
+  display: none;
+}
+
+input[type="submit" i] {
+  display: none;
+}
+
+/* .question,
+.surveys {
+  width: 100%;
+}
+
+form,
+.container,
+.well {
+  width: 100%;
+  height: 100%;
+} */
+
+textarea {
+  width: 100%;
+}
+
+#intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.none a {
+  text-decoration: none;
+}
+
+.centerbox {
+  display: block;
+  padding: 60px 30px;
+  position: absolute;
+}
+
+.toSurvey {
+  width: 100%;
+  background: rgb(0, 84, 230);
+  color: #fff;
+  display: block;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 30px;
+  /* border-radius: 30px; */
+  box-sizing: border-box;
+  border: none;
+  font-size: 16px;
+  /* font-weight: bold; */
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  display: block;
+  /* width: 45%; */
+  /* max-width: 300px; */
+  /* height: 50px; */
+  border-radius: 5px;
+}
+
+.wholebox {
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+  /* background-color: whitesmoke; */
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
+  border-radius: 8px;
+  top: 10%;
+  padding: 30px;
+}
+
+.wholebox a {
+  text-decoration: none;
+}
+
+.service_name {
+  text-decoration: none;
+  position: relative;
+  color: #fff;
+  font-size: 42px;
+  font-weight: bold;
+  margin: 0 0 30px 0;
+  /* line-height 입맛에 맞춰 수정 */
+  /* line-height: 1.1; */
+}
+
+.service_description {
+  margin-bottom: 14px;
+  color: #fff;
+  position: relative;
+  margin: 0 0 30px 0;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 100;
+  text-align: center;
+}
+
+#intro, body, .stage {
+  background: rgb(26, 29, 38) !important;
+}
+
+main.survey-page .surveys .stage .middle-cell .title {
+  font-weight: bold;
+}
+
+main.survey-page .surveys .stage .middle-cell .buttons button {
+  display: block;
+  width: 45%;
+  max-width: 300px;
+  height: 50px;
+  border-radius: 2px;
+  background: rgb(0, 84, 230);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  font-size: 16px;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+main.survey-page .surveys .stage .middle-cell>header .total-question, main.survey-page .surveys .stage .middle-cell>header .separator {
+  color: rgb(141, 142, 147);
+}
+
+main.survey-page .surveys .stage .middle-cell>header, main.survey-page .surveys .stage .middle-cell .title {
+  padding: 0 0 0 5px;
+}
+
+.go {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.email_input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+  height: 60px;
+  border: none;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+#to_gugudog {
+  width: 90%;
+  margin: 0 auto;
+}

@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 메인컬러입니다 */
+
+:root {
+  --gugu-orange: rgb(249, 161, 27);
+  --gugu-gray: rgb(82, 97, 106);
+  --gugu-lightorange: rgb(255, 233, 220);
+}
+
+/* @media (max-width: 600px) {
+} */
+
+/* !배경색점 골라주세여ㅠㅠ */
+html {
+  background-color: var(--gugu-orange);
+}
+
+#loading {
+  z-index: 100;
+  background: white;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 110%;
+  padding: 30% 10%;
+}
+
+#loading img {
+  width: 100%;
+}
+
+.wholebox {
+  /* z-index: 100; */
+  margin: 25% 9%;
+  text-align: center;
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+  background-color: whitesmoke;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 8px;
+}
+
+.signuplogo {
+  margin: 5% 0% 0% 0%;
+}
+
+.input {
+  margin: 10% 10%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#signup:hover {
+  background-color: var(--gugu-orange);
+  color: white;
+}
+
+/* #signup {
+  border-radius: 5px;
+  border: 1px solid var(--gugu-orange);
+  height: 35px;
+  width: 100%;
+  margin: 5px 0px;
+  background-color: white;
+  color: var(--gugu-orange);
+} */
+
+.socialogin {
+  display: flex;
+  padding: 3% 0%;
+  justify-content: center;
+  width: 70%;
+}
+
+.socialogin:hover {
+  filter: brightness(70%);
+}
+
+#login-img {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.form-control {
+  margin: 5px;
+}
+
+#kakao,
+#naver,
+#google {
+  width: 100%;
+  object-fit: cover;
+}
+
+#kakao {
+  height: 100%;
+}
+
+#naver {
+  height: auto;
+}
+
+@media (min-width: 700px) {
+  #loading img {
+    width: 50%;
+    height: auto;
+  }
+  .wholebox {
+    /* z-index: 100; */
+    margin: 25% auto;
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    height: auto;
+  }
+  #loading {
+    z-index: 100;
+    background: white;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    padding: 10% 10% 20% 10%;
+  }
+  .socialogin {
+    z-index: 0;
+  }
+}
+
+.helptext {
+  display: none;
+}
+
+.input form {
+  width: 100%;
+}

@@ -1,0 +1,358 @@
+:root {
+  --gugu-orange: rgb(249, 161, 27);
+  --gugu-gray: rgb(82, 97, 106);
+  --gugu-lightorange: rgb(255, 233, 220);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: rgb(249, 161, 27);
+}
+
+.top {
+  position: absolute;
+  top: 0;
+  text-align: center;
+}
+
+#bannerlogo {
+  height: auto;
+  width: 15%;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  background-color: white;
+  border-top: 1px solid lightgray;
+  height: 57px;
+  padding-bottom: 3px;
+}
+
+.profileimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  /* border: gray 0.5px solid; */
+}
+
+.wholeprofile {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  padding-top: 30%;
+  padding-bottom: 30%;
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  /* border: gray 0.5px solid; */
+  background-color: whitesmoke;
+}
+
+.profileimgbox {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.editting {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  height: 10rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_banner {
+  width: 100%;
+  font-size: 1.5rem;
+  line-height: 200%;
+  /* border: gray 0.5px solid; */
+}
+
+.edittinguserbox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 2rem;
+  font-weight: 500;
+  /* border: gray 0.5px solid; */
+}
+
+.gearbaby {
+  display: flex;
+  width: 20%;
+  margin-left: 5%;
+  /* border: gray 0.5px solid; */
+}
+
+.edittinguser {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  height: 2rem;
+  align-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  /* border: gray 0.5px solid; */
+}
+
+.service {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0 8% 30% 8%;
+  /* background-color: antiquewhite; */
+}
+
+.cate {
+  flex-direction: row;
+  margin-bottom: 5%;
+}
+
+.cate_title {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3%;
+}
+
+.description {
+  display: flex;
+}
+
+.content {
+  font-size: 0.9rem;
+  color: #808080;
+}
+
+.title {
+  width: 100%;
+  margin-bottom: 5%;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--gugu-gray);
+}
+
+.wheel {
+  padding-left: 50%;
+  font-size: 1.4rem;
+}
+
+.cate_list {
+  width: 100%;
+  height: 30%;
+  color: var(--gugu-orange);
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px red solid; */
+}
+
+.my_cate {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  /* height: 40px; */
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 9%;
+  margin-right: 2%;
+  /* margin-left: 1%; */
+  margin-bottom: 4%;
+  justify-content: center;
+  align-items: center;
+  min-width: 3rem;
+}
+
+.service_box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  margin-bottom: 5%;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.13), 1px 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  line-height: 170%;
+  padding: 3%;
+}
+
+.wcafe_icon {
+  width: 80%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.service_banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 93.75%;
+  /* border: gray 0.5px solid; */
+}
+
+.service_detail {
+  align-items: center;
+  width: 40%;
+  height: 93.75%;
+  /* border: gray 0.5px solid; */
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.heartbox {
+  width: 10%;
+  height: 93.75%;
+}
+
+.heartbaby {
+  width: 80%;
+}
+
+.zzimlist {
+  /* border: gray 0.5px solid; */
+}
+
+.myzzim {
+  margin-bottom: 7%;
+  font-weight: bold;
+  /* border: gray 0.5px solid; */
+}
+
+#serviceall, #mypage, #home {
+  width: 27px;
+  height: auto;
+  -webkit-filter: opacity(0.3) drop-shadow(0 0 0 white);
+  filter: opacity(0.3) drop-shadow(0 0 0 white);
+}
+
+#mypage {
+  -webkit-filter: opacity(0.6) drop-shadow(0 0 0 #808080);
+  filter: opacity(0.6) drop-shadow(0 0 0 #808080);
+}
+
+.icons {
+  width: 20%;
+  font-size: 0.7rem;
+  text-align: center;
+  font-weight: 400;
+  color: gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  color: var(--gugu-gray);
+}
+
+.usernamecolor {
+  color: rgb(249, 161, 27);
+}
+
+.wholemoneycolor {
+  color: rgb(249, 161, 27);
+}
+
+.gugubanner {
+  color: white;
+}
+
+/* floating menu */
+
+.label_box {
+  display: flex;
+  width: 100%;
+}
+
+.show-menu-btn, .hide-menu-btn {
+  display: flex;
+  transition: 0.4s;
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+  /* border: 1px red solid; */
+}
+
+#chk {
+  position: absolute;
+  visibility: hidden;
+  z-index: -100;
+}
+
+.show_menu_btn_a {
+  color: black;
+  font-size: 1.1rem;
+  margin-right: 5%;
+  /* border: 1px blue solid; */
+}
+
+.show-menu-btn {
+  display: flex;
+  font-size: 1.3rem;
+}
+
+.hide-menu-btn {
+  display: flex;
+  color: white;
+}
+
+.menu {
+  position: fixed;
+  width: 50%;
+  height: 100%;
+  background: rgb(114, 133, 145);
+  right: -100%;
+  top: 50px;
+  text-align: center;
+  padding: 80px 0;
+  line-height: normal;
+  transition: 0.7s;
+}
+
+.menu a {
+  display: block;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: var(--gugu-orange);
+}
+
+.hide-menu-btn {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+#chk:checked~.menu {
+  right: 0;
+}
