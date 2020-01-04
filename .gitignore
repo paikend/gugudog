@@ -1,0 +1,30 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+# Useful .gitignore templates: https://github.com/github/gitignore
+
+## Python compiled byte code
+*.pyc
+
+## IDE Config
+.idea
+.vscode
+
+## IPython Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+## log
+*.log
+
+## media files
+media/
+media*
+
+## for mac
+.DS_Store
+
+## virtual env
+venv/
+
+## legacy database 
+db.sqlite3
