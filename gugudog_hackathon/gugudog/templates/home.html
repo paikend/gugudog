@@ -43,67 +43,72 @@
 
   <body>
     <div class="banner top">
-       <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
+      <h2><a class="gugubanner" href="{% url 'home'%}">gugudog</a></h2>
     </div>
 
-    <div class="main_banner">
 
-    {% if user.first_name %}
-      <p><a class="usernamecolor">{{user.last_name}}{{user.first_name}}</a> 회원님의 <br>이번 달 구독 금액은<br> 총 
-      <a class="wholemoneycolor" id="add_item" data-count="{{ total_price }}"></a>입니다.</p></div>
-      <div class="logout"><a href="{% url 'logout' %}">로그아웃</a></div>
-    {% else %}
-      <p>
-      <a class="usernamecolor"><b>{{user}}</b></a> 회원님의 <br>이번 달 구독 금액은<br> 총 <b>
-      <a class="wholemoneycolor" id="add_item" data-count="{{ total_price }}"></a></b>입니다.</p></div>
-    {% endif %}
-
-
-    <div class="service">
-
-      {% if gudog %}
-        {% for gudog_service in gudog %}
-          {% if gudog_service %}
-          <div class="box">
-            <div class="service_box">
-              <!-- 로고 안 넣을 꺼면 주석 지워도 됩니다 -->
-              <img src ="{{gudog_service.service.image_url }}"
-              style="object-fit: cover; 
-                      padding: 5px;
-                      border-radius: 30%; 
-                      width: 25%;">
-              <div>   
-                <p style="font-weight: 500;">{{ gudog_service.service.company }} {{ gudog_service.service.service_name }}</p>
-                <p>{{ gudog_service.service.get_price }}원 (매월 {{ gudog_service.register_date.day}}일)</p>
-              </div>     
-                  <!-- <a style="color: blue;" href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}">삭제하기</a> -->
-              <div class="arrows"><img class="arrow down" src="{% static 'arrow_down.png' %}">
-                <img class="arrow up" src="{% static 'arrow_up.png' %}"></div>
-            </div>
-            <div class="edit_hide">
-              <div class="hide_button"><a href="{% url 'service_detail' gudog_service.service.pk %}"><img class="menu detail" src="{% static 'icon_detail_gray.png' %}"></a></div>
-              <div class="hide_button"><a href="{% url 'add' %}"><img class="menu edit" src="{% static 'icon_edit_gray.png' %}"></a></div>
-              <div class="hide_button"><a href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}"><img class="menu delete" src="{% static 'icon_delete_gray.png' %}"></a></div>
-            </div>
-          </div>
+    <div class = "responsive">
+      <div class="main_banner">
+        <div class = "banner_txt">
+          {% if user.first_name %}
+            <p><a class="usernamecolor"><b>{{user.last_name}}{{user.first_name}}</a></b> 회원님의 <br>이번 달 구독 금액은<br> 총 
+            <b><a class="wholemoneycolor" id="add_item" data-count="{{ total_price }}"></a></b>입니다.</p>
+          {% else %}
+            <p><a class="usernamecolor"><b>{{user}}</b></a> 회원님의 <br>이번 달 구독 금액은<br> 총 
+            <b><a class="wholemoneycolor" id="add_item" data-count="{{ total_price }}"></a></b>입니다.</p>
           {% endif %}
-        {% endfor %}
-      {% else %}
-      <div class="box">
-        <div class="tutobox">
-            <p class="tutorial">하단 추가하기 버튼으로<br> 구독중인 서비스를 추가해보세요!</p>
         </div>
-      </div>
-      {% endif %}
-      
-      <a href="{% url 'add' %}" style="width: 100%;">
+        <div class="logout"><a href="{% url 'logout' %}">로그아웃</a></div>
+
         <div class="new_service">
-          <p>+ 추가하기</p>
+          <a href="{% url 'add' %}" style="width: 100%; color:white;"><p>+ 추가하기</p></a>
         </div>        
-      </a>
+        
+      </div>
+
+      
+  
+      <div class="service">
+        {% if gudog %}
+          {% for gudog_service in gudog %}
+            {% if gudog_service %}
+            <div class="box">
+              <div class="service_box">
+                <!-- 로고 안 넣을 꺼면 주석 지워도 됩니다 -->
+                <img src ="{{gudog_service.service.image_url }}"
+                style="object-fit: cover; 
+                        padding: 5px;
+                        border-radius: 30%; 
+                        width: 25%;">
+                <div>   
+                  <p style="font-weight: 500;">{{ gudog_service.service.company }} {{ gudog_service.service.service_name }}</p>
+                  <p>{{ gudog_service.service.get_price }}원 (매월 {{ gudog_service.register_date.day}}일)</p>
+                </div>     
+                <div class="arrows"><img class="arrow down" src="{% static 'arrow_down.png' %}">
+                  <img class="arrow up" src="{% static 'arrow_up.png' %}">
+                </div>
+              </div>
+
+              <div class="edit_hide">
+                <div class="hide_button"><a href="{% url 'service_detail' gudog_service.service.pk %}"><img class="menu detail" src="{% static 'icon_detail_gray.png' %}"></a></div>
+                <div class="hide_button"><a href="{% url 'add' %}"><img class="menu edit" src="{% static 'icon_edit_gray.png' %}"></a></div>
+                <div class="hide_button"><a href="{% url 'delete_service' gudog_service.pk gudog_service.service.pk %}"><img class="menu delete" src="{% static 'icon_delete_gray.png' %}"></a></div>
+              </div>
+            </div>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+        <div class="box">
+          <div class="tutobox">
+              <p class="tutorial">하단 추가하기 버튼으로<br> 구독중인 서비스를 추가해보세요!</p>
+          </div>
+        </div>
+        {% endif %}
+        
+        
+      </div>
     </div>
 
-    
     <div class="banner bottom">
       <div class="icons">
         <a href="{% url 'service_all'%}"><img id="serviceall" src="{% static 'bottom_service_2.png' %}" />
@@ -130,17 +135,6 @@
         $(this).children('.arrows').children('.down').toggleClass('hide');
         $(this).toggleClass('change');
       });
-
-
-      // $('.arrows').click(function(){
-      //   $(this).children('.arrow_down').toggleClass('arrow_up');
-      //   $(this).children('.arrow_up').toggleClass('arrow_up');
-      // })
-
-      // $(body).on('click','.box', function() {
-      //   $(this).children('.edit_hide').toggleClass("edit_appear");
-      //   $(this).children('.edit_hide').children('.hide_button').toggleClass('appear_button');
-      // });
 
     /* 숫자를 countUp 해주는 코드 */
     // 3자리 마다 , 넣어주는 코드
