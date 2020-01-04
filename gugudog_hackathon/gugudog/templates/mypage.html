@@ -54,9 +54,10 @@
       body {
         font-weight: 300;
         font-family: "NanumSquare", sans-serif;
+        background-color: whitesmoke;
       }
       .tag-btn {
-        color: rgb(249, 161, 27);
+        color: rgb(82, 97, 106);
       }
     </style>
 
@@ -122,7 +123,7 @@
         {% for i in interests %} {% if i %}
         <div class="my_cate">
         <form method='POST' action='{% url "tag" %}'>{% csrf_token %}
-          <p><b>#<input type='submit' class='tag-btn' name="tag_checked" value="{{ i.interest_cate.name }}"></b></p>
+          <p><b><input type='submit' class='tag-btn' name="tag_checked" value="{{ i.interest_cate.name }}"></b></p>
         </div>
         </form>
         {% endif %} {% endfor %}
@@ -140,7 +141,7 @@
           {% if zzim_service %}
           <div class="service_box">
             <div class="service_banner">
-              <img class="wcafe_icon" src="{{ zzim_service.service.image_url }}" />
+              <img class="banner_img circle" src="{{ zzim_service.service.image_url }}" />
             </div>
             <div class="service_detail">
               <div class="description title">

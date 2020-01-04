@@ -39,11 +39,13 @@
   bottom: 0;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
   background-color: white;
   border-top: 1px solid lightgray;
-  height: 60px;
+  height: 57px;
+  padding-bottom: 3px;
 }
+
 
 #serviceall,
 #mypage,
@@ -54,9 +56,9 @@
   filter: opacity(0.3) drop-shadow(0 0 0 white);
 }
 
-#home {
-  -webkit-filter: opacity(0.6) drop-shadow(0 0 0 #808080);
-  filter: opacity(0.6) drop-shadow(0 0 0 #808080);
+#serviceall {
+  -webkit-filter: opacity(0.5) drop-shadow(0 0 0 #808080);
+  filter: opacity(0.5) drop-shadow(0 0 0 #808080);
 }
 
 .icons {
@@ -140,7 +142,7 @@ a {
   width: 100%;
   height: auto;
   /* box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.13), 1px 1px 2px rgba(0, 0, 0, 0.1); */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.07), 1px 1px 2px rgba(0, 0, 0, 0.06);
   border-radius: 8px;
   /* height: 5rem; */
 }

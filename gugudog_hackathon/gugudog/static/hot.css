@@ -1,3 +1,9 @@
+:root {
+  --gugu-orange: rgb(249, 161, 27);
+  --gugu-gray: rgb(82, 97, 106);
+  --gugu-lightorange: rgb(255, 233, 220);
+}
+
 .main_banner_txt {
   margin-top: 33%;
   margin-bottom: 8%;
@@ -9,4 +15,5 @@
   object-fit: contain;
   line-height: 150%;
   font-size: 2rem;
+  color: var(--gugu-gray);
 }
